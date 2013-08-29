@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "goy2.org免费VPN"
+tags: [VPN,goy2]
+---
+
+使用教程：http://www.goy2.org/category/vpnjiaocheng
+
+账号密码：http://www.goy2.org/（动态更新的，记得更换）
+
+注（仅配合部分浏览器及相关插件才能使用）

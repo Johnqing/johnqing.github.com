@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{{ page.title }}</title>
+        <meta name="viewport" content="width=device-width">
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <div class="container">
+          <div class="site">
+            <div class="header">
+            	<h1 class="title"><a href="/">Home</a></h1>
+            	<h1 class="title"><a class="extra" href="/tags.html">Tags</a></h1>
+				<h1 class="title"><a class="extra" href="/projects.html">Projects</a></h1>
+            	<h1 class="title"><a class="extra" href="/about.html">About</a></h1>
+            </div><!-- /header -->
+                {{ content }}
+            <div class="footer">
+              <div class="contact">
+                <p>
+                	My GitHub:<a href="https://github.com/allthelucky/">allthelucky(savant-pan)</a>
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+			Powered by GitPage & Jekyll. <a href="https://github.com/allthelucky/allthelucky.github.com">Fork this project</a><br />
+                </p>
+              </div>
+            </div><!-- /fotter -->
+          </div>
+        </div> <!-- /container -->
+    </body>
+</html>
