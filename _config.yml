@@ -1,4 +1,4 @@
-pygments: false
-markdown: rdiscount
-paginate: 6
-description_length: 200
+markdown: kramdown
+pygments: true
+destination: /tmp/_site
+

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+perror () {
+    printf "%s: %s\n" "$_name" "$@" >&2
+    exit 1
+}
+
+_name="${0##*/}"
+[[ $1 ]] || perror "no title given"
+newpost="$(date +%Y-%m-%d)-${1}.markdown"
+
+[[ -f _posts/$newpost ]] && perror "post exists: $newpost"
+[[ -f _drafts/$newpost ]] && perror "draft exists: $newpost"
+newpost="_posts/$newpost"
+
+cat << _EOF_ > "$newpost"
+---
+layout: post
+title: ${1//-/ }
+comments: true
+categories: f2e
+---
+
+{{ page.title }}
+================
+
+
+-- {{ page.date | date_to_string }}
+{:.meta}
+_EOF_
+
+${EDITOR:-/usr/bin/vim} +10 "$newpost"
+

@@ -4,25 +4,24 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>Liu Qing</title>
- <link href="http://johnqing.github.io/atom.xml" rel="self"/>
- <link href="http://johnqing.github.io/"/>
+ <title>johnqing's masterplan</title>
+ <link href="http://johnqing.github.com/atom.xml" rel="self"/>
+ <link href="http://johnqing.github.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://johnqing.github.io</id>
+ <id>http://johnqing.github.com/</id>
  <author>
-   <name>Liu Qing</name>
+   <name>johnqing</name>
    <email>csssnow@gmail.com</email>
  </author>
 
- {% for post in site.posts limit: 15 %}
+ {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="http://johnqing.github.io{{ post.url }}"/>
+   <link href="http://johnqing.github.com{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>http://johnqing.github.io{{ post.id }}</id>
+   <id>http://johnqing.github.com{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
  
 </feed>
-
