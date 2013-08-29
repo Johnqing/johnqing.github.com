@@ -1,8 +1,0 @@
----
-layout: post
-title: Welcome
-comments: true
-categories: f2e
----
-
-hello world!
