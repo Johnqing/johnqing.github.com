@@ -1,31 +1,29 @@
----
-cats:
-    - id: f2e
-      url: /f2e/
-    - id: js
-      url: /js/
-    - id: css
-      url: /style/
-    - id: readbook
-      url: /readbook/
----
+<!doctype html>
+<html lang="en">
+<!--
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <meta name="author" content="liuqing" />
-        <meta name="description" content="想写一辈子代码可以么？" />
-        <meta name="keywords" content="johnqing, 刘卿, 前端开发, js, nodejs, grunt, 掰漏斯特" />
-        <title>{{ page.title }}</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="alternate" type="application/atom+xml" href="/atom.xml" title="Atom feed" />
-        <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
-        <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
-    </head>
-    <body id="top">
-        <div class="content">
-            {{ content }}
-        </div>
-    </body>
+Copyright Liu Qing. Please see LICENSE.
+
+
+-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="Articles by Liu Qing, focusing on open source, software architecture, and web development.">
+<title>{{ page.title }}</title>
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<link href="/atom.xml" rel="alternate" title="{{ site.title }}" type="application/atom+xml">
+
+<body>
+
+<div class="container">
+    <h1>{{ page.title }}</h1>
+</div>
+
+<div class="container main">{{ content }}</div>
+</body>
+
 </html>

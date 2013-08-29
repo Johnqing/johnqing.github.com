@@ -1,4 +1,21 @@
-markdown: kramdown
+
+title: Liu Qing
+author: Liu Qing
+email: csssnow@gmail.com
+host: http://johnqing.github.io
+permalink: pretty
 pygments: true
-destination: /tmp/_site
+markdown: kramdown
+
+index_pages:
+    tag:
+        title_prefix:   'Keyword: '
+
+projects:
+
+- title: n.js
+  url:   https://github.com/johnqing/n.js
+  desc:  A javascript framework.
+  tech:  js
+
 
