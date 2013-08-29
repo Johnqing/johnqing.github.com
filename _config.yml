@@ -1,2 +1,12 @@
 markdown: rdiscount
 pygments: true
+
+links:
+  - title: HTML老虎
+    url: http://www.liuhehu.com
+  - title: 王迎然的博客
+    url: http://www.wangyingran.com
+  - title: xiaoxiehan
+    url: http://f2es.net
+  - title: leesec's Blog
+    url: http://www.leesec.com
