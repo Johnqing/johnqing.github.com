@@ -1,15 +1,61 @@
-source:      .
-destination: ./_site
-plugins:     ./_plugins
-layouts:     ./_layouts
+title:            Liu Qing's Blog
+tagline:          A short tagline
+description:      想写一辈子代码可以么？
+#Comment out url when working locally to resolve base urls correctly
+url:              http://johnqing.github.io
 
-markdown: rdiscount
-pygments: true
+# Owner/author information
+owner:
+  name:           Liu Qing
+  avatar:         bio-photo.jpg
+  bio:            "Describe your self."
+  email:          csssnow@gmail.com
+  # Social networking links are used in author-bio sidebar. Update and remove as you like.  
+  github:         johnqing      
+  # For Google Authorship https://plus.google.com/authorship
+  google_plus:    
+
+# Analytics and webmaster tools stuff goes here
+google_analytics:   
+google_verify:      
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:        
+
+# Links to include in top navigation
+# For external links add external: true
+links:
+  - title: About
+    url: /about
+  - title: Articles
+    url: /articles
+  - title: Theme Setup
+    url: /theme-setup
+  - title: Made Mistakes
+    url: http://mademistakes.com
+    external: true
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    America/New_York
+future:      true
+pygments:    true
+markdown:    kramdown
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /:categories/:title
 
 kramdown:
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
   toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
   use_coderay: false
+
+  coderay:
+    coderay_line_numbers: 
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "minimal-mistakes.sublime-project", "minimal-mistakes.sublime-workspace"]

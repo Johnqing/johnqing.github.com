@@ -13,7 +13,7 @@ js属于高级语言，所以内存的管理都是自动完成的。
 
 ###值的初始化##
 
-<pre>
+{% highlight css %}
 var obj = {a:1}//为对象分配内存
 var n = 1; //为数字分配内存
 var s = 'string'; //为字符串分配内存
@@ -22,24 +22,24 @@ var arr = [1,2]; //为数组分配内存
 function a(){
   return 1;
 }
-</pre>
+{% endhighlight %}
 
 在为变量赋值的时候，js会自动完成内存的分配工作。
 
 一些方法也会分配内存：
-<pre>
+{% highlight css %}
 var a = [1,2,3];
 var b = a.slice(1);//slice方法生成一个新的数组
 
 var dom = document.getElementById('body'); //分配一个对象的空间
-</pre>
+{% endhighlight %}
 
 ##读写##
 
-<pre>
+{% highlight css %}
 var a = '';
 a = {1,2}
-</pre>
+{% endhighlight %}
 
 这些操作对变量或者对象的属性进行读写操作，或者向函数传递参数。
 
@@ -81,11 +81,11 @@ a = {1,2}
 这样当垃圾回收器下次再运行时，它就会释放那些引用次数为零的值所占用的内存。
 
 **循环引用：对象A中包含一个指向对象B的指针，而对象B中也包含一个指向对象A的引用。**如下：
-<pre>
+{% highlight css %}
 (function(){
   var a = {};
   var b = {};
   a.x=b;
   b.y=a;
 })();
-</pre>
+{% endhighlight %}

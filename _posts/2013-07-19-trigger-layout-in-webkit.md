@@ -8,7 +8,7 @@ title: webkit下触发重新布局
 
 保证一个页面看起来不是那么单调的一个重要技术实现就是通过批量的操作DOM实现的，我们可以从这些操作里分析。例如：
 
-<pre>
+{% highlight css %}
 //不理想，导致2次重新布局
 var newWidth = aDiv.offsetWidth + 10; //读取
 aDiv.style.width = newWidth + 'px'; //写入
@@ -20,7 +20,7 @@ var newWidth = aDiv.offsetWidth + 10; //读取
 var newHeight = aDiv.offsetHeight + 10; //读取
 aDiv.style.width = newWidth + 'px'; //写入
 aDiv.style.Height = newHeight + 'px'; //写入
-</pre>
+{% endhighlight %}
 
 Stoyan Stefanov的[这篇文章](http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/)提供了很好的解释
 
