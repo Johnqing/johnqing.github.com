@@ -3,9 +3,9 @@ layout: post
 title: css cursor自定义
 ---
 
-{% highlight html %}
+<pre>
 cursor:url(http://localhost/d2/matches.cur),url(http://localhost/d2/matches.cur),n-resize;
-{% endhighlight %}
+</pre>
 
 > cur文件必须为32*32，否则个浏览器表现差异很大
 

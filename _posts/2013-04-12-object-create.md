@@ -7,7 +7,7 @@ title: Object.create和深度拷贝的区别
 
 我的实现方案：
 
-{% highlight html %}
+<pre>
 var a = {x:1}
 var b = copyObj(a);
 console.log(a);
@@ -26,11 +26,11 @@ function copyObj(obj){
     }
     return temp;
 }
-{% endhighlight %}
+</pre>
 
 氧气桑的实现方案：
 
-{% highlight html %}
+<pre>
 var a = {x:1}
 var b = copyObj2(a);
 console.log(a);
@@ -45,7 +45,7 @@ function copyObj2(o){
     F.prototype = o;
     return new F();
 }
-{% endhighlight %}
+</pre>
 
 总结：
 

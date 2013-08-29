@@ -20,7 +20,7 @@ title: （译）如何编写可维护的面向对象javascript
 
 这里有一个实例化对象的例子。
 
-{% highlight html %}// Define the Employee class
+<pre>// Define the Employee class
 function Employee(num, fname, lname) {
     this.getFullName = function () {
         return fname + " " + lname;
@@ -30,7 +30,7 @@ function Employee(num, fname, lname) {
 // Instantiate an Employee object
 var john = new Employee("4815162342", "John", "Doe");
 alert("The employee's full name is " + john.getFullName());
-{% endhighlight %}
+</pre>
 
 有一些地方必须得注意一下：
 
@@ -42,7 +42,7 @@ alert("The employee's full name is " + john.getFullName());
 
 这里有一个原型继承的例子
 
-{% highlight html %}// Define Human class
+<pre>// Define Human class
 function Human() {
     this.setName = function (fname, lname) {
         this.fname = fname;
@@ -66,7 +66,7 @@ Employee.prototype = new Human();
 var john = new Employee("4815162342");
     john.setName("John", "Doe");
 alert(john.getFullName() + "'s employee number is " + john.getNum());
-{% endhighlight %}
+</pre>
 
 我创建了一个Human类，里面包括了一些人类应该有的属性–我也在Human类里设置了fname和lname，因为所有的人类，不仅仅是雇员才有名字。然后我让雇员类的原型指向Human对象，这样就扩展了雇员类的属性。
 
@@ -82,7 +82,7 @@ alert(john.getFullName() + "'s employee number is " + john.getNum());
 
 有时候，你只想让一个值在对象被创建的时候只定义一次。这个值定义之后，你不想任何人来修改这个值。为了做到这个，你可以创建一个私有变量，然后在实例化这个类的时候设置它的值
 
-{% highlight html %}function Animal(type) {
+<pre>function Animal(type) {
     var data = [];
     data['type'] = type;
     this.getType = function () {
@@ -92,7 +92,7 @@ alert(john.getFullName() + "'s employee number is " + john.getNum());
 
 var fluffy = new Animal('dog');
 fluffy.getType(); // returns 'dog'
-{% endhighlight %}
+</pre>
 
 在这个例子里，我在Animal类里创建了一个数组data。当一个Animal对象被实例化的时候，type的值会传进来，然后设置data的值。这个值不能被重写，因为他是Animal类私有的。读取type值的唯一一个方式就是实例化之后调用你提供getType方法。因为getType是在Animal类内部定义的，它可以访问data。这样，人们就可以读取这个对象的type值，但是不能修改。
 
@@ -102,14 +102,14 @@ fluffy.getType(); // returns 'dog'
 
 有些时候，你希望一些属性能够被读取，也能被修改。那么，你需要通过这样的方法来让属性开放出来
 
-{% highlight html %}function Animal() {
+<pre>function Animal() {
     this.mood = '';
 }
  
 var fluffy = new Animal();
 fluffy.mood = 'happy';
 fluffy.mood; // returns 'happy'
-{% endhighlight %}
+</pre>
 
 现在在我们的Animal类里开放了一个叫做mood的属性，它可以被读取也可以被修改。你可以分配一个函数去操作这个属性。小心不要让一个值指向属性，不然你会因为你设置的值而破坏这个属性。
 
@@ -117,12 +117,12 @@ fluffy.mood; // returns 'happy'
 
 最终，你或许也发现在某个时候，你需要一个完全私有的局部变量。这种情况下，你可以使用像第一个例子那样，不过不需要创建公有方法。
 
-{% highlight html %}function Animal() {
+<pre>function Animal() {
     var secret = "You'll never know!"
 }
  
 var fluffy = new Animal();
-{% endhighlight %}
+</pre>
 
 ####写出一个灵活的API
 
@@ -132,46 +132,46 @@ var fluffy = new Animal();
 
 有一个为未来作准备的方法就是设计参数列表。这是一个很重要的方法来解决那些不确定的需求。你需要避免这样的参数列表：
 
-{% highlight html %}function Person(employeeId, fname, lname, tel, fax, email, email2, dob) {
+<pre>function Person(employeeId, fname, lname, tel, fax, email, email2, dob) {
 };
-{% endhighlight %}
+</pre>
 
 这样一个类是非常脆弱的。如果你在代码已经发布之后想添加一个middle name参数。因为次序的问题，你不得不在列表的最后来加入这个。这样做显得非常笨拙。如果你并没每一个参数的值，那么，传递参数会很麻烦。比如：
 
-{% highlight html %}var ara = new Person(1234, "Ara", "Pehlivanian", "514-555-1234", null, null, null, "1976-05-17");{% endhighlight %}
+<pre>var ara = new Person(1234, "Ara", "Pehlivanian", "514-555-1234", null, null, null, "1976-05-17");</pre>
 
 一个更加整洁，更加灵活的方式去传递参数的方式是这样的：
 
-{% highlight html %}function Person(employeeId, data) {
-};{% endhighlight %}
+<pre>function Person(employeeId, data) {
+};</pre>
 
 第一个参数保留，因为它是必须的。剩下的都可以整到一个对象里，这样就灵活多了
 
-{% highlight html %}var ara = new Person(1234, {
+<pre>var ara = new Person(1234, {
     fname: "Ara",
     lname: "Pehlivanian",
     tel: "514-555-1234",
     dob: "1976-05-17"
-});{% endhighlight %}
+});</pre>
 
 
 这个方法的优异之处在于易于读取数据，而且也非常灵活。我们可以注意到fax,email和email2都完全被移除。因为对象不需要特地的顺序，所以添加一个middle name参数只需要直接把它扔进去。
 
-{% highlight html %}var ara = new Person(1234, {
+<pre>var ara = new Person(1234, {
     fname: "Ara",
     mname: "Chris",
     lname: "Pehlivanian",
     tel: "514-555-1234",
     dob: "1976-05-17"
 });
-{% endhighlight %}
+</pre>
 
 类内部的代码也不需要考虑参数的顺序，因为我们是这样调用的：
 
-{% highlight html %}function Person(employeeId, data) {
+<pre>function Person(employeeId, data) {
 this.fname = data['fname'];
 };
-{% endhighlight %}
+</pre>
 
 如果data['fname']返回一个值，那么它就被赋值了。否则，它就没有被赋值。
 
@@ -179,7 +179,7 @@ this.fname = data['fname'];
 
 随着时间的推进，产品需求或许会是要在类里添加特定的行为。而这个行为经常和你的类核心方法没有关系。也有可能只有一个实施类的需求，比如当抓取外部数据时，让tab标签对应的内容消失。你也许可以试着把这些功能放进你的类，但是他们并不属于这个类。一个tab效果的职责去管理tab标签。动画效果和数据抓取完全是两个分离开来的方法。需要在tab之外维护。唯一一个方法去让你的tab适应未来需求，让临时方法调用自外部，就是允许人们去在你的代码中添加插件。换句话说，允许人们去挂载行为， 就像onTabChange, afterTabChange, onShowPanel, afterShowPanel等等。这样的话，他们就可以很简单的挂载你的onShowPanel事件，写一个控制方法来让一块内容渐渐消失，而且也减轻了大家的压力。javascript库可以让你非常轻松的完成这件事情，不过你自己来完成也不会太难。这里有一个基于YUI3的简单例子：
 
-{% highlight html %}&lt;script type="text/javascript" src="http://yui.yahooapis.com/combo?3.2.0/build/yui/yui-min.js"&gt;&lt;/script&gt;
+<pre>&lt;script type="text/javascript" src="http://yui.yahooapis.com/combo?3.2.0/build/yui/yui-min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
     YUI().use('event', function (Y) {
  
@@ -211,7 +211,7 @@ this.fname = data['fname'];
  
         ts.showPanel();
     });
-&lt;/script&gt;{% endhighlight %}
+&lt;/script&gt;</pre>
 
 
 这个例子有一个简单的含有showPanel方法的TabStrip类。这个方法会绑定了两个事件，onShowPanel和afterShowPanel。将Y.EventTarget合并到你的类中就可以实现这样的绑定。完成之后，我们实例一个TabStrip对象，然后分配一个对应事件控制方法。这就是一个典型的代码，用于控制实例中独特的行为，也不会污染目前的类。
