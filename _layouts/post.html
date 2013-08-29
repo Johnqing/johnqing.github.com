@@ -7,8 +7,7 @@ layout: default
 <ul class="unstyled tags">
     {% for tag in page.tags %}
     <li>
-        <a href="/tag/{{ tag | replace:' ','-' | replace:'.','' }}/"
-            >{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+        <a href="/tag/{{ tag | replace:' ','-' | replace:'.','' }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
     </li>
     {% endfor %}
 </ul>
