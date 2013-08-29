@@ -5,7 +5,7 @@ title: johnqing's blog.
 
 <div id="home">
   <div class="posts">
-    {% for post in site.posts limit: 5%}
+    {% for post in site.posts limit: 100%}
     <div class="post_info">
       {{ post.title }}
       <p><a href="{{ post.url }}">Continue Reading...</a></p>
