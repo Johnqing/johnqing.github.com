@@ -9,7 +9,7 @@ title: 类、构造函数、原型
 
 上代码:
 
-{% highlight ruby %}
+{% highlight html %}
 var a = function(n){
 	this.n = n;
 	this.b = function(){
@@ -28,7 +28,7 @@ d.b();//2
 
 上代码：
 
-{% highlight ruby %}
+{% highlight html %}
 var a = function(){}
 a.prototype.n = [1,2];
 a.prototype.b = function(){

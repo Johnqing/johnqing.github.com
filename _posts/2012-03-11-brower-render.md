@@ -28,7 +28,7 @@ title: 浏览器的渲染原理简介
 
 HTML的DOM Tree解析如下：
 
-{% highlight ruby %}
+{% highlight html %}
 &lt;html&gt;
 &lt;head&gt;
 &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Web page parsing&lt;/title&gt;
@@ -54,7 +54,7 @@ HTML的DOM Tree解析如下：
 
 CSS的解析大概是下面这个样子（下面主要说的是Gecko也就是Firefox的玩法），假设我们有下面的HTML文档：
 
-{% highlight ruby %}
+{% highlight html %}
 &lt;doc&gt;
 &lt;title&gt;A few quotes&lt;/title&gt;
 &lt;para&gt;
@@ -72,7 +72,7 @@ CSS的解析大概是下面这个样子（下面主要说的是Gecko也就是Fir
 
 然后我们的CSS文档是这样的：
 
-{% highlight ruby %}
+{% highlight html %}
 /* rule 1 */ doc { display: block; text-indent: 1em; }
 /* rule 2 */ title { display: block; font-size: 3em; }
 /* rule 3 */ para { display: block; }
@@ -154,7 +154,7 @@ DOM Tree里的每个结点都会有reflow方法，一个结点的reflow很有可
 
 好了，我们来看一个示例吧：
 
-{% highlight ruby %}
+{% highlight html %}
 var bstyle = document.body.style; // cache
  
 bstyle.padding = "20px"; // reflow, repaint
@@ -189,7 +189,7 @@ document.body.appendChild(document.createTextNode('dude!'));
 下面是一些Best Practices：
 
 1. 不要一条一条地修改DOM的样式。与其这样，还不如预先定义好css的class，然后修改DOM的className。
-{% highlight ruby %}
+{% highlight html %}
 // bad
 var left = 10,
 top = 10;

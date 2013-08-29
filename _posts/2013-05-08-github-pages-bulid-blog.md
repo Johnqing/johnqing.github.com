@@ -42,7 +42,7 @@ title: 使用github pages构建自己的blog
 
 1. **_post**文件夹内是博文文件，必须是markdown格式文件
 2. 博文文件头部必须有分类、描述等
-{% highlight ruby %}
+{% highlight html %}
 ---
 layout: post
 title: 标题

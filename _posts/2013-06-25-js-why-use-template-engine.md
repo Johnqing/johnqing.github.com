@@ -33,7 +33,7 @@ title: 为什么使用JS模板引擎？
 
 现在有这样一段json数据：
 
-{% highlight ruby %}
+{% highlight html %}
 var data = {
     name: 'NTpl.js',
     author: 'johnqing'
@@ -42,7 +42,7 @@ var data = {
 
 安装常规的思路拼接模板：
 
-{% highlight ruby %}
+{% highlight html %}
 var tpl = '&lt;h1&gt;'+data.name+'&lt;/h1&gt;&lt;span&gt;'+data.author+'&lt;/span&gt;';
 {% endhighlight %}
 
@@ -54,7 +54,7 @@ var tpl = '&lt;h1&gt;'+data.name+'&lt;/h1&gt;&lt;span&gt;'+data.author+'&lt;/spa
 
 数据：
 
-{% highlight ruby %}
+{% highlight html %}
 var data = {
     name: 'NTpl.js',
     author: 'johnqing'
@@ -63,13 +63,13 @@ var data = {
 
 结构
 
-{% highlight ruby %}
+{% highlight html %}
 var tpl = '<div>{name},blog:{author}</div>';
 {% endhighlight %}
 
 核心代码
 
-{% highlight ruby %}
+{% highlight html %}
 function tplCom(tpl, data){
     tpl = tpl.replace(/{(.*?)}/g,function($,$1){
         return data[$1] ? data[$1] : $;
@@ -83,7 +83,7 @@ console.log(tplCom(tpl, data));
 
 只要你调用NTpl.tpl填入模板和数据就会自动返回拼接完成的数据，快捷方便，自动化
 
-{% highlight ruby %}
+{% highlight html %}
 var res = NTpl.tpl(tpl, data);
 console.log(res);
 {% endhighlight %}

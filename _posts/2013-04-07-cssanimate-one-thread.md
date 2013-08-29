@@ -37,7 +37,7 @@ title: css3是个独立的ui线程
 
 红色方块旋转动画，如下：
 
-{% highlight ruby %}.spin {
+{% highlight html %}.spin {
   animation: 3s rotate linear infinite;
 }
  
@@ -48,7 +48,7 @@ title: css3是个独立的ui线程
 
 绿色方块变换动画，如下：
 
-{% highlight ruby %}.walkabout-new-school {
+{% highlight html %}.walkabout-new-school {
   animation: 3s slide-transform linear infinite;
 }
  
@@ -60,7 +60,7 @@ title: css3是个独立的ui线程
 
 蓝色方块动画使用margin-left，而不是变换，如下：
 
-{% highlight ruby %}.walkabout-old-school {
+{% highlight html %}.walkabout-old-school {
   animation: 3s slide-margin linear infinite;
 }
  
@@ -74,7 +74,7 @@ title: css3是个独立的ui线程
 
 点击kill按钮2秒钟时，看好CPU变化：
 
-{% highlight ruby %}function kill() {
+{% highlight html %}function kill() {
   var start = +new Date;
   while (+new Date - start &lt; 2000){}
 }{% endhighlight %}

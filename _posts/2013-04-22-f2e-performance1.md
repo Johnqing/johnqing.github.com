@@ -74,7 +74,7 @@ ie中：hover会降低响应速度。
 
 ##缓存DOM##
 
-{% highlight ruby %}
+{% highlight html %}
 var obj = obj.name;
 obj.attr();
 obj.css();
@@ -88,7 +88,7 @@ obj.css();
 
 采用Duff策略：
 
-{% highlight ruby %}
+{% highlight html %}
 for(var i = 0, len = aValue.length; i<len; i++){
     fDoSomething(aValues[i++]);
     fDoSomething(aValues[i++]);

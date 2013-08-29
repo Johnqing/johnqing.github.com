@@ -9,7 +9,7 @@ title: js中链式调用和对象的处理
 
 链式的实现有很多种，在这里我只阐述原型的方式是如何实现的，老规矩先上代码:
 
-{% highlight ruby %}
+{% highlight html %}
 var Base = function(id){
 	this[0] = document.getElementById(id);
 	return this;	 
@@ -46,7 +46,7 @@ obj.html('111').addClass('xxx');
 
 我们改造一下上面的代码
 
-{% highlight ruby %}
+{% highlight html %}
 var Base = function(obj){
 	this.length = 0;
 	for(var i=0; i &lt; obj.length; i++){

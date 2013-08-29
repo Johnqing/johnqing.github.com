@@ -9,7 +9,7 @@ title: grunt 任务配置
 
 ##concat##
 
-{% highlight ruby %}
+{% highlight html %}
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
@@ -51,38 +51,38 @@ module.exports = function(grunt) {
 
 *其他模块的使用和cancat模块大同小异，请自己简单调试*
 
-{% highlight ruby %}
+{% highlight html %}
 	module.exports = function(grunt){}
 {% endhighlight %}
 
 是nodejs中添加一个模块的方法
 
-{% highlight ruby %}
+{% highlight html %}
 	grunt.initConfig
 {% endhighlight %}
 
 是grunt的配置项
 
-{% highlight ruby %}
+{% highlight html %}
 	pkg: grunt.file.readJSON("package.json"),
 {% endhighlight %}
 
 为读取package.json
 
-{% highlight ruby %}
+{% highlight html %}
 	concat: {}
 {% endhighlight %}
 
 是当前的任务
 
-{% highlight ruby %}
+{% highlight html %}
 	base: {}
 	extras: {}
 {% endhighlight %}
 
 base和extras都是自定义的任务名（可定义多个合并任务）
 
-{% highlight ruby %}
+{% highlight html %}
 	options: {}
 	src: []
 	dest: ''
@@ -100,7 +100,7 @@ dest 是合并后的文件路径
 
 在[n.js](https://github.com/Johnqing/n.js)构建中有这样一个需求，需要自动生成版本信息和文件更改时间，代码如下:
 
-{% highlight ruby %}
+{% highlight html %}
 //自动给文件添加版本号和修改时间
 grunt.registerTask("post-concat", function() {
 	//当前需要修改的文件地址
@@ -124,6 +124,6 @@ grunt.registerTask("post-concat", function() {
 
 下面代码中，taskName为任务名/任务id，第二个参数为任务描述，taskList为需要执行的任务
 
-{% highlight ruby %}
+{% highlight html %}
 	grunt.registerTask(taskName, [description, ], taskList);
 {% endhighlight %}

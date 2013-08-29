@@ -9,7 +9,7 @@ title: jquery返回顶部插件遇到的问题？
 
 那就是代码的问题，先上一个原代码:
 
-{% highlight ruby %}
+{% highlight html %}
 ;(function($){
 	$.fn.gbackTop = function(o) {
 		var def = { 
@@ -38,14 +38,14 @@ title: jquery返回顶部插件遇到的问题？
 
 翻看了下上面这段代码，发现有以下几个点，需要优化（这里讨论的是严重影响性能代码）：
 
-{% highlight ruby %}
+{% highlight html %}
 this.each();
 {% endhighlight %}
 
 这段代码每次调用gbackTop函数都要循环一次this
 
 
-{% highlight ruby %}
+{% highlight html %}
 var top =$(window).scrollTop();
 if(top>t){
 	$(b).show();
@@ -54,7 +54,7 @@ if(top>t){
 
 这段其实完全没有必要，因为刷新页面时window.onscroll肯定会执行
 
-{% highlight ruby %}
+{% highlight html %}
 if ($(this).scrollTop() > t) {
 	$(b).show();
 } else {
@@ -64,7 +64,7 @@ if ($(this).scrollTop() > t) {
 
 这段可以优化为：
 
-{% highlight ruby %}
+{% highlight html %}
 if ($(this).scrollTop() > t) {
 	$(b).show();
 	return;
@@ -77,7 +77,7 @@ $(b).hide();
 
 好了，附上我重构过的代码，（参数没有重构掉）
 
-{% highlight ruby %}
+{% highlight html %}
 ;(function($){
 	$.fn.gbackTop = function(opts) {
 		var def = { 

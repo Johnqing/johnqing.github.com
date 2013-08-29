@@ -7,7 +7,7 @@ title: javascript 函数嵌套的性能问题
 
 开发者们经常会写出如下代码：
 
-{% highlight ruby %}
+{% highlight html %}
 function a(x, y){
   function b(){
     return x+y;
@@ -26,7 +26,7 @@ javascript引擎不会创建b函数，直到外部引用了a，随着a的运行�
 
 改进代码：
 
-{% highlight ruby %}
+{% highlight html %}
 function a(x, y){
   return b(x, y);
 }
@@ -39,7 +39,7 @@ function b(x, y){
 
 开发者们在写面向对象的时候，常常会写出以下代码：
 
-{% highlight ruby %}
+{% highlight html %}
 function A(x, y){
   this.h = x;
   this.w = y;
@@ -56,7 +56,7 @@ var y = new A(3, 4);
 
 不过在js中拥有prototype关键字，prototype的属性是实例化后的对象所共有的属性，所以上面的代码可以通过prototype改写成下面的方式:
 
-{% highlight ruby %}
+{% highlight html %}
 function A(x, y){
   this.h = x;
   this.w = y;

@@ -25,7 +25,7 @@ title: Javascript 中的内存管理
 
 当变量初始化的时候，Javascript会自动分配相应的内存空间（注：这里MDN上关于这里用的是Value initialization，到底是声明，还是在赋值时候分配空间，还要再学习一下）
 
-{% highlight ruby %}
+{% highlight html %}
 var n = 123; //  为数字分配空间
 var s = "azerty"; // 字符串
 
@@ -49,14 +49,14 @@ someElement.addEventListener('click', function(){
 ##函数调用时候分配空间##
 有的函数调用，会产生上面说的那种 为对象分配空间
 
-{% highlight ruby %}
+{% highlight html %}
 var d = new Date();
 var e = document.createElement('div'); // allocates an DOM element
 {% endhighlight %}
 
 还有下面这种
 
-{% highlight ruby %}
+{% highlight html %}
 var s = "azerty";
 var s2 = s.substr(0, 3); // s2 is a new string
 // 由于Javascript中字符串是不可变的，所以Javascript也许并没有为s2中的字符串分配新空间，而是只存了[0, 3]的区间（用来索引）
@@ -87,7 +87,7 @@ var a3 = a.concat(a2); // 新的空间来存储数组a3
 
 ##举个栗子##
 
-{% highlight ruby %}
+{% highlight html %}
 var o = { // 称之为外层对象
   a: { //称之为内层对象
     b:2
@@ -113,7 +113,7 @@ oa = null; //  现在oa不引用内层对象了
 ##局限：循环引用##
 看下面代码：
 
-{% highlight ruby %}
+{% highlight html %}
 function f(){
   var o = {};
   var o2 = {};
@@ -134,7 +134,7 @@ f();
 ##实际例子##
 在IE6,7版本的浏览器中，就是使用的引用计数机制。因此，下面的代码在IE6,7中可以稳稳地发生内存泄漏
 
-{% highlight ruby %}
+{% highlight html %}
 var div = document.createElement("div");
 div.onclick = function(){
   doSomething();

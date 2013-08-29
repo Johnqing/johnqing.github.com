@@ -17,7 +17,7 @@ title: javascript 冒泡排序法
 
 code：
 
-{% highlight ruby %}
+{% highlight html %}
 function bubbleSort(arr){
 	var tmp;
 	for (var i = arr.length - 1; i &gt;= 0; i--) {

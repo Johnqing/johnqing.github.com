@@ -66,7 +66,7 @@ Array.prototype修改的危险来自js一个不知有意还是无意的小小设
 
 在你的框架设计中，请不要实现无用的方法。
 
-{% highlight ruby %}
+{% highlight html %}
 var add = function(a, b){
 	return a + b;
 }

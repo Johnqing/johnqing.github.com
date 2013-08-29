@@ -26,7 +26,7 @@ title: 使用webstorm搭建nodejs+mongodb环境
 
 项目中创建一个**test.html**
 
-{% highlight ruby %}
+{% highlight html %}
 //导入http模块
 var http = require('http');
 

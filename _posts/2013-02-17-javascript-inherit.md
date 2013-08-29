@@ -6,7 +6,7 @@ title: javascript继承
 
 继承是面向对象编程中很重要的一个工具，但是JavaScript不像其他语言那样显式的支持继承，而是使用一种叫做原型的东西来支持继承。
 
-{% highlight ruby %}
+{% highlight html %}
 function Person(name){
   this.name = name;
 }
@@ -27,7 +27,7 @@ var person1 = new Person("liMing");
 
 通过上面的查找顺序可知，当在实例上找到属性时就不会再向上原型中查找，<span style="color:#f00">所以实例中的同名属性会屏蔽原型链中的属性。</span>
 
-{% highlight ruby %}
+{% highlight html %}
 function Person(name,friends){
   this.name = name;
   this.friends = friends;
@@ -39,7 +39,7 @@ Person.prototype = {constructor:Person,  //constructor在这里不重要，请�
 
 这样我们就有了一个不错的抽象，实例各自不同的属性在构造函数中，共有的属性或方法在它的原型对象中。接下来我们实现继承，创建一个Chinese类，最直接的想法就是
 
-{% highlight ruby %}function Chinese(name,friends){
+{% highlight html %}function Chinese(name,friends){
 	Person.apply(this,arguments);//调用父类的构造函数,apply第一个参数是上下文，第二个是参数
 	this.nationality = "china";
 }
@@ -55,7 +55,7 @@ Chinese.prototype = Person.prototype;
 而且name，friends属性也成为了原型中的属性，由于我们在构造函数中又重复生成了实例属性name，friends，所以屏蔽了原型中的，不会影响使用。这种继承方法是现在最流行的实现。
 但是也存在问题，调用了2次父类的构造函数导致在子类实例和原型中有重复的属性，虽然不影响使用，但是不优雅。有洁癖的人们就想出了另一种方法。
 
-{% highlight ruby %}function clone(o){
+{% highlight html %}function clone(o){
   function F(){}
   F.prototype = o;
   return new F();

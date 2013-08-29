@@ -13,7 +13,7 @@ title: grunt构建工具使用说明
 
 package.json是npm的包配置文件，可以通过以下命令构建（当然一定要安装node）：
 
-{% highlight ruby %}
+{% highlight html %}
 npm init
 {% endhighlight %}
 
@@ -39,7 +39,7 @@ package中比较重要的属性解释：
 
 首先说一下我的目录结构：
 
-{% highlight ruby %}
+{% highlight html %}
 assets //资源文件目录
     seajs
     init //模块文件
@@ -49,7 +49,7 @@ assets //资源文件目录
 第二步，在assets下构建package.json和Gruntfile.js：
 
 + package.json使用默认构建完成是没有devDependencies这个属性的，手动添加下面代码块内容，并且运行npm install命令
-{% highlight ruby %}
+{% highlight html %}
 "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-cmd-transport": "~0.2.0",
@@ -63,7 +63,7 @@ assets //资源文件目录
 ##如何配置Gruntfile.js？##
 
 继续重复烦人的话，grunt是基于nodejs，所以需要使用如下代码：
-{% highlight ruby %}
+{% highlight html %}
 module.exports = function(grunt) {
 
 }
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 
 *怎么还没到Gruntfile啊，你妹！* *知道了，知道了*
 
-{% highlight ruby %}
+{% highlight html %}
 module.exports = function(grunt) {
     //项目初始化配置
     grunt.initConfig({
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
 
 首先给package.json里添加
 
-{% highlight ruby %}
+{% highlight html %}
 "spm": {
     "alias": {
         "jquery": "common/jquery-1.9.1.min.js",
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
 
 Gruntfile.js完整配置：
 
-{% highlight ruby %}
+{% highlight html %}
  module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),

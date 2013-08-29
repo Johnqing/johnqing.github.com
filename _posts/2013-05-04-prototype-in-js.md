@@ -12,7 +12,7 @@ title: js中的Prototype(原型)
 
 哎，木有办法还是得上代码：
 
-{% highlight ruby %}
+{% highlight html %}
 var xObj = function(){
     this.n = 1;
 }
@@ -31,7 +31,7 @@ x.getNumber();
 
 在js引擎中有类似代码:
 
-{% highlight ruby %}
+{% highlight html %}
 Function.prototype = {
     arguments: null,
     length: 0,
@@ -57,7 +57,7 @@ Function.prototype = {
 
 我们需要N个对象，这些对象都有自己的属性，但是方法相同。
 
-{% highlight ruby %}
+{% highlight html %}
 var obj = {
     a: 1,
     b: 2,
@@ -81,7 +81,7 @@ var obj = {
 
 上代码
 
-{% highlight ruby %}
+{% highlight html %}
 String.prototype.trim = function() {
     return this.replace(/^\s+|\s+$/g, '');
 };

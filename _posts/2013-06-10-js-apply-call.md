@@ -30,7 +30,7 @@ title: javascript中apply和call详解
 
 模拟一下执行上下文:
 
-{% highlight ruby %}
+{% highlight html %}
   executionContextObj = {
     variableObject: { 
       /* 函数中的arguments对象, 参数, 内部的变量以及函数声明 */ 
@@ -57,7 +57,7 @@ apply 和 call 这俩货在作用上完全一样，只是在使用上略有不�
 
 老习惯，上代码
 
-{% highlight ruby %}
+{% highlight html %}
 var a = function(){
     console.log(this.name+'，你妈喊你回家吃饭!');
     this.age = 18;
@@ -73,7 +73,7 @@ console.log(b.age);
 
 再来一段代码
 
-{% highlight ruby %}
+{% highlight html %}
 var a = function(name){
     this.name = name
     this.say = function(){

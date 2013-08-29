@@ -18,7 +18,7 @@ title: github fork项目后，代码更新
 
 上面我们fork了自己的repo，接着就可以clone下来了，先到自己的repo主页（https://github.com/ispxin/n.js），找到repo的git地址，诸如这样 https://github.com/ispxin/n.js.git,然后clone到本地
 
-{% highlight ruby %}
+{% highlight html %}
 	git clone https://github.com/ispxin/n.js.git
 {% endhighlight %}
 
@@ -26,7 +26,7 @@ title: github fork项目后，代码更新
 
 我们接着cd到项目里，看下当前的git远程仓库，如下
 
-{% highlight ruby %}
+{% highlight html %}
 	cd n.js
 	git remote -v
 {% endhighlight %}
@@ -34,7 +34,7 @@ title: github fork项目后，代码更新
 可以看到当前的项目里有一个叫'origin'的远程仓库（就是我们刚刚clone的时候加入的），
 为了能很好的和主仓库（Johnqing/n.js）保持代码同步，我们需要添加一个主仓库的远程仓库，命令如下
 
-{% highlight ruby %}
+{% highlight html %}
 	git remote add Johnqing https://github.com/Johnqing/n.js.git
 	git remote  -v
 {% endhighlight %}
@@ -43,26 +43,26 @@ title: github fork项目后，代码更新
 
 ##第4步：获取主仓库最新代码##
 
-{% highlight ruby %}
+{% highlight html %}
 	git fetch Johnqing
 {% endhighlight %}
 
 ##第5步：合并到自己的分支里##
 
-{% highlight ruby %}
+{% highlight html %}
 	git merge Johnqing/master
 {% endhighlight %}
 
 ##第6步：本地修改代码，提交到自己的repo##
 修改完后
-{% highlight ruby %}
+{% highlight html %}
 	git add .
 	git commit -m "本次修改描述"
 {% endhighlight %}
 
 最后我把本次修改提交到自己的远程仓库（ispxin/n.js）中，操作如下
 
-{% highlight ruby %}
+{% highlight html %}
 	git push origin master
 {% endhighlight %}
 

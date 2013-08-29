@@ -21,7 +21,7 @@ title: NTpl模板引擎使用
 
 1. 引入nTpl.js是必须的
 2. 可以使用任何容器存储模板片段(示例中使用textarea作为容器)
-{% highlight ruby %}
+{% highlight html %}
 &lt;!--textarea作为容器的好处是浏览器不会解析--&gt;
 &lt;textarea id="tpl" style="display:none"&gt;
     &lt;h1&gt;title:&lt;%= title %&gt;&lt;/h1&gt;
@@ -38,7 +38,7 @@ title: NTpl模板引擎使用
 &lt;/textarea&gt;
 {% endhighlight %}
 3. 模板也可以直接存储在一个变量中（下面的例子：可以在[这里](https://github.com/Johnqing/SocialCard/blob/master/assets/js/controller.js)找到）
-{% highlight ruby %}
+{% highlight html %}
  var tpl = '&lt;% for(var i=0; i&lt;data.length; i++){ %&gt;'+
               '&lt;div class="familyName"&gt;'+
                   '&lt;span&gt;&lt;%= data[i].name %&gt;&lt;/span&gt;'+
@@ -54,7 +54,7 @@ title: NTpl模板引擎使用
 ##调用##
 
 1. 数据
-{% highlight ruby %}
+{% highlight html %}
 var data={
     "title":'啊哦~这是标题',
     "list":[
@@ -67,19 +67,19 @@ var data={
 {% endhighlight %}
 
 2. NTpl是该模板引擎的命名空间
-{% highlight ruby %}
+{% highlight html %}
 NTpl.tpl
 {% endhighlight %}
 3. tpl接收容器id
-{% highlight ruby %}
+{% highlight html %}
 NTpl.tpl('id', data);
 {% endhighlight %}
 4. tpl也接收字符串
-{% highlight ruby %}
+{% highlight html %}
 NTpl.tpl('&lt;div&gt;&lt;%= name %&gt;&lt;/div&gt;', data);
 {% endhighlight %}
 5. 插入容器
-{% highlight ruby %}
+{% highlight html %}
 document.getElementById('result').innerHTML = res;
 {% endhighlight %}
 
@@ -90,7 +90,7 @@ document.getElementById('result').innerHTML = res;
 ####自定义实例如下####
 
 模板
-{% highlight ruby %}
+{% highlight html %}
 &lt;h1&gt;title:&lt;#= title #&gt;&lt;/h1&gt;
 &lt;# if(list.length&gt;1) { #&gt;
     &lt;h2&gt;输出list，共有&lt;#= list.length #&gt;个元素&lt;/h2&gt;
@@ -105,7 +105,7 @@ document.getElementById('result').innerHTML = res;
 {% endhighlight %}
 
 调用
-{% highlight ruby %}
+{% highlight html %}
 NTpl.leftDelimiter = "&lt;#";
 NTpl.rightDelimiter = "#&gt;";
 var data={
@@ -124,7 +124,7 @@ document.getElementById('result').innerHTML = res;
 
 ####判断语句：####
 
-{% highlight ruby %}
+{% highlight html %}
 &lt;% if(list.length){ %&gt;
     &lt;h2&gt;&lt;%= list.length %&gt;&lt;/h2&gt;
 &lt;% }else{ %&gt;
@@ -134,7 +134,7 @@ document.getElementById('result').innerHTML = res;
 
 ####循环语句：####
 
-{% highlight ruby %}
+{% highlight html %}
 &lt;% for(var i=0;i&lt;5;i++){ %&gt;
     &lt;li&gt;&lt;%= list[i] %&gt;&lt;/li&gt;
 &lt;% } %&gt;
@@ -142,7 +142,7 @@ document.getElementById('result').innerHTML = res;
 
 ####一个比较复杂的实例####
 
-{% highlight ruby %}
+{% highlight html %}
 //字体渲染
 var fontFamily = {
     tpl: function(){

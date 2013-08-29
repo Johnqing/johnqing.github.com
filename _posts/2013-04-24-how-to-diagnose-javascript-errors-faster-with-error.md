@@ -13,7 +13,7 @@ title: （转）如何更快的诊断 JavaScript 错误
 
 让我们来看下一个简单的示例脚本：计算（0,2）和（12,10）两点之间的距离：
 
-{% highlight ruby %}
+{% highlight html %}
 (function () {
     'use strict';
     function squareRoot(n) {
@@ -59,7 +59,7 @@ title: （转）如何更快的诊断 JavaScript 错误
 
 虽然DOM异常也是对象，但他们没有追溯错误的原型链，因此他们就没有一个堆栈属性。当你执行DOM操作并且想显示出javascript兼容性的一些错误时，你可以在DOM操作代码上使用try/catch代码块，然后在catch语句内抛出一个新的异常:
 
-{% highlight ruby %}
+{% highlight html %}
 function causesDomError() {
     try {
         var div = document.createElement('div');
@@ -83,7 +83,7 @@ function causesDomError() {
 
 当一个堆栈跟踪产生于一个异步的回调时（比如，timeout,interval, 或者XMLHttpRequest），异步调用，而不是在调用堆栈的底部创建异步调用的代码。这里存在一些跟踪问题代码的潜在影响：如果你对于多个异步回调使用相同的回调函数，你或许会发现很难查找出某一个单独的回调引起的错误。让我们稍微修改下之前的例子，替换直接调用simple()，采用timeout函数回调方法调用：
 
-{% highlight ruby %}
+{% highlight html %}
 (function () {
     'use strict';
     function squareRoot(n) {

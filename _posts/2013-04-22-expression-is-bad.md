@@ -11,7 +11,7 @@ title: expression到底多影响性能
 
 **CSS:**
 
-{% highlight ruby %}
+{% highlight html %}
 body {
     font-size:12px;
     font-family:Verdana;
@@ -28,7 +28,7 @@ div a {
 
 **HTML：**
 
-{% highlight ruby %}
+{% highlight html %}
 计算了&lt;input id="c" /&gt;次
 &lt;div&gt;
     &lt;ul&gt;
@@ -42,7 +42,7 @@ div a {
 
 **JS：**
 
-{% highlight ruby %}
+{% highlight html %}
 var k = 0;
 function test() {
     k++;
