@@ -14,7 +14,7 @@ title: Liu Qing
   <h1>Links</h1>
   <ul class="posts">
     {% for link in site.links %}
-    <li><a href="http://github.com/github/gollum/">Gollum:</a> A simple, Git-powered wiki with a sweet API and local frontend.</li>
+    <li><a href="{{ link.url }}">{{ link.title }}</a>
     {% endfor %}
   </ul>
 </div>
