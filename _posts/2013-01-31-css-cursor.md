@@ -3,10 +3,11 @@ layout: post
 title: css cursor自定义
 ---
 
-<pre>cursor:url(http://localhost/d2/matches.cur),url(http://localhost/d2/matches.cur),n-resize;
+<pre>
+cursor:url(http://localhost/d2/matches.cur),url(http://localhost/d2/matches.cur),n-resize;
 </pre>
 
->cur文件必须为32*32，否则个浏览器表现差异很大
+> cur文件必须为32*32，否则个浏览器表现差异很大
 
 1. IE6也支持cursor属性的URL值，然而，IE只支持CUR和ANI的格式。
 2. IE不支持CSS3的坐标。这时候光标图片将被忽略。
