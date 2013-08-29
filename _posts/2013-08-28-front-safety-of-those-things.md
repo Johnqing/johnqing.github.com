@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 前端安全的那些事
+category: f2e
 ---
 
 > Ajax的兴起，带了前端技术的飞速发展，安全问题已经悄悄的从服务端转了前端。

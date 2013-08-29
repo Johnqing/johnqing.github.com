@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 类、构造函数、原型
+category: js
 ---
 
 > js中类的构建，并不像java、c++等拥有正在的类，而是多数通过构造器和原型方式模拟出来的。

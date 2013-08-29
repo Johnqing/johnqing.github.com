@@ -1,6 +1,7 @@
 ---
 layout: post
 title: js中的Prototype(原型)
+category: js
 ---
 
 

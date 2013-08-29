@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用github pages构建自己的blog
+category: default
 ---
 
 ##前提##

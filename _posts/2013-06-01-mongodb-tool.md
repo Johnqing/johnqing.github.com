@@ -1,6 +1,7 @@
 ---
 layout: post
 title: mongodb可视化工具
+category: js
 ---
 
 > 推荐一款mongodb可视化工具 

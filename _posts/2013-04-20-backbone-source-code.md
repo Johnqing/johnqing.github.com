@@ -1,6 +1,7 @@
 ---
 layout: post
 title: backbone源码解析（转自iteye）
+category: js
 ---
 
 <pre>(function() {

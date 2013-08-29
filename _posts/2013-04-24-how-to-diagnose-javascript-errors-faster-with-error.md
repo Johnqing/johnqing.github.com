@@ -1,6 +1,7 @@
 ---
 layout: post
 title: （转）如何更快的诊断 JavaScript 错误
+category: js
 ---
 
 英文原文：[How to diagnose JavaScript Errors Faster with Error](http://www.codeproject.com/Articles/541695/How-to-diagnose-JavaScript-Errors-Faster-with-Erro)

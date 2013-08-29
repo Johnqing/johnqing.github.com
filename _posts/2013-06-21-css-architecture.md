@@ -1,6 +1,7 @@
 ---
 layout: post
 title: CSS架构目标：预测、重用、扩展、维护
+category: css
 ---
 
 来自：[张红月](http://www.csdn.net/article/2012-11-30/2812325-CSS-Architecture)

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: javascript中apply和call详解
+category: js
 ---
 
 > 

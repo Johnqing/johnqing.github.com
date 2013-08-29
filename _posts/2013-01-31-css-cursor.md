@@ -1,6 +1,7 @@
 ---
 layout: post
 title: css cursor自定义
+category: css
 ---
 
 <pre>cursor:url(http://localhost/d2/matches.cur),url(http://localhost/d2/matches.cur),n-resize;

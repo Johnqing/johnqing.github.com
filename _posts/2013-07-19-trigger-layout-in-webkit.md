@@ -1,6 +1,7 @@
 ---
 layout: post
 title: webkit下触发重新布局
+category: js
 ---
 
 > 大多数Web开发人员都知道，大量的脚步执行时间都花费在DOM操作上，而不是脚本的执行上。这面里面有一个代价很高的布局操作 - 

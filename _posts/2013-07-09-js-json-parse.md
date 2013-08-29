@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 非标准浏览器JSON解析实现
+category: js
 ---
 
 [parseJSON文件地址](https://github.com/Johnqing/parseJSON/blob/master/parsejson.js)

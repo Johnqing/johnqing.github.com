@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 基于面向对象的贪吃蛇
+category: js
 ---
 
 #### 可拓展：

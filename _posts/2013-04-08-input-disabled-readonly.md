@@ -1,6 +1,7 @@
 ---
 layout: post
 title: input disabled和readonly区别
+category: f2e
 ---
 
 > 很多人疑惑disabled和readonly有什么区别？

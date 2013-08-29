@@ -1,6 +1,7 @@
 ---
 layout: post
 title: js带var变量和不带var变量区别
+category: f2e
 ---
 
 > 常被人问到var a=1和a=1的区别在哪里？今天就写篇文章说说这事。

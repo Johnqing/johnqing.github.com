@@ -1,6 +1,7 @@
 ---
 layout: post
 title: javascript内存管理
+category: js
 ---
 
 > 最近总是碰到性能上的问题，顺便也思考了下JS垃圾回收的问题

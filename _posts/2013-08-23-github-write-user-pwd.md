@@ -1,6 +1,7 @@
 ---
 layout: post
 title: git push重复输入password的解决方案
+category: f2e
 ---
 
 > 在使用github push文件时，总是出现重复输入用户名 密码，不胜其烦。

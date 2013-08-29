@@ -1,6 +1,7 @@
 ---
 layout: post
 title: javascript 函数嵌套的性能问题
+category: js
 ---
 
 ##函数嵌套的性能##

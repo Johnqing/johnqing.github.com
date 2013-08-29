@@ -1,6 +1,7 @@
 ---
 layout: post
 title: grunt构建工具使用说明
+category: f2e
 ---
 
 *Grunt 是一个基于任务的 JavaScript 项目命令行构建工具，运行于 Node.js 平台。Grunt 能够从模板快速创建项目，合并、压缩和校验 CSS & JS 文件，运行单元测试以及启动静态服务器。*

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: js基础框架开发
+category: js
 ---
 
 > 纯属自我理解，可以讨论，勿喷（这个项目可以叫新之助（[Nowara Shinnosuke](https://github.com/Johnqing/Ns.js)）么？哇哈哈）

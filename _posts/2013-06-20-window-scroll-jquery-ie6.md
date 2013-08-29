@@ -1,6 +1,7 @@
 ---
 layout: post
 title: jquery返回顶部插件遇到的问题？
+category: f2e
 ---
 
 最近在做首页的改版*（吐槽下。。尼玛真心难看）*在调用同事的返回顶部jquery插件时，**ie6下页面会非常卡**。  

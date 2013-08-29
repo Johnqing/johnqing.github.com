@@ -1,20 +1,91 @@
 ---
-layout: default
-title: Allthelucky(savant-pan)'s blog.
+layout: index
+title: JohnQing
+tagline: 想写一辈子代码可以么？
+links:
+  - name: HTML老虎
+    link: http://www.liuhehu.com/
+  - name: 王迎然的博客
+    link: http://www.wangyingran.com/
+  - name: xiaoxiehang
+    link: http://f2es.net/
+  - name: Leesec's Blog
+    link: http://www.leesec.com
 ---
-<div id="home">
-  <ul class="posts">
-    {% for post in site.posts limit:100%}
-    {% unless post.next %}
-    <h3>{{ post.date | date: '%Y' }}</h3>
-    {% else %}
-    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-    {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-    {% if year != nyear %}
-    <h3>{{ post.date | date: '%Y' }}</h3>
-    {% endif %}
-    {% endunless %}
-    <li><span>{{ post.date | date_to_string }}</span>&raquo;<a href="{{ post.url }}">{{ post.title }}</a></li>
+{% include JB/setup %}
+
+<div class="row page-body">
+
+  <div class="span9">
+    {% for post in paginator.posts %}
+    <div class="main-container">
+      <div class="mainbody">
+        <h2><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h2>
+        <p>
+          Posted by <strong>{{ site.author.name }}</strong> at <strong>{{ post.date | date: "%Y-%m-%d" }}</strong> with tags {% for tag in post.tags %}<a href="{{ BASE_PATH }}{{ site.JB.tags_path }}#{{ tag }}-ref" rel="nofollow">{{ tag }}</a>{% if forloop.last %}{% else %}, {% endif %}{% endfor %}
+        </p>
+        
+        <div class="post_at_index thepost">
+        {{ post.content }}
+        </div>
+        <a href="{{ BASE_PATH }}{{ post.url }}" rel="nofollow">Read more...</a><a href="javascript:void(0);" style="float:right" onclick="window.scrollTo(0, 0);">Top</a> 
+        <div style="clear: both;"></div>
+      </div>
+    </div>      
     {% endfor %}
-  </ul>
+
+    <div class="main-container">
+      <div class="mainbody">
+        {% include ever/pagination %}
+      </div>
+    </div>
+  
+  </div>
+
+  <div class="span3">
+    <div class="side-container">
+      <div class="sidebar">
+        <wb:follow-button uid="2461544952" type="red_1" width="63" height="24" ></wb:follow-button>
+      </div>
+    </div>
+     
+    <div class="side-container">
+      <div class="sidebar">
+        {% unless site.posts == empty %}
+        <h3>Recent Posts</h3>
+        <ul>
+        {% for post in site.posts limit: 10 %}
+          <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">
+            {{post.title }}</a></li>
+        {% endfor %}
+        </ul>
+        {% endunless %}
+      </div>
+    </div>
+
+    <div class="side-container">
+      <div class="sidebar">
+        {% unless site.tags == empty %}
+        <h3>Tags</h3>
+        <ul class="inline tag_box">
+        {% assign tags_list = site.tags %}
+        {% include JB/tags_list %}
+        </ul>
+        {% endunless %}      
+      </div>
+    </div>
+
+    <div class="side-container">
+      <div class="sidebar">
+        {% if page.links %}
+        <h3>Links</h3>
+        <ul>
+        {% assign links = page.links %}
+        {% include ever/links %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
 </div>

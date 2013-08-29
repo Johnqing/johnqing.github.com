@@ -1,8 +1,0 @@
----
-layout: post
-title:  "Test Article"
-tags: [测试,JEKYLL]
----
-{% highlight java %}
-	System.out.println("Hello, Jekyll");
-{% endhighlight %}

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 为什么使用JS模板引擎？
+category: js
 ---
 
 > 上一篇中介绍了，我自己开发的NTpl模板引擎。这篇主要介绍为什么要使用模板引擎？

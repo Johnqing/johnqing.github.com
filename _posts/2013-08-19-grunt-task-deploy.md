@@ -1,6 +1,7 @@
 ---
 layout: post
 title: grunt 任务配置
+category: f2e
 ---
 
 > 这篇文章主要介绍如何使用grunt的任务，其他不做太详细的讲解。安装等请移步[这里](http://johnqing.github.io/posts/grunt-build.html)

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 如何设计一个javascript框架？
+category: f2e
 ---
 
 > 做为一个多年的开发者，你是否有考虑过设计一个属于自己的框架？

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Object.create和深度拷贝的区别
+category: f2e
 ---
 
 今天在群里和 氧气桑一起扯淡引发的问题：

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: js栈和队列
+category: js
 ---
 
 先来一段百度百科：

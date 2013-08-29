@@ -1,6 +1,7 @@
 ---
 layout: post
 title: NTpl模板引擎使用
+category: js
 ---
 
 > NTpl模板引擎是博主自己开发的一款轻量级的模板引擎

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: dynaTrace Ajax 使用说明
+category: f2e
 ---
 
 > dynaTrace Ajax 可以通过分析页面渲染时间、DOM方法执行时间、 JavaScript代码的解析时间来进行性能检查。

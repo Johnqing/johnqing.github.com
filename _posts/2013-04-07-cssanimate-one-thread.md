@@ -1,6 +1,7 @@
 ---
 layout: post
 title: css3是个独立的ui线程
+category: f2e
 ---
 
 原文地址[点击查看](http://www.phpied.com/css-animations-off-the-ui-thread/)

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: javascript继承
+category: js
 ---
 
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 浏览器的渲染原理简介
+category: f2e
 ---
 
 来自：[酷壳](http://coolshell.cn/articles/9666.html)

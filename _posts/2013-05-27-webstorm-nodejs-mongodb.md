@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用webstorm搭建nodejs+mongodb环境
+category: f2e
 ---
 
 > 你还在为启动n个cmd窗口烦恼么？使用webstorm搭建nodejs+mongodb环境，轻松帮你解决。

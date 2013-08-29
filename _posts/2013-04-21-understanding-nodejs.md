@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 你知道nodejs么？
+category: f2e
 ---
 
 来自：[Understanding node.js](http://debuggable.com/posts/understanding-node-js:4bd98440-45e4-4a9a-8ef7-0f7ecbdd56cb)

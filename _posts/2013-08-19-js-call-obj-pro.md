@@ -1,6 +1,7 @@
 ---
 layout: post
 title: js中链式调用和对象的处理
+category: js
 ---
 
 > 很多同学比较迷糊，类似于jquery/n.js中链式调用是如何实现的？倒是他的类数组对象是存在什么地方的？

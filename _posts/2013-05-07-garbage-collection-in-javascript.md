@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Javascript 中的内存管理
+category: js
 ---
 
 来自：[http://blog.xiaoba.me/garbage-collection-in-javascript.html](http://blog.xiaoba.me/garbage-collection-in-javascript.html)

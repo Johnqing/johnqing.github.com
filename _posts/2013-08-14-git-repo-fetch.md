@@ -1,6 +1,7 @@
 ---
 layout: post
 title: github fork项目后，代码更新
+category: f2e
 ---
 
 ##协助约定##

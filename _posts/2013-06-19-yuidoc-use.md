@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 如何使用YUIdoc生成api文档
+category: f2e
 ---
 
 > 鉴于本人java水平太差，而且jsdoc文档众多，还有就是最近项目中准备使用yuidoc，so...

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: （译）如何编写可维护的面向对象javascript
+category: js
 ---
 
 

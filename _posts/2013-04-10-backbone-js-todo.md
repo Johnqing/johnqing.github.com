@@ -1,6 +1,7 @@
 ---
 layout: post
 title: （转）backbone.js实例Todo阅读笔记
+category: js
 ---
 
 > 来源：[小强](http://www.xiaoqiang.org/javascript/backbone-js-todo.html)

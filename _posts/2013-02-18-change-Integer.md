@@ -1,6 +1,7 @@
 ---
 layout: post
 title: javaScript转整数
+category: js
 ---
 
 我常用到的2中转整数的方法：
