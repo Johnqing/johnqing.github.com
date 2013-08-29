@@ -57,21 +57,21 @@ table {
 /*
 /*****************************************************************************/
 
-ul.posts {
+.articles {
   list-style-type: none;
   margin-bottom: 2em;
 }
 
-  ul.posts li {
+  .articles li {
     line-height: 1.75em;
   }
 
-  ul.posts .date {
+  .articles .date {
     color: #aaa;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
   }
-  ul.posts .bar {
+  .articles .bar {
     background: #eee;
     height: 14px;
     margin-top: 4px;
