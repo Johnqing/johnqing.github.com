@@ -12,7 +12,7 @@ title: 观察者模式
 + 页面载入后目标对象很容易与观察者存在一种动态关联，增加了灵活性。
 + 目标对象与观察者之间的抽象耦合关系能够单独扩展以及重用。
 
-<pre>
+{% highlight ruby %}
 var events = {
 
     /*
@@ -80,7 +80,7 @@ apple.setJobConten('程序员');
 apple.setJobConten('xx官员');
 apple.off('setJobConten');
 apple.setJobConten('某特殊行业');
-</pre>
+{% endhighlight %}
 
 
 

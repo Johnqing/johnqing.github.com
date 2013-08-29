@@ -3,7 +3,7 @@ layout: post
 title: backbone源码解析（转自iteye）
 ---
 
-<pre>(function() {
+{% highlight ruby %}(function() {
 
          // 创建一个全局对象, 在浏览器中表示为window对象, 在Node.js中表示global对象
          var root = this;
@@ -1983,4 +1983,4 @@ title: backbone源码解析（转自iteye）
              throw new Error('A "url" property or function must be specified');
          };
      }).call(this);
-</pre>
+{% endhighlight %}

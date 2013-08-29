@@ -25,7 +25,7 @@ title: Javascript 中的内存管理
 
 当变量初始化的时候，Javascript会自动分配相应的内存空间（注：这里MDN上关于这里用的是Value initialization，到底是声明，还是在赋值时候分配空间，还要再学习一下）
 
-<pre>
+{% highlight ruby %}
 var n = 123; //  为数字分配空间
 var s = "azerty"; // 字符串
 
@@ -44,19 +44,19 @@ function f(a){
 someElement.addEventListener('click', function(){
   someElement.style.backgroundColor = 'blue'; //个人补充，未考证，这里会为someElement分配空间，如注释所说，为对象分配空间
 }, false);
-</pre>
+{% endhighlight %}
 
 ##函数调用时候分配空间##
 有的函数调用，会产生上面说的那种 为对象分配空间
 
-<pre>
+{% highlight ruby %}
 var d = new Date();
 var e = document.createElement('div'); // allocates an DOM element
-</pre>
+{% endhighlight %}
 
 还有下面这种
 
-<pre>
+{% highlight ruby %}
 var s = "azerty";
 var s2 = s.substr(0, 3); // s2 is a new string
 // 由于Javascript中字符串是不可变的，所以Javascript也许并没有为s2中的字符串分配新空间，而是只存了[0, 3]的区间（用来索引）
@@ -64,7 +64,7 @@ var s2 = s.substr(0, 3); // s2 is a new string
 var a = ["ouais ouais", "nan nan"];
 var a2 = ["generation", "nan nan"];
 var a3 = a.concat(a2); // 新的空间来存储数组a3
-</pre>
+{% endhighlight %}
 
 ##操作变量值##
 没什么好说的，读、写、函数调用。
@@ -87,7 +87,7 @@ var a3 = a.concat(a2); // 新的空间来存储数组a3
 
 ##举个栗子##
 
-<pre>
+{% highlight ruby %}
 var o = { // 称之为外层对象
   a: { //称之为内层对象
     b:2
@@ -108,12 +108,12 @@ o2 = "yo"; //  好，现在o2也不引用外层对象了，外层对象引用计
 
 oa = null; //  现在oa不引用内层对象了
 // 内层对象也被垃圾回收
-</pre>
+{% endhighlight %}
 
 ##局限：循环引用##
 看下面代码：
 
-<pre>
+{% highlight ruby %}
 function f(){
   var o = {};
   var o2 = {};
@@ -129,19 +129,19 @@ f();
 // 所以按理说，他们已经没有存在价值了，需要被垃圾回收，释放内存
 // 然而，他们的引用计数都不为“0”
 // 所以在这种引用计数的机制下，他们没有被回收
-</pre>
+{% endhighlight %}
 
 ##实际例子##
 在IE6,7版本的浏览器中，就是使用的引用计数机制。因此，下面的代码在IE6,7中可以稳稳地发生内存泄漏
 
-<pre>
+{% highlight ruby %}
 var div = document.createElement("div");
 div.onclick = function(){
   doSomething();
 }; // div的onclick属性，会引用 function
 // 然而这个 function 反过来又引用了这个div，因为div在handler的作用域里面。
 // 造成上述循环引用，导致内存泄漏。 
-</pre>
+{% endhighlight %}
 
 ##标记清除算法##
 这种算法把“可以回收”定义成“对象不可达”，即访问不到。

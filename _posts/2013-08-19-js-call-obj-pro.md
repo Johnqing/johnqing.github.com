@@ -9,7 +9,7 @@ title: js中链式调用和对象的处理
 
 链式的实现有很多种，在这里我只阐述原型的方式是如何实现的，老规矩先上代码:
 
-<pre>
+{% highlight ruby %}
 	var Base = function(id){
 		this[0] = document.getElementById(id);
 		return this;	 
@@ -32,7 +32,7 @@ title: js中链式调用和对象的处理
 	 
 	var obj = Ajs('test');
 	obj.html('111').addClass('xxx');
-</pre>
+{% endhighlight %}
 
 细心的同学肯定会发现 每一个 函数中都有一个手动写好的 返回值（大部分都是this）
 
@@ -46,7 +46,7 @@ title: js中链式调用和对象的处理
 
 我们改造一下上面的代码
 
-<pre>
+{% highlight ruby %}
 var Base = function(obj){
 	this.length = 0;
 	for(var i=0; i &lt; obj.length; i++){
@@ -75,7 +75,7 @@ Base.prototype = {
  
 var obj = Ajs('li');
 obj.html('xxxx').addClass('xxx');
-</pre>
+{% endhighlight %}
 
 好了，解析一下代码。前提 我们这里是获取一组li，并且给li的html替换为指定值，然后第一个li的的className添加为指定值
 

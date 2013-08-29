@@ -33,18 +33,18 @@ title: 为什么使用JS模板引擎？
 
 现在有这样一段json数据：
 
-<pre>
+{% highlight ruby %}
 var data = {
     name: 'NTpl.js',
     author: 'johnqing'
 }
-</pre>
+{% endhighlight %}
 
 安装常规的思路拼接模板：
 
-<pre>
+{% highlight ruby %}
 var tpl = '&lt;h1&gt;'+data.name+'&lt;/h1&gt;&lt;span&gt;'+data.author+'&lt;/span&gt;';
-</pre>
+{% endhighlight %}
 
 现在看起来没有什么，加入有更复杂的呢？
 
@@ -54,22 +54,22 @@ var tpl = '&lt;h1&gt;'+data.name+'&lt;/h1&gt;&lt;span&gt;'+data.author+'&lt;/spa
 
 数据：
 
-<pre>
+{% highlight ruby %}
 var data = {
     name: 'NTpl.js',
     author: 'johnqing'
 }
-</pre>
+{% endhighlight %}
 
 结构
 
-<pre>
+{% highlight ruby %}
 var tpl = '<div>{name},blog:{author}</div>';
-</pre>
+{% endhighlight %}
 
 核心代码
 
-<pre>
+{% highlight ruby %}
 function tplCom(tpl, data){
     tpl = tpl.replace(/{(.*?)}/g,function($,$1){
         return data[$1] ? data[$1] : $;
@@ -77,13 +77,13 @@ function tplCom(tpl, data){
     return tpl;
 }
 console.log(tplCom(tpl, data));
-</pre>
+{% endhighlight %}
 
 但是这个实在太简陋了，看看俺的NTpl.js是如何实现的：
 
 只要你调用NTpl.tpl填入模板和数据就会自动返回拼接完成的数据，快捷方便，自动化
 
-<pre>
+{% highlight ruby %}
 var res = NTpl.tpl(tpl, data);
 console.log(res);
-</pre>
+{% endhighlight %}
