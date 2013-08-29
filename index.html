@@ -7,7 +7,7 @@ title: johnqing's blog.
   <div class="posts">
     {% for post in site.posts limit: 5%}
     <div class="post_info">
-      {{ post.content }}
+      {{ post.title }}
       <p><a href="{{ post.url }}">Continue Reading...</a></p>
     </div>
     {% endfor %}
