@@ -92,6 +92,11 @@ ul.posts {
   line-height: 1.5em;
 }
 
+.title {
+  color: #a00;
+  margin-bottom: 2em;
+}
+
 .main h6 {
   color: #aaa;
 }
