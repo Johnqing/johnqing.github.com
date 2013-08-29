@@ -1,4 +1,4 @@
-destination: ./_site
+destination: .
 auto:        true
 server_port: 4000
 pygments:    true
