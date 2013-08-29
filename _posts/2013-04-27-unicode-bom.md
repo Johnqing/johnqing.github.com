@@ -1,7 +1,6 @@
 ---
 layout: post
 title: UTF-8里坑爹的BOM标记
-category: f2e
 ---
 
 *你有没有在使用php里include文件后，页面出现多余的空隙/空格，使得页面在浏览器显示各种异常。*

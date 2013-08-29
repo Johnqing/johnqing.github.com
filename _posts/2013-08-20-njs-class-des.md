@@ -1,7 +1,6 @@
 ---
 layout: post
 title: n.js中类的包装器的设计思路
-category: f2e
 ---
 
 > n.class.js是n.js关于类的包装器，接口为 n.Class();

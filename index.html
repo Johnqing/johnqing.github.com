@@ -3,88 +3,13 @@ layout: default
 title: Liu Qing
 ---
 
-<h6>Articles</h6>
-<ul class="unstyled articles">
-    {% assign year = "" %}
-    {% for post in site.posts %}
-    {% unless post.tags contains "speaking" %}
-    {% assign post_words = 0 %}
-    {% assign lines = post.content|split:'pre>' %}
-    {% for line in lines %}
-    {% assign mod = forloop.index|modulo:2 %}
-    {% assign line_words = line|strip_html|number_of_words|times:mod %}
-    {% assign post_words = post_words|plus:line_words %}
+<div id="home">
+  <div class="posts">
+    {% for post in site.posts reverse limit: 5 %}
+    <div class="post_info">
+      {{ post.content | replace: "more start -->","" | replace: "<!-- more end","" }}
+      <p><a href="{{ post.url }}">Continue Reading...</a></p>
+    </div>
     {% endfor %}
-    {% assign current_year = post.date|date:"%Y" %}
-    {% if current_year != year %}
-    {% assign year = current_year %}
-    {% endif %}
-    <li>
-        <span class="date">{{ post.date | date_to_string }}</span>
-        <span class="arrow">&raquo;</span>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <a class="bar" href="#" title="{{ post_words }} words"
-            style="width:{{ post_words | divided_by:20 | plus: 10 }}px;">&nbsp;</a>
-    </li>
-    {% endunless %}
-    {% endfor %}
-</ul>
-
-<h6>Talks</h6>
-<ul class="unstyled articles">
-    {% for post in site.posts %}
-    {% if post.tags contains "speaking" %}
-    <li>
-        <span class="date">{{ post.date | date_to_string }}</span>
-        <span class="arrow">&raquo;</span>
-        <a class="no-pjax" href="{{ post.url }}">{{ post.title }}</a>
-        <a class="bar" href="#" title="{{ post.slides }} slides"
-            style="width:{{ post.slides | times:2 }}px;">&nbsp;</a>
-    </li>
-    {% endif %}
-    {% endfor %}
-</ul>
-
-<h6>Keywords</h6>
-
-{% assign tags_max = 0 %}
-{% for tag in site.tags %}
-{% if tag[1].size > tags_max %}
-{% assign tags_max = tag[1].size %}
-{% endif %}
-{% endfor %}
-<ul class="unstyled tags">
-    {% for i in (1..tags_max) reversed %}
-    {% for tag in site.tags %}
-    {% if tag[1].size == i %}
-    <li>
-        <a href="/tag/{{ tag[0] | replace:' ','-' | replace:'.','' }}/">{{ tag[0] }}</a>
-        ({{ tag[1].size }}){% unless forloop.last %}, {% endunless %}
-    </li>
-    {% endif %}
-    {% endfor %}
-    {% endfor %}
-</ul>
-
-<h6>Open Source Projects</h6>
-<ul class="unstyled projects">
-    {% for project in site.projects %}
-    <li>
-        <a href="{{ project.url }}">{{ project.title }}</a>
-        <span class="arrow">&raquo;</span>
-        {{ project.desc }} <em>{{ project.tech }}</em>
-    </li>
-    {% endfor %}
-</ul>
-
-<h6>Links</h6>
-<ul class="unstyled links">
-    {% for project in site.links %}
-    <li>
-        <a href="{{ links.url }}">{{ links.title }}</a>
-        <span class="arrow">&raquo;</span>
-    </li>
-    {% endfor %}
-</ul>
-
-<div id="coderwall"><h6>Badges</h6></div>
+  </div>
+</div>

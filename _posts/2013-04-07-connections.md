@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 同域名下各浏览器并行连接数
-category: f2e
 ---
 
 <table border="0" cellspacing="0" cellpadding="4">

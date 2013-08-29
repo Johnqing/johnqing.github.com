@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 如何设计一个javascript框架？
-category: f2e
 ---
 
 > 做为一个多年的开发者，你是否有考虑过设计一个属于自己的框架？
@@ -67,11 +66,11 @@ Array.prototype修改的危险来自js一个不知有意还是无意的小小设
 
 在你的框架设计中，请不要实现无用的方法。
 
-{% highlight lua %}
-var add = function(a, b){
-	return a + b;
-}
-{% endhighlight %}
+<pre>
+	var add = function(a, b){
+		return a + b;
+	}
+</pre>
 
 ##总结##
 

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: javascript编码风格
-category: f2e
 ---
 
 > 合理javascript开发风格。使别人轻松的阅读你的代码，并使代码更优雅。

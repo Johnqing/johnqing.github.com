@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 使用webstorm搭建nodejs+mongodb环境
-category: f2e
 ---
 
 > 你还在为启动n个cmd窗口烦恼么？使用webstorm搭建nodejs+mongodb环境，轻松帮你解决。
@@ -27,7 +26,7 @@ category: f2e
 
 项目中创建一个**test.html**
 
-{% highlight lua %}
+<pre>
 //导入http模块
 var http = require('http');
 
@@ -38,7 +37,7 @@ http.createServer(function(req, res){
 }).listen(8080);
 
 console.log('success');
-{% endhighlight %}
+</pre>
 
 webstorm中设置，上图：
 

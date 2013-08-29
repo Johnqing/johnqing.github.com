@@ -1,10 +1,9 @@
 ---
 layout: post
 title: backbone源码解析（转自iteye）
-category: js
 ---
 
-{% highlight lua %}(function() {
+<pre>(function() {
 
          // 创建一个全局对象, 在浏览器中表示为window对象, 在Node.js中表示global对象
          var root = this;
@@ -1984,4 +1983,4 @@ category: js
              throw new Error('A "url" property or function must be specified');
          };
      }).call(this);
-{% endhighlight %}
+</pre>

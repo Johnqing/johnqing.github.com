@@ -1,7 +1,6 @@
 ---
 layout: post
 title: css3是个独立的ui线程
-category: f2e
 ---
 
 原文地址[点击查看](http://www.phpied.com/css-animations-off-the-ui-thread/)
@@ -38,18 +37,18 @@ category: f2e
 
 红色方块旋转动画，如下：
 
-{% highlight lua %}.spin {
+<pre>.spin {
   animation: 3s rotate linear infinite;
 }
  
 @keyframes rotate {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
-}{% endhighlight %}
+}</pre>
 
 绿色方块变换动画，如下：
 
-{% highlight lua %}.walkabout-new-school {
+<pre>.walkabout-new-school {
   animation: 3s slide-transform linear infinite;
 }
  
@@ -57,11 +56,11 @@ category: f2e
   from {transform: translatex(0);}
   50% {transform: translatex(300px);}
   to {transform: translatex(0);}
-}{% endhighlight %}
+}</pre>
 
 蓝色方块动画使用margin-left，而不是变换，如下：
 
-{% highlight lua %}.walkabout-old-school {
+<pre>.walkabout-old-school {
   animation: 3s slide-margin linear infinite;
 }
  
@@ -69,16 +68,16 @@ category: f2e
   from {margin-left: 0;}
   50% {margin-left: 100%;}
   to {margin-left: 0;}
-}{% endhighlight %}
+}</pre>
 
 #### Kill 开关
 
 点击kill按钮2秒钟时，看好CPU变化：
 
-{% highlight lua %}function kill() {
+<pre>function kill() {
   var start = +new Date;
   while (+new Date - start &lt; 2000){}
-}{% endhighlight %}
+}</pre>
 
 #### 结果
 

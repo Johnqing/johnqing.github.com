@@ -1,14 +1,13 @@
 ---
 layout: post
 title: Object.create和深度拷贝的区别
-category: f2e
 ---
 
 今天在群里和 氧气桑一起扯淡引发的问题：
 
 我的实现方案：
 
-{% highlight lua %}
+<pre>
 var a = {x:1}
 var b = copyObj(a);
 console.log(a);
@@ -27,11 +26,11 @@ function copyObj(obj){
     }
     return temp;
 }
-{% endhighlight %}
+</pre>
 
 氧气桑的实现方案：
 
-{% highlight lua %}
+<pre>
 var a = {x:1}
 var b = copyObj2(a);
 console.log(a);
@@ -46,7 +45,7 @@ function copyObj2(o){
     F.prototype = o;
     return new F();
 }
-{% endhighlight %}
+</pre>
 
 总结：
 

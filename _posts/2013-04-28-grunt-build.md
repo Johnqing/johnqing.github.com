@@ -1,7 +1,6 @@
 ---
 layout: post
 title: grunt构建工具使用说明
-category: f2e
 ---
 
 *Grunt 是一个基于任务的 JavaScript 项目命令行构建工具，运行于 Node.js 平台。Grunt 能够从模板快速创建项目，合并、压缩和校验 CSS & JS 文件，运行单元测试以及启动静态服务器。*
@@ -14,9 +13,9 @@ category: f2e
 
 package.json是npm的包配置文件，可以通过以下命令构建（当然一定要安装node）：
 
-{% highlight lua %}
+<pre>
 npm init
-{% endhighlight %}
+</pre>
 
 运行上面的命令，会提示你一步一步构建完整的package项。
 
@@ -40,17 +39,17 @@ package中比较重要的属性解释：
 
 首先说一下我的目录结构：
 
-{% highlight lua %}
+<pre>
 assets //资源文件目录
     seajs
     init //模块文件
     common
-{% endhighlight %}
+</pre>
 
 第二步，在assets下构建package.json和Gruntfile.js：
 
 + package.json使用默认构建完成是没有devDependencies这个属性的，手动添加下面代码块内容，并且运行npm install命令
-{% highlight lua %}
+<pre>
 "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-cmd-transport": "~0.2.0",
@@ -58,21 +57,21 @@ assets //资源文件目录
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-clean": "~0.4.0"
 }
-{% endhighlight %}
+</pre>
 + Gruntfile.js：注意这里的G必须是大写，这个文件才是grunt的真正的配置文件。
 
 ##如何配置Gruntfile.js？##
 
 继续重复烦人的话，grunt是基于nodejs，所以需要使用如下代码：
-{% highlight lua %}
+<pre>
 module.exports = function(grunt) {
 
 }
-{% endhighlight %}
+</pre>
 
 *怎么还没到Gruntfile啊，你妹！* *知道了，知道了*
 
-{% highlight lua %}
+<pre>
 module.exports = function(grunt) {
     //项目初始化配置
     grunt.initConfig({
@@ -80,7 +79,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json')
     });
 }
-{% endhighlight %}
+</pre>
 
 上面就是最基本的配置了。
 
@@ -88,7 +87,7 @@ module.exports = function(grunt) {
 
 首先给package.json里添加
 
-{% highlight lua %}
+<pre>
 "spm": {
     "alias": {
         "jquery": "common/jquery-1.9.1.min.js",
@@ -96,11 +95,11 @@ module.exports = function(grunt) {
         "kalendae" : "kalendae"
     }
 }
-{% endhighlight %}
+</pre>
 
 Gruntfile.js完整配置：
 
-{% highlight lua %}
+<pre>
  module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -149,6 +148,6 @@ Gruntfile.js完整配置：
 //注册任务。注意：直接使用grunt这里的build必须是define
   grunt.registerTask('build', ['transport', 'concat']);
 };
-{% endhighlight %}
+</pre>
 
 命令行运行：grunt build

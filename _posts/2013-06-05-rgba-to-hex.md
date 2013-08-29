@@ -1,7 +1,6 @@
 ---
 layout: post
 title: raba 和 hex互相转换
-category: js
 ---
 
 
@@ -12,7 +11,7 @@ color 需为 十六进制**#ffffff**格式
 透明度 需为 **0.1**格式
 
 
-{% highlight lua %}
+<pre>
 toHex = function (color, ap) {
   ap = (Math.round((ap*100)*255/100)).toString(16);
   color = color.indexOf('#') < 0 ? ('#' + ap + color) : ('#'+ ap + color.substring(1, color.length));
@@ -26,4 +25,4 @@ toRgba = function(color, ap){
   }
   return 'rgba(' + sColorChange.join(',') + ','+ap+')';
 };
-{% endhighlight %}
+</pre>

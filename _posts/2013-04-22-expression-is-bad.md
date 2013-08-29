@@ -1,7 +1,6 @@
 ---
 layout: post
 title: expression到底多影响性能
-category: css
 ---
 
 > 很多人不理解为什么expression会影响性能？给出一个曾经写的测试的例子。
@@ -12,7 +11,7 @@ category: css
 
 **CSS:**
 
-{% highlight lua %}
+<pre>
 body {
     font-size:12px;
     font-family:Verdana;
@@ -25,11 +24,11 @@ div a {
         test()
     );
 }
-{% endhighlight %}
+</pre>
 
 **HTML：**
 
-{% highlight lua %}
+<pre>
 计算了&lt;input id="c" /&gt;次
 &lt;div&gt;
     &lt;ul&gt;
@@ -39,15 +38,15 @@ div a {
         &lt;li&gt;&lt;a href="#"&gt;测试&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;
-{% endhighlight %}
+</pre>
 
 **JS：**
 
-{% highlight lua %}
+<pre>
 var k = 0;
 function test() {
     k++;
     document.getElementById('c').value = k;
     return;
 }
-{% endhighlight %}
+</pre>

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: javascript 冒泡排序法
-category: js
 ---
 
 > 今天一个哥们面试说被问到冒泡排序，我也一直对算法不感冒。特意查了下什么是冒泡排序，发现也不难特贡献代码一份
@@ -18,7 +17,7 @@ category: js
 
 code：
 
-{% highlight lua %}
+<pre>
 function bubbleSort(arr){
 	var tmp;
 	for (var i = arr.length - 1; i &gt;= 0; i--) {
@@ -35,4 +34,4 @@ function bubbleSort(arr){
 var arr = [3,2,4,9,1,5,7,6,8];
 var arrSorted = bubbleSort(arr);
 console.log(arrSorted);
-{% endhighlight %}
+</pre>

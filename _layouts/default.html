@@ -1,23 +1,45 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="description" content="想写一辈子代码可以么？">
-<title>{{ page.title }}</title>
-<!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-<link href="/atom.xml" rel="alternate" title="{{ site.title }}" type="application/atom+xml">
-<link rel="stylesheet" href="/assets/css/site.css?timestamp={{ site.time | date_to_xmlschema }}">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Liu Qing</title>
 
-<body>
-
-<div class="container">
-    <h1 class="title">{{ page.title }}</h1>
-</div>
-
-<div class="container main">{{ content }}</div>
-</body>
-
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>DelusionalCode</h1>
+        <p></p>
+        <p>I'm Liu Qing, currently working at <a
+          href="http://360.cn">qihu 360</a> in
+        Beijin. I am a Javascript developer and an opensource enthusiast. I
+        like to blog about HTML, CSS & Javascript.</p>
+        <a href="/">Home</a><br/>
+        <a href="/archive">Archives</a><br/>
+        <a href="http://github.com/johnqing">Projects</a><br/>
+        <a href="/about">About</a><br/>
+      </header>
+      <section>
+        {{ content }}
+      </section>
+      <footer>
+        <p>
+        <ul>
+          <li><a href="http://github.com/johnqing">Github</a></li>
+          <li><a href="http://weibo.com/jonery">Weibo</a></li>
+          <li><a href="http://facebook.com/sandeepravi">Facebook</a></li>
+        </ul>
+        </p>
+        <p><small>This blog is powered by <a href="http://github.com/mojombo/jekyll">jekyll</a>.</small></p>
+        <p>&copy 2012 Liu Qing.
+      </footer>
+    </div>
+  </body>
 </html>

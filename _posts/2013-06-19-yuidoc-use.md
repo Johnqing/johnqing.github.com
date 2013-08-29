@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 如何使用YUIdoc生成api文档
-category: f2e
 ---
 
 > 鉴于本人java水平太差，而且jsdoc文档众多，还有就是最近项目中准备使用yuidoc，so...
@@ -18,9 +17,9 @@ category: f2e
 
 ####安装####
 
-{% highlight lua %}
+<pre>
 npm -g install yuidocjs
-{% endhighlight %}
+</pre>
 
 时间略久!
 
@@ -35,19 +34,19 @@ npm -g install yuidocjs
 cmd进入项目中：
 
 **一次生成**
-{% highlight lua %}
+<pre>
 yuidoc .
-{% endhighlight %}
+</pre>
 
 **实时生成**
 
 在团队协作的时候，如果你懒得去配置本地服务器，
 为了可以让其他成员方便的看到你的文档，可以使用YUIDoc快速构建webserver，
 其他人就可以通过浏览器访问到你的API文档了，具体操作是在你使用前面提到的命令生成文档后，然后执行以下命令：
-{% highlight lua %}
+<pre>
 cd out
 yuidoc . --server 3000
-{% endhighlight %}
+</pre>
 上面的命令，首先是在cmd里把当前目录切换到out目录下，然后使用YUIDoc构建webserver监听端口7777，这里的端口可以是任意未被其他进程占用的端口，后面的操作就是防火墙为此端口放行，这样其他人就可以通过访问你的ip:端口看到你的API文档了。
 
 ####扩展阅读####
