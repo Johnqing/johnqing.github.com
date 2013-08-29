@@ -22,10 +22,21 @@ body {
   text-align: center;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
   font-size: 100%;
 }
-
+h2{
+  font-size: 85%
+}
+h3{
+  font-size: 75%
+}
+h4{
+  font-size: 65%
+}
+h5{
+  font-size: 55%
+}
 h1 {
   margin-bottom: 1em;
 }
