@@ -6,13 +6,13 @@ category: f2e
 
 > 常被人问到var a=1和a=1的区别在哪里？今天就写篇文章说说这事。
 
-<pre>var a=1;
+{% highlight lua %}var a=1;
 b=1;
 delete a;
 delete b;
 console.log(a);
 console.log(b);
-</pre>
+{% endhighlight %}
 
 其实 a 为全局变量，b为全局对象的一个属性
 

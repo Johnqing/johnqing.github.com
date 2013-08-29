@@ -27,7 +27,7 @@ category: f2e
 
 项目中创建一个**test.html**
 
-<pre>
+{% highlight lua %}
 //导入http模块
 var http = require('http');
 
@@ -38,7 +38,7 @@ http.createServer(function(req, res){
 }).listen(8080);
 
 console.log('success');
-</pre>
+{% endhighlight %}
 
 webstorm中设置，上图：
 

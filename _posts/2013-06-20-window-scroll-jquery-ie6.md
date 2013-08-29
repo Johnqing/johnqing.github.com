@@ -10,7 +10,7 @@ category: f2e
 
 那就是代码的问题，先上一个原代码:
 
-<pre>
+{% highlight lua %}
 ;(function($){
 	$.fn.gbackTop = function(o) {
 		var def = { 
@@ -35,50 +35,50 @@ category: f2e
 		});
 	};
 })(jQuery)
-</pre>
+{% endhighlight %}
 
 翻看了下上面这段代码，发现有以下几个点，需要优化（这里讨论的是严重影响性能代码）：
 
-<pre>
+{% highlight lua %}
 this.each();
-</pre>
+{% endhighlight %}
 
 这段代码每次调用gbackTop函数都要循环一次this
 
 
-<pre>
+{% highlight lua %}
 var top =$(window).scrollTop();
 if(top>t){
 	$(b).show();
 };
-</pre>
+{% endhighlight %}
 
 这段其实完全没有必要，因为刷新页面时window.onscroll肯定会执行
 
-<pre>
+{% highlight lua %}
 if ($(this).scrollTop() > t) {
 	$(b).show();
 } else {
 	$(b).hide();
 };
-</pre>
+{% endhighlight %}
 
 这段可以优化为：
 
-<pre>
+{% highlight lua %}
 if ($(this).scrollTop() > t) {
 	$(b).show();
 	return;
 };
 $(b).hide();
-</pre>
+{% endhighlight %}
 
 
 **ie6获取scrollTop并且修改top值会无限触发reflow**
 
 好了，附上我重构过的代码，（参数没有重构掉）
 
-<pre>
+{% highlight lua %}
 ;(function($){
 	$.fn.gbackTop = function(opts) {
 		var def = { 
@@ -107,4 +107,4 @@ $(b).hide();
 		}
 	};
 })(jQuery);
-</pre>
+{% endhighlight %}

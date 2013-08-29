@@ -98,6 +98,42 @@ table {
   font-size: 4em;
 }
 
+.main{
+  line-height: 1.5em;
+}
+
 .main h6 {
   color: #aaa;
 }
+
+.main ul,
+.main ol {
+  margin: 1.35em;
+}
+
+.main li {
+  line-height: 1.5em;
+}
+
+.main pre,
+.main code{
+  border: 1px solid #ccc;
+  background-color: #222;
+  white-space: pre; /* CSS2 */  
+  white-space: -moz-pre-wrap; /* Mozilla */  
+  white-space: -hp-pre-wrap; /* HP printers */  
+  white-space: -o-pre-wrap; /* Opera 7 */  
+  white-space: -pre-wrap; /* Opera 4-6 */  
+  white-space: pre-wrap; /* CSS 2.1 */  
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */  
+  word-wrap: break-word; /* IE */  
+  overflow: hidden;
+  color: #e6db74;
+}
+.main pre {
+  padding: .4em;
+}
+.main code {
+    font-size: 85%;
+    padding: .2em;
+  }

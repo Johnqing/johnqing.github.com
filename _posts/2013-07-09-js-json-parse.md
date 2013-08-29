@@ -8,17 +8,17 @@ category: js
 
 JSON的语法必须正确键必须用引号包裹：
 
-<pre>
+{% highlight lua %}
 {'x':1,'y':{'a':2}}
-</pre>
+{% endhighlight %}
 
 ##使用##
 
 + JSON字符串解析为对象
-<pre>
+{% highlight lua %}
 JSON.parse(data);
-</pre>
+{% endhighlight %}
 + JSON对象解析为字符串
-<pre>
+{% highlight lua %}
 JSON.stringify(data);
-</pre>
+{% endhighlight %}

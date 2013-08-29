@@ -38,18 +38,18 @@ category: f2e
 
 红色方块旋转动画，如下：
 
-<pre>.spin {
+{% highlight lua %}.spin {
   animation: 3s rotate linear infinite;
 }
  
 @keyframes rotate {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
-}</pre>
+}{% endhighlight %}
 
 绿色方块变换动画，如下：
 
-<pre>.walkabout-new-school {
+{% highlight lua %}.walkabout-new-school {
   animation: 3s slide-transform linear infinite;
 }
  
@@ -57,11 +57,11 @@ category: f2e
   from {transform: translatex(0);}
   50% {transform: translatex(300px);}
   to {transform: translatex(0);}
-}</pre>
+}{% endhighlight %}
 
 蓝色方块动画使用margin-left，而不是变换，如下：
 
-<pre>.walkabout-old-school {
+{% highlight lua %}.walkabout-old-school {
   animation: 3s slide-margin linear infinite;
 }
  
@@ -69,16 +69,16 @@ category: f2e
   from {margin-left: 0;}
   50% {margin-left: 100%;}
   to {margin-left: 0;}
-}</pre>
+}{% endhighlight %}
 
 #### Kill 开关
 
 点击kill按钮2秒钟时，看好CPU变化：
 
-<pre>function kill() {
+{% highlight lua %}function kill() {
   var start = +new Date;
   while (+new Date - start &lt; 2000){}
-}</pre>
+}{% endhighlight %}
 
 #### 结果
 

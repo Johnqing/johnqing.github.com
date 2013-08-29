@@ -12,7 +12,7 @@ category: css
 
 **CSS:**
 
-<pre>
+{% highlight lua %}
 body {
     font-size:12px;
     font-family:Verdana;
@@ -25,11 +25,11 @@ div a {
         test()
     );
 }
-</pre>
+{% endhighlight %}
 
 **HTML：**
 
-<pre>
+{% highlight lua %}
 计算了&lt;input id="c" /&gt;次
 &lt;div&gt;
     &lt;ul&gt;
@@ -39,15 +39,15 @@ div a {
         &lt;li&gt;&lt;a href="#"&gt;测试&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 &lt;/div&gt;
-</pre>
+{% endhighlight %}
 
 **JS：**
 
-<pre>
+{% highlight lua %}
 var k = 0;
 function test() {
     k++;
     document.getElementById('c').value = k;
     return;
 }
-</pre>
+{% endhighlight %}

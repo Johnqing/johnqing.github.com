@@ -4,7 +4,7 @@ title: undercore源码解析（转自iteye）
 category: js
 ---
 
-<pre>(function() {
+{% highlight lua %}(function() {
 
          // 创建一个全局对象, 在浏览器中表示为window对象, 在Node.js中表示global对象
          var root = this;
@@ -1340,4 +1340,4 @@ category: js
              return this._wrapped;
          };
      }).call(this);
-</pre>
+{% endhighlight %}

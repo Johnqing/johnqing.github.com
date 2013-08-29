@@ -24,7 +24,7 @@ category: js
 ![queue](https://f.cloud.github.com/assets/2571697/365732/631f7678-a258-11e2-9322-d1e8895ba36f.png)
 
 #### 数组栈模拟
-<pre>var arrStack = [];
+{% highlight lua %}var arrStack = [];
  arrStack.push(1);
  arrStack.push(2);
  arrStack.push(3);
@@ -34,10 +34,10 @@ category: js
  console.log(x);
 
  console.log(arrStack);
-</pre>
+{% endhighlight %}
 
 #### 数组队列模拟
-<pre>var arrQueue = [];
+{% highlight lua %}var arrQueue = [];
  arrQueue.push(1);
  arrQueue.push(2);
  arrQueue.push(3);
@@ -47,13 +47,13 @@ category: js
  console.log(x);
 
  console.log(arrQueue);
-</pre>
+{% endhighlight %}
 
 
 有了上面的例子，我们可以简单的做一下封装：
 
 **栈：**
-<pre>
+{% highlight lua %}
 (function(win){
     var Stack = function(){
         this.arr = [];
@@ -95,10 +95,10 @@ console.log(stack.getArr());
 var x = stack.pop();
 console.log(x);
 console.log(stack.getArr());
-</pre>
+{% endhighlight %}
 
 **队列：**
-<pre>
+{% highlight lua %}
 (function(win){
     var Queue = function(){
         this.arr = [];
@@ -140,4 +140,4 @@ console.log(queue.getArr());
 var x = queue.shift();
 console.log(x);
 console.log(queue.getArr());
-</pre>
+{% endhighlight %}

@@ -48,7 +48,7 @@ CSS规则应具备抽象和解耦性，这样你就可以在现有的基础上�
 
 ###基于父组件来修改组件###
 
-<pre>
+{% highlight lua %}
 .widget {  
   background: yellow;  
   border: 1px solid black;  
@@ -63,7 +63,7 @@ CSS规则应具备抽象和解耦性，这样你就可以在现有的基础上�
 body.homepage .widget {  
   background: white;  
 } 
-</pre>
+{% endhighlight %}
 
 初看，这绝对是段无害的代码，但让我们来看看它是否达到了我们所设置的目标。
 
@@ -79,11 +79,11 @@ body.homepage .widget {
 
 但伴随着越深入的开发，我越会远离这种复杂的选择器。一个选择器越复杂，与HTML就越耦合。依靠HTML标签和组合器可以保持HTML代码干干净净，但却让CSS更加毛重和凌乱。
 
-<pre>
+{% highlight lua %}
 #main-nav ul li ul li div { }  
 #content article h1:first-child { }  
 #sidebar > div > h3 + p { } 
-</pre>
+{% endhighlight %}
 
 对上面代码进行简单的理解。第一个可能是对下拉菜单进行样式化；第二个想说明文章的主标题应该与其他页面的H1元素不同；最后一个表示在第一段的侧边栏区域添加一些额外的空间。
 
@@ -95,7 +95,7 @@ body.homepage .widget {
 
 当创建可重用的设计组件时，在组件的类选择器中覆盖附件的子元素是很常见的现象。例如：
 
-<pre>
+{% highlight lua %}
 &lt;div class="widget"&gt;  
   &lt;h3 class="title"&gt;...&lt;/h3&gt;  
   &lt;div class="contents"&gt;  
@@ -112,7 +112,7 @@ body.homepage .widget {
 .widget .contents {}  
 .widget .action {} 
 &lt;/style&gt;
-</pre>
+{% endhighlight %}
 
 像.title、.contents、.action这些子元素类选择器可以被安全地进行样式命名，无需担心这些样式会蔓延到拥有相同类名的其他元素中。这是千真万确的。但它并没有阻止相同样式类名称会蔓延到这个组件上。
 
@@ -124,7 +124,7 @@ body.homepage .widget {
 
 有时，你要在网站的左上角区域做一个20pixels的可视化组件。
 
-<pre>
+{% highlight lua %}
 .widget {  
   position: absolute;  
   top: 20px;  
@@ -133,7 +133,7 @@ body.homepage .widget {
   font-size: 1.5em;  
   text-transform: uppercase;  
 } 
-</pre>
+{% endhighlight %}
 
 下面，你需要在网站的其他区域使用该组件，那么上面的这个代码明显是错误的，不可重用的。
 
@@ -175,13 +175,13 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 
 确保选择器对一些元素不进行无关样式的最好方法是不给它们机会。例如像#main-nav ul li ul li div这样的选择器可能很容易地应用于不想要的元素上。另一方面，像.subnav这样的选择器就不会给它们任何机会。把类选择器直接应用于你想要的元素上是最好的方式，并且可以保持元素的可预测性。
 
-<pre>
+{% highlight lua %}
 /* Grenade */ 
 #main-nav ul li ul { }  
  
 /* Sniper Rifle */ 
 .subnav { } 
-</pre>
+{% endhighlight %}
 
 ###模块化###
 
@@ -195,7 +195,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 
 我们已经检查出为什么父选择器不能在封闭和防止交叉样式污染上面发挥100%的功效。而一个更好的解决方案就是在类上应用命名空间。如果一个元素是可视化组件的一员，那么该元素的每个子元素都应该使用基于命名空间的组件。
 
-<pre>
+{% highlight lua %}
 /* High risk of style cross-contamination */ 
 .widget { }  
 .widget .title { }  
@@ -203,7 +203,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 /* Low risk of style cross-contamination */ 
 .widget { }  
 .widget-title { } 
-</pre>
+{% endhighlight %}
 
 给类进行命名空间可以保持组件独立性和模块化。它可以把现有类冲突降至最小并且减少子元素的一些特殊要求。
 
@@ -211,7 +211,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 
 当一个现有组件需要在一个特定的语境中有所不同时，可以创建一个修饰符类（modifier class）来扩展它。
 
-<pre>
+{% highlight lua %}
 /* Bad */ 
 .widget { }  
 #sidebar .widget { }  
@@ -219,7 +219,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 /* Good */ 
 .widget { }  
 .widget-sidebar { } 
-</pre>
+{% endhighlight %}
 
 正如我们看到的，基于父元素的缺点对组件进行修改，需要重申：一个修饰符类可以在任何地方使用。基于位置的覆盖只能被用在一个特定的位置，修饰符类也可以根据需要被多次使用。显然，修饰符类是符合HTML开发者需求的。
 
@@ -249,7 +249,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 
 [Nicolas Gallagher](http://nicolasgallagher.com/)最近针对遇到的问题写了一个[解决方案](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)，并且取得了巨大的成功（略有改动），为了说明命名约定，可以考虑以下格式：
 
-<pre>
+{% highlight lua %}
 /* A component */ 
 .button-group { }  
  
@@ -261,11 +261,11 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
  
 /* Is this a component class or a layout class? */ 
 .header { } 
-</pre>
+{% endhighlight %}
 
 从上述类中可以发现其很难正确区分类型规则。这不但会困惑，而且连自动测试CSS和HTML也变的很难。一个结构化的命名约定应该是初看就能够知道其类名与其他类之间的关系，并且知道它出现在HTML中的位置——使命名更加简单和容易测试。
 
-<pre>
+{% highlight lua %}
 /* Templates Rules (using Sass placeholders) */ 
 %template-name  
 %template-name--modifier-name  
@@ -287,11 +287,11 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
  
 /* Non-styled JavaScript Hooks */ 
 .js-action-name 
-</pre>
+{% endhighlight %}
 
 重做第一个例子：
 
-<pre>
+{% highlight lua %}
 /* A component */ 
 .button-group { }  
  
@@ -303,7 +303,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
  
 /* A layout class */ 
 .l-header { } 
-</pre>
+{% endhighlight %}
 
 ##6.工具##
 
@@ -321,7 +321,7 @@ CSS预处理器采用PHP5编写，有预处理器的常见功能，可以帮你�
 
 当你初次使用@extend时，常会与修饰符类一起使用，例如：
 
-<pre>
+{% highlight lua %}
 .button {  
   /* button styles */ 
 }  
@@ -331,7 +331,7 @@ CSS预处理器采用PHP5编写，有预处理器的常见功能，可以帮你�
   @extend .button;  
   /* modification styles */ 
 } 
-</pre>
+{% endhighlight %}
 
 这样做会让你在HTML中失去继承链。很难使用JavaScript选择所有的按钮实例。
 
@@ -339,7 +339,7 @@ CSS预处理器采用PHP5编写，有预处理器的常见功能，可以帮你�
 
 下面是一个引用上面的模式例子：
 
-<pre>
+{% highlight lua %}
 .modal {  
   @extend %dialog;  
   @extend %drop-shadow;  
@@ -356,7 +356,7 @@ CSS预处理器采用PHP5编写，有预处理器的常见功能，可以帮你�
   @extend %background-gradient;  
   /* other modal header styles */ 
 } 
-</pre>
+{% endhighlight %}
 
 ###CSS Lint###
 

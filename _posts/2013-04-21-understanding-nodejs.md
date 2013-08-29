@@ -39,7 +39,7 @@ category: f2e
 
 当然，一个node程序的例子，如下：
 
-<pre>
+{% highlight lua %}
 var fs = require('fs')
 , sys = require('sys');
 fs.readFile('treasure-chamber-report.txt', function(report) {
@@ -48,7 +48,7 @@ fs.readFile('treasure-chamber-report.txt', function(report) {
 fs.writeFile('letter-to-princess.txt', '...', function() {
     sys.puts("can't wait to hear back from her!");
 });
-</pre>
+{% endhighlight %}
 
 你的代码给node两项任务：读和写文件，然后它休眠。一旦node完成一项任务，它的回调函数就会被触发。但是一次只能触发一个回调函数，直到回调函数执行完毕了，所有其它回调函数都在排队.除了这点，不能保证下一步触发哪个回调函数。
 

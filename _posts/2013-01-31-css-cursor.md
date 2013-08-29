@@ -4,8 +4,8 @@ title: css cursor自定义
 category: css
 ---
 
-<pre>cursor:url(http://localhost/d2/matches.cur),url(http://localhost/d2/matches.cur),n-resize;
-</pre>
+{% highlight lua %}cursor:url(http://localhost/d2/matches.cur),url(http://localhost/d2/matches.cur),n-resize;
+{% endhighlight %}
 
 >cur文件必须为32*32，否则个浏览器表现差异很大
 

@@ -8,7 +8,7 @@ category: f2e
 
 我的实现方案：
 
-<pre>
+{% highlight lua %}
 var a = {x:1}
 var b = copyObj(a);
 console.log(a);
@@ -27,11 +27,11 @@ function copyObj(obj){
     }
     return temp;
 }
-</pre>
+{% endhighlight %}
 
 氧气桑的实现方案：
 
-<pre>
+{% highlight lua %}
 var a = {x:1}
 var b = copyObj2(a);
 console.log(a);
@@ -46,7 +46,7 @@ function copyObj2(o){
     F.prototype = o;
     return new F();
 }
-</pre>
+{% endhighlight %}
 
 总结：
 

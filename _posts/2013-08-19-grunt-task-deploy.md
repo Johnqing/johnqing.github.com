@@ -10,7 +10,7 @@ category: f2e
 
 ##concat##
 
-<pre>
+{% highlight lua %}
 module.exports = function(grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
@@ -48,46 +48,46 @@ module.exports = function(grunt) {
 
   	grunt.registerTask("default",["concat"]);
 }
-</pre>
+{% endhighlight %}
 
 *其他模块的使用和cancat模块大同小异，请自己简单调试*
 
-<pre>
+{% highlight lua %}
 	module.exports = function(grunt){}
-</pre>
+{% endhighlight %}
 
 是nodejs中添加一个模块的方法
 
-<pre>
+{% highlight lua %}
 	grunt.initConfig
-</pre>
+{% endhighlight %}
 
 是grunt的配置项
 
-<pre>
+{% highlight lua %}
 	pkg: grunt.file.readJSON("package.json"),
-</pre>
+{% endhighlight %}
 
 为读取package.json
 
-<pre>
+{% highlight lua %}
 	concat: {}
-</pre>
+{% endhighlight %}
 
 是当前的任务
 
-<pre>
+{% highlight lua %}
 	base: {}
 	extras: {}
-</pre>
+{% endhighlight %}
 
 base和extras都是自定义的任务名（可定义多个合并任务）
 
-<pre>
+{% highlight lua %}
 	options: {}
 	src: []
 	dest: ''
-</pre>
+{% endhighlight %}
 
 上面的三个key，不可更改
 
@@ -101,7 +101,7 @@ dest 是合并后的文件路径
 
 在[n.js](https://github.com/Johnqing/n.js)构建中有这样一个需求，需要自动生成版本信息和文件更改时间，代码如下:
 
-<pre>
+{% highlight lua %}
 //自动给文件添加版本号和修改时间
 grunt.registerTask("post-concat", function() {
 	//当前需要修改的文件地址
@@ -121,10 +121,10 @@ grunt.registerTask("post-concat", function() {
 	//打印log
 	grunt.log.writeln('"@VERSION" is replaced to "' + version + '".');
 })
-</pre>
+{% endhighlight %}
 
 下面代码中，taskName为任务名/任务id，第二个参数为任务描述，taskList为需要执行的任务
 
-<pre>
+{% highlight lua %}
 	grunt.registerTask(taskName, [description, ], taskList);
-</pre>
+{% endhighlight %}
