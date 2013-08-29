@@ -1,41 +1,5 @@
-permalink: /:year/:month/:day/:title
-
-exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: false
-markdown: rdiscount
-paginate: 6
-description_length: 200
-
-# Themes are encouraged to use these universal variables 
-# so be sure to set them if your theme uses them.
-#
-title : 刘卿的小站
-address: johnqing.github.com
-tagline: 想写一辈子代码可以么？（思考记录之地）
-author :
-  name : john
-  email : csssnow@gmail.com
-  github : johnqing
-  twitter : ''
-  feedburner : ''
-start_year: "2012"
-
-production_url : http://johnqing.github.com
-
-JB :
-  version : 0.2.13
-  BASE_PATH : false
-  ASSET_PATH : false
-
-meta:
-    author:
-        name: 刘卿
-        email: csssnow@gmail.com
-        disqus: johnqing                            # Disqus缩略标识
-        gcse: 013272657981146924125:j-9xsn0usau     # Google自定义搜索标识ID
-        github: johnqing                            # GitHub账号
-        gravatar: fdfcf1e17124a1b949b98ddff70550a8  # Gravatar头像标识
-
-    disqus: disqus.com/embed.js                     # Disqus评论的JS地址
-    gapi: http://www.google.com/jsapi               # Google API地址
-    gravatar: http://en.gravatar.com/avatar/        # Gravatar头像服务器地址
+destination: ./_site
+auto:        true
+server_port: 4000
+pygments:    true
+permalink:   /:categories/:title/
