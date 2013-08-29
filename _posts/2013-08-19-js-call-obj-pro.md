@@ -10,28 +10,28 @@ title: js中链式调用和对象的处理
 链式的实现有很多种，在这里我只阐述原型的方式是如何实现的，老规矩先上代码:
 
 {% highlight ruby %}
-	var Base = function(id){
-		this[0] = document.getElementById(id);
-		return this;	 
+var Base = function(id){
+	this[0] = document.getElementById(id);
+	return this;	 
+}
+var Ajs = function(id){
+  return new Base(id);
+}
+ 
+Base.prototype = {
+	html: function(str){
+		this[0].innerHTML = str;
+		return this;
+	},
+	addClass: function(str){
+		this[0].className += ' '+str;
+		return this;
 	}
-	var Ajs = function(id){
-	  return new Base(id);
-	}
-	 
-	Base.prototype = {
-		html: function(str){
-			this[0].innerHTML = str;
-			return this;
-		},
-		addClass: function(str){
-			this[0].className += ' '+str;
-			return this;
-		}
-	}
-	 
-	 
-	var obj = Ajs('test');
-	obj.html('111').addClass('xxx');
+}
+ 
+ 
+var obj = Ajs('test');
+obj.html('111').addClass('xxx');
 {% endhighlight %}
 
 细心的同学肯定会发现 每一个 函数中都有一个手动写好的 返回值（大部分都是this）
