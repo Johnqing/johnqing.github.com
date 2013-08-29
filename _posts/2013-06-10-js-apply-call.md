@@ -30,7 +30,7 @@ title: javascript中apply和call详解
 
 模拟一下执行上下文:
 
-{% highlight css %}
+<pre>
   executionContextObj = {
     variableObject: { 
       /* 函数中的arguments对象, 参数, 内部的变量以及函数声明 */ 
@@ -40,7 +40,7 @@ title: javascript中apply和call详解
     },
     this: {}
   }
-{% endhighlight %}
+</pre>
 
 上下文对象（上述的executionContextObj）是在函数被调用时，但是在函数体被真正执行以前所创建的。
 函数被调用时，就是我上述所描述的两个阶段中的第一个阶段 – 建立阶段。
@@ -57,7 +57,7 @@ apply 和 call 这俩货在作用上完全一样，只是在使用上略有不�
 
 老习惯，上代码
 
-{% highlight css %}
+<pre>
 var a = function(){
     console.log(this.name+'，你妈喊你回家吃饭!');
     this.age = 18;
@@ -67,13 +67,13 @@ var b = {
 }
 a.call(b);
 console.log(b.age);
-{% endhighlight %}
+</pre>
 
 不懂？
 
 再来一段代码
 
-{% highlight css %}
+<pre>
 var a = function(name){
     this.name = name
     this.say = function(){
@@ -94,6 +94,6 @@ var c = new b('贾xx', 18);
 
 c.say();
 c.sayAge();
-{% endhighlight %}
+</pre>
 
 很明显 这里的b中是没有say方法和name属性的，我们需要借用a中的say方法和name属性

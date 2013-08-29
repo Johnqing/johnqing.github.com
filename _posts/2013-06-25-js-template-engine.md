@@ -21,7 +21,7 @@ title: NTpl模板引擎使用
 
 1. 引入nTpl.js是必须的
 2. 可以使用任何容器存储模板片段(示例中使用textarea作为容器)
-{% highlight css %}
+<pre>
 &lt;!--textarea作为容器的好处是浏览器不会解析--&gt;
 &lt;textarea id="tpl" style="display:none"&gt;
     &lt;h1&gt;title:&lt;%= title %&gt;&lt;/h1&gt;
@@ -36,9 +36,9 @@ title: NTpl模板引擎使用
             &lt;h2&gt;没有list数据&lt;/h2&gt;
         &lt;% } %&gt;
 &lt;/textarea&gt;
-{% endhighlight %}
+</pre>
 3. 模板也可以直接存储在一个变量中（下面的例子：可以在[这里](https://github.com/Johnqing/SocialCard/blob/master/assets/js/controller.js)找到）
-{% highlight css %}
+<pre>
  var tpl = '&lt;% for(var i=0; i&lt;data.length; i++){ %&gt;'+
               '&lt;div class="familyName"&gt;'+
                   '&lt;span&gt;&lt;%= data[i].name %&gt;&lt;/span&gt;'+
@@ -49,12 +49,12 @@ title: NTpl模板引擎使用
                   '&lt;/dl&gt;'+
               '&lt;/div&gt;'+
           '&lt;% } %&gt;';
-{% endhighlight %}
+</pre>
 
 ##调用##
 
 1. 数据
-{% highlight css %}
+<pre>
 var data={
     "title":'啊哦~这是标题',
     "list":[
@@ -64,24 +64,24 @@ var data={
         'test4:第五项未定义，模板系统会输出空'
     ]
 };
-{% endhighlight %}
+</pre>
 
 2. NTpl是该模板引擎的命名空间
-{% highlight css %}
+<pre>
 NTpl.tpl
-{% endhighlight %}
+</pre>
 3. tpl接收容器id
-{% highlight css %}
+<pre>
 NTpl.tpl('id', data);
-{% endhighlight %}
+</pre>
 4. tpl也接收字符串
-{% highlight css %}
+<pre>
 NTpl.tpl('&lt;div&gt;&lt;%= name %&gt;&lt;/div&gt;', data);
-{% endhighlight %}
+</pre>
 5. 插入容器
-{% highlight css %}
+<pre>
 document.getElementById('result').innerHTML = res;
-{% endhighlight %}
+</pre>
 
 ##模板语法##
 
@@ -90,7 +90,7 @@ document.getElementById('result').innerHTML = res;
 ####自定义实例如下####
 
 模板
-{% highlight css %}
+<pre>
 &lt;h1&gt;title:&lt;#= title #&gt;&lt;/h1&gt;
 &lt;# if(list.length&gt;1) { #&gt;
     &lt;h2&gt;输出list，共有&lt;#= list.length #&gt;个元素&lt;/h2&gt;
@@ -102,10 +102,10 @@ document.getElementById('result').innerHTML = res;
 &lt;# }else{ #&gt;
     &lt;h2&gt;没有list数据&lt;/h2&gt;
 &lt;# } #&gt;
-{% endhighlight %}
+</pre>
 
 调用
-{% highlight css %}
+<pre>
 NTpl.leftDelimiter = "&lt;#";
 NTpl.rightDelimiter = "#&gt;";
 var data={
@@ -119,30 +119,30 @@ var data={
 };
 var res = NTpl.tpl('tpl',data);
 document.getElementById('result').innerHTML = res;
-{% endhighlight %}
+</pre>
 
 
 ####判断语句：####
 
-{% highlight css %}
+<pre>
 &lt;% if(list.length){ %&gt;
     &lt;h2&gt;&lt;%= list.length %&gt;&lt;/h2&gt;
 &lt;% }else{ %&gt;
     &lt;h2&gt; list长度为0 &lt;h2&gt;
 &lt;% } %&gt;
-{% endhighlight %}
+</pre>
 
 ####循环语句：####
 
-{% highlight css %}
+<pre>
 &lt;% for(var i=0;i&lt;5;i++){ %&gt;
     &lt;li&gt;&lt;%= list[i] %&gt;&lt;/li&gt;
 &lt;% } %&gt;
-{% endhighlight %}
+</pre>
 
 ####一个比较复杂的实例####
 
-{% highlight css %}
+<pre>
 //字体渲染
 var fontFamily = {
     tpl: function(){
@@ -196,6 +196,6 @@ var fontFamily = {
 };
 var familyTpl = NTpl.tpl(fontFamily.tpl(),fontFamily);
 document.getElementById('result').innerHTML = familyTpl;
-{% endhighlight %}
+</pre>
 
 

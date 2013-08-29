@@ -7,17 +7,17 @@ title: 非标准浏览器JSON解析实现
 
 JSON的语法必须正确键必须用引号包裹：
 
-{% highlight css %}
+<pre>
 {'x':1,'y':{'a':2}}
-{% endhighlight %}
+</pre>
 
 ##使用##
 
 + JSON字符串解析为对象
-{% highlight css %}
+<pre>
 JSON.parse(data);
-{% endhighlight %}
+</pre>
 + JSON对象解析为字符串
-{% highlight css %}
+<pre>
 JSON.stringify(data);
-{% endhighlight %}
+</pre>

@@ -13,7 +13,7 @@ title: （转）如何更快的诊断 JavaScript 错误
 
 让我们来看下一个简单的示例脚本：计算（0,2）和（12,10）两点之间的距离：
 
-{% highlight css %}
+<pre>
 (function () {
     'use strict';
     function squareRoot(n) {
@@ -43,7 +43,7 @@ title: （转）如何更快的诊断 JavaScript 错误
         console.log(e.stack);
     }
 })();
-{% endhighlight %}
+</pre>
 
 ![queue](http://static.oschina.net/uploads/img/201302/14085513_P540.png)
 
@@ -59,7 +59,7 @@ title: （转）如何更快的诊断 JavaScript 错误
 
 虽然DOM异常也是对象，但他们没有追溯错误的原型链，因此他们就没有一个堆栈属性。当你执行DOM操作并且想显示出javascript兼容性的一些错误时，你可以在DOM操作代码上使用try/catch代码块，然后在catch语句内抛出一个新的异常:
 
-{% highlight css %}
+<pre>
 function causesDomError() {
     try {
         var div = document.createElement('div');
@@ -71,7 +71,7 @@ function causesDomError() {
 
     }
 }
-{% endhighlight %}
+</pre>
 
 然而，你可能考虑你是否想用这种模式，它可能适用于那些通用库的开发；尤其是，考虑到你的代码意图是否想隐藏DOM的操作，或者是简单的执行一个任务。如果是隐藏DOM的操作，包裹操作部分并且抛出错误可能是最好的方式吧。
 
@@ -83,7 +83,7 @@ function causesDomError() {
 
 当一个堆栈跟踪产生于一个异步的回调时（比如，timeout,interval, 或者XMLHttpRequest），异步调用，而不是在调用堆栈的底部创建异步调用的代码。这里存在一些跟踪问题代码的潜在影响：如果你对于多个异步回调使用相同的回调函数，你或许会发现很难查找出某一个单独的回调引起的错误。让我们稍微修改下之前的例子，替换直接调用simple()，采用timeout函数回调方法调用：
 
-{% highlight css %}
+<pre>
 (function () {
     'use strict';
     function squareRoot(n) {
@@ -117,7 +117,7 @@ function causesDomError() {
         }
     }, 2500);
 })();
-{% endhighlight %}
+</pre>
 
 在执行这段代码时，你会看到堆栈跟踪稍微有些延迟，这次你也会看到堆栈的底层不是全局的代码而是一个匿名函数。实际上，它们不是使用同一个匿名函数，而是回调函数传递给setTimeout，由于你失去了回调的上下文环境，你也就无法确认哪个回调被调用了。如果你考虑这样的一个场景，一个回调被注册到多个不同按钮的点击事件上，你将无法确认引用的是哪个注册的回调。那就是说，这个限制只是次要的，因为在大多数情况下，堆栈顶部会突出问题区域。
 

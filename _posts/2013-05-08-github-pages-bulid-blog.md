@@ -42,13 +42,13 @@ title: 使用github pages构建自己的blog
 
 1. **_post**文件夹内是博文文件，必须是markdown格式文件
 2. 博文文件头部必须有分类、描述等
-{% highlight css %}
+<pre>
 ---
 layout: post
 title: 标题
 category: 分类
 ---
-{% endhighlight %}
+</pre>
 3. **_config.yml**是配置文件，所有相关配置都在这里
 4. **_layout**文件夹是模板文件
 5. **category**文件夹是分类列表模板文件

@@ -5,13 +5,13 @@ title: js带var变量和不带var变量区别
 
 > 常被人问到var a=1和a=1的区别在哪里？今天就写篇文章说说这事。
 
-{% highlight css %}var a=1;
+<pre>var a=1;
 b=1;
 delete a;
 delete b;
 console.log(a);
 console.log(b);
-{% endhighlight %}
+</pre>
 
 其实 a 为全局变量，b为全局对象的一个属性
 

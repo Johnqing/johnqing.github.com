@@ -12,7 +12,7 @@ title: js中的Prototype(原型)
 
 哎，木有办法还是得上代码：
 
-{% highlight css %}
+<pre>
 var xObj = function(){
     this.n = 1;
 }
@@ -23,7 +23,7 @@ xObj.prototype = {
 }
 var x = new xObj();
 x.getNumber();
-{% endhighlight %}
+</pre>
 
 一步一步来分解上面的代码
 
@@ -31,13 +31,13 @@ x.getNumber();
 
 在js引擎中有类似代码:
 
-{% highlight css %}
+<pre>
 Function.prototype = {
     arguments: null,
     length: 0,
     ...
 }
-{% endhighlight %}
+</pre>
 
 **当定义xObj后，查看Function的length，值为1。这是为什么呢？**
 
@@ -57,7 +57,7 @@ Function.prototype = {
 
 我们需要N个对象，这些对象都有自己的属性，但是方法相同。
 
-{% highlight css %}
+<pre>
 var obj = {
     a: 1,
     b: 2,
@@ -67,7 +67,7 @@ var obj = {
         console.log(this.a);
     }
 }
-{% endhighlight %}
+</pre>
 
 尼玛，创建10000次。。。
 
@@ -81,10 +81,10 @@ var obj = {
 
 上代码
 
-{% highlight css %}
+<pre>
 String.prototype.trim = function() {
     return this.replace(/^\s+|\s+$/g, '');
 };
-{% endhighlight %}
+</pre>
 
 > 总的来说，不推荐修改本地对象的原型。原因是当本地对象支持该方法的时候，出现众多让人措手不及的事情。
