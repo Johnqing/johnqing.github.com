@@ -57,21 +57,21 @@ table {
 /*
 /*****************************************************************************/
 
-.articles {
+.unstyled {
   list-style-type: none;
   margin-bottom: 2em;
 }
 
-  .articles li {
+  .unstyled li {
     line-height: 1.75em;
   }
 
-  .articles .date {
+  .unstyled .date {
     color: #aaa;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;
   }
-  .articles .bar {
+  .unstyled .bar {
     background: #eee;
     height: 14px;
     margin-top: 4px;
