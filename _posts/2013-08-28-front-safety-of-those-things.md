@@ -16,9 +16,9 @@ title: 前端安全的那些事
 
 ####页面中输入DOM节点####
 
-<pre>
+{% highlight html %}
 &lt;img src="xxx.gif" onload="window.location.href='johnqing.github.io'"&gt;
-</pre>
+{% endhighlight %}
 
 ####页面中输入js脚本####
 
