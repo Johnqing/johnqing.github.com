@@ -1,19 +1,15 @@
 ---
 layout: default
 ---
-<div class=post>
-    {% if page.feature %}
-    <div class=feature-image>
-        <img src="{{ page.feature }}"/>
-    </div>
-    {% endif %}
-    {% include post-meta.html %}
-    <h1 class=title-large>{{ page.title }}</h1>
-    <div class=content>
-        {{ content }}
-        <p class=discuss>
-            Discuss this post via <a href="mailto:{{ site.email }}">e-mail</a>
-            or <a href="{{ site.weibo_url }}">Twitter</a>.
-        </p>
-    </div>
+<div id="post">
+{{ content }}
+</div>
+
+<div id="related">
+  <h2>Related Posts</h2>
+  <ul class="posts">
+    {% for post in site.related_posts limit:3 %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
 </div>
