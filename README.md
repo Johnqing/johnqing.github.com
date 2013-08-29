@@ -7,5 +7,5 @@ Thanks for understanding.
 
 # License
 
-Visit the [copyright](http://johnqing.github.io/copyright/) page for complete
+Visit the [copyright](http://blog.jupo.org/copyright/) page for complete
 information on reproducing anything found within this repository.
