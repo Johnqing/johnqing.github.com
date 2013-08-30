@@ -18,53 +18,53 @@ title: github fork项目后，代码更新
 
 上面我们fork了自己的repo，接着就可以clone下来了，先到自己的repo主页（https://github.com/ispxin/n.js），找到repo的git地址，诸如这样 https://github.com/ispxin/n.js.git,然后clone到本地
 
-{% highlight dos %}
-	git clone https://github.com/ispxin/n.js.git
-{% endhighlight %}
+<pre>
+git clone https://github.com/ispxin/n.js.git
+</pre>
 
 ##第3步：查看和添加远程分支##
 
 我们接着cd到项目里，看下当前的git远程仓库，如下
 
-{% highlight dos %}
-	cd n.js
-	git remote -v
-{% endhighlight %}
+<pre>
+cd n.js
+git remote -v
+</pre>
 
 可以看到当前的项目里有一个叫'origin'的远程仓库（就是我们刚刚clone的时候加入的），
 为了能很好的和主仓库（Johnqing/n.js）保持代码同步，我们需要添加一个主仓库的远程仓库，命令如下
 
-{% highlight dos %}
-	git remote add Johnqing https://github.com/Johnqing/n.js.git
-	git remote  -v
-{% endhighlight %}
+<pre>
+git remote add Johnqing https://github.com/Johnqing/n.js.git
+git remote  -v
+</pre>
 
 好了，到这里仓库就添加完成了，为了保持和主仓库的代码一致，我们接着需要获取下主仓库的最新代码。
 
 ##第4步：获取主仓库最新代码##
 
-{% highlight dos %}
-	git fetch Johnqing
-{% endhighlight %}
+<pre>
+git fetch Johnqing
+</pre>
 
 ##第5步：合并到自己的分支里##
 
-{% highlight dos %}
-	git merge Johnqing/master
-{% endhighlight %}
+<pre>
+git merge Johnqing/master
+</pre>
 
 ##第6步：本地修改代码，提交到自己的repo##
 修改完后
-{% highlight dos %}
-	git add .
-	git commit -m "本次修改描述"
-{% endhighlight %}
+<pre>
+git add .
+git commit -m "本次修改描述"
+</pre>
 
 最后我把本次修改提交到自己的远程仓库（ispxin/n.js）中，操作如下
 
-{% highlight dos %}
-	git push origin master
-{% endhighlight %}
+<pre>
+git push origin master
+</pre>
 
 ##第7步：给主repo发pull request##
 
