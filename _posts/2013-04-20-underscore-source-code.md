@@ -1146,7 +1146,7 @@ title: undercore源码解析（转自iteye）
          };
          // 将HTML字符串中的特殊字符转换为HTML实体, 包含 & < > " ' \
          _.escape = function(string) {
-             return ('' + string).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;').replace(/\//g, '&#x2F;');
+             return ('' + string).replace(/&/g, '&amp;').replace(/</g, '<').replace(/>/g, '>').replace(/"/g, '&quot;').replace(/'/g, '&#x27;').replace(/\//g, '&#x2F;');
          };
          // 指定一个对象的属性, 返回该属性对应的值, 如果该属性对应的是一个函数, 则会执行该函数并返回结果
          _.result = function(object, property) {

@@ -49,7 +49,7 @@ obj.html('111').addClass('xxx');
 <pre>
 var Base = function(obj){
 	this.length = 0;
-	for(var i=0; i &lt; obj.length; i++){
+	for(var i=0; i < obj.length; i++){
 		this[this.length++] = obj[i];
 	}
 	return this;	 
@@ -61,7 +61,7 @@ var Ajs = function(tag){
  
 Base.prototype = {
 	html: function(str){
-		for(var i=0; i &lt; obj.length; i++){
+		for(var i=0; i < obj.length; i++){
 			this[i].innerHTML = str;
 		}
 		return this;

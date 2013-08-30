@@ -95,22 +95,22 @@ body.homepage .widget {
 当创建可重用的设计组件时，在组件的类选择器中覆盖附件的子元素是很常见的现象。例如：
 
 <pre>
-&lt;div class="widget"&gt;  
-  &lt;h3 class="title"&gt;...&lt;/h3&gt;  
-  &lt;div class="contents"&gt;  
+<div class="widget">  
+  <h3 class="title">...</h3>  
+  <div class="contents">  
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
     In condimentum justo et est dapibus sit amet euismod ligula ornare.  
     Vivamus elementum accumsan dignissim.  
-    &lt;button class="action"&gt;Click Me!&lt;/button&gt;  
-  &lt;/div&gt;  
-&lt;/div&gt; 
+    <button class="action">Click Me!</button>  
+  </div>  
+</div> 
 
-&lt;style&gt;
+<style>
 .widget {}  
 .widget .title {}  
 .widget .contents {}  
 .widget .action {} 
-&lt;/style&gt;
+</style>
 </pre>
 
 像.title、.contents、.action这些子元素类选择器可以被安全地进行样式命名，无需担心这些样式会蔓延到拥有相同类名的其他元素中。这是千真万确的。但它并没有阻止相同样式类名称会蔓延到这个组件上。

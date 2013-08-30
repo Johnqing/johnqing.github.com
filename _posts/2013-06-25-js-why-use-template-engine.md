@@ -43,7 +43,7 @@ var data = {
 安装常规的思路拼接模板：
 
 <pre>
-var tpl = '&lt;h1&gt;'+data.name+'&lt;/h1&gt;&lt;span&gt;'+data.author+'&lt;/span&gt;';
+var tpl = '<h1>'+data.name+'</h1><span>'+data.author+'</span>';
 </pre>
 
 现在看起来没有什么，加入有更复杂的呢？

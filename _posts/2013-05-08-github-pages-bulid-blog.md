@@ -12,17 +12,17 @@ title: 使用github pages构建自己的blog
 ##开始##
 
 1. 在登录状态下点击右上角**Create a new repo**
-2. 在**Repository name**内输入**&lt;user-id&gt;.github.com**，user-id为你的用户名
+2. 在**Repository name**内输入**<user-id>.github.com**，user-id为你的用户名
 3. **Initialize this repository with a README**记得勾选上哦~
 4. 点击**Create repository**按钮
-5. 运行git bash输入 **git clone https://github.com/&lt;user-id&gt;/&lt;user-id&gt;.github.com.git
-6. 继续运行 **cd &lt;user-id&gt;.github.com**
+5. 运行git bash输入 **git clone https://github.com/<user-id>/<user-id>.github.com.git
+6. 继续运行 **cd <user-id>.github.com**
 7. 运行 **explorer .** 打开当前文件夹
 8. 创建index.html
 9. git bash 里运行 **git add .**
 10. 运行 **git commit -m "这里写注释"**
 11. 运行**git push origin master**，接着输入用户名、密码
-12. 访问**&lt;user-id&gt;.github.com**
+12. 访问**<user-id>.github.com**
 
 ##使用jekyll##
 
@@ -34,7 +34,7 @@ title: 使用github pages构建自己的blog
 4. 删除隐藏文件**.git**
 5. 删除**_post**下的所有文件
 6. 全选所有文件
-7. 复制到你自己的**&lt;user-id&gt;.github.com**文件夹
+7. 复制到你自己的**<user-id>.github.com**文件夹
 8. 找到**_config.yml**修改相应内容
 9. 执行*开始*步骤的9、10、11、12
 

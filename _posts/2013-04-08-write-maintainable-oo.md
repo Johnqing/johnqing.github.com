@@ -179,8 +179,8 @@ this.fname = data['fname'];
 
 随着时间的推进，产品需求或许会是要在类里添加特定的行为。而这个行为经常和你的类核心方法没有关系。也有可能只有一个实施类的需求，比如当抓取外部数据时，让tab标签对应的内容消失。你也许可以试着把这些功能放进你的类，但是他们并不属于这个类。一个tab效果的职责去管理tab标签。动画效果和数据抓取完全是两个分离开来的方法。需要在tab之外维护。唯一一个方法去让你的tab适应未来需求，让临时方法调用自外部，就是允许人们去在你的代码中添加插件。换句话说，允许人们去挂载行为， 就像onTabChange, afterTabChange, onShowPanel, afterShowPanel等等。这样的话，他们就可以很简单的挂载你的onShowPanel事件，写一个控制方法来让一块内容渐渐消失，而且也减轻了大家的压力。javascript库可以让你非常轻松的完成这件事情，不过你自己来完成也不会太难。这里有一个基于YUI3的简单例子：
 
-<pre>&lt;script type="text/javascript" src="http://yui.yahooapis.com/combo?3.2.0/build/yui/yui-min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript"&gt;
+<pre><script type="text/javascript" src="http://yui.yahooapis.com/combo?3.2.0/build/yui/yui-min.js"></script>
+<script type="text/javascript">
     YUI().use('event', function (Y) {
  
         function TabStrip() {
@@ -211,7 +211,7 @@ this.fname = data['fname'];
  
         ts.showPanel();
     });
-&lt;/script&gt;</pre>
+</script></pre>
 
 
 这个例子有一个简单的含有showPanel方法的TabStrip类。这个方法会绑定了两个事件，onShowPanel和afterShowPanel。将Y.EventTarget合并到你的类中就可以实现这样的绑定。完成之后，我们实例一个TabStrip对象，然后分配一个对应事件控制方法。这就是一个典型的代码，用于控制实例中独特的行为，也不会污染目前的类。

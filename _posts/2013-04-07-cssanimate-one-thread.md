@@ -31,7 +31,7 @@ title: css3是个独立的ui线程
 
 这个[测试页](http://www.phpied.com/files/css-thread/thread.html)里有一些动画。点击按钮，看看会发生什么。
 
-&lt;iframe src="http://www.phpied.com/files/css-thread/thread.html" allowfullscreen="allowfullscreen" width="600px" height="250px"&gt;&lt;/iframe&gt;
+<iframe src="http://www.phpied.com/files/css-thread/thread.html" allowfullscreen="allowfullscreen" width="600px" height="250px"></iframe>
 
 ####  动画
 
@@ -76,7 +76,7 @@ title: css3是个独立的ui线程
 
 <pre>function kill() {
   var start = +new Date;
-  while (+new Date - start &lt; 2000){}
+  while (+new Date - start < 2000){}
 }</pre>
 
 #### 结果

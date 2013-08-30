@@ -29,15 +29,15 @@ div a {
 **HTML：**
 
 <pre>
-计算了&lt;input id="c" /&gt;次
-&lt;div&gt;
-    &lt;ul&gt;
-        &lt;li&gt;&lt;a href="#"&gt;测试&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;测试&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;测试&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="#"&gt;测试&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/div&gt;
+计算了<input id="c" />次
+<div>
+    <ul>
+        <li><a href="#">测试</a></li>
+        <li><a href="#">测试</a></li>
+        <li><a href="#">测试</a></li>
+        <li><a href="#">测试</a></li>
+    </ul>
+</div>
 </pre>
 
 **JS：**

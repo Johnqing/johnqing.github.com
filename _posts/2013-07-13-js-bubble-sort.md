@@ -20,9 +20,9 @@ code：
 <pre>
 function bubbleSort(arr){
 	var tmp;
-	for (var i = arr.length - 1; i &gt;= 0; i--) {
-		for (var j = 0; j &lt; i; j++) {
-			if (arr[j] &gt; arr[j+1]) {
+	for (var i = arr.length - 1; i >= 0; i--) {
+		for (var j = 0; j < i; j++) {
+			if (arr[j] > arr[j+1]) {
 				tmp = arr[j];
 				arr[j] = arr[j+1];
 				arr[j+1] = tmp;

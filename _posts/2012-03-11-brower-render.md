@@ -29,17 +29,17 @@ title: 浏览器的渲染原理简介
 HTML的DOM Tree解析如下：
 
 <pre>
-&lt;html&gt;
-&lt;head&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Web page parsing&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Web page parsing&lt;/h1&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is an example Web page.&lt;/p&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+<html>
+<head>
+&nbsp;&nbsp;&nbsp;&nbsp;<title>Web page parsing</title>
+</head>
+<body>
+&nbsp;&nbsp;&nbsp;&nbsp;<div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h1>Web page parsing</h1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>This is an example Web page.</p>
+&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</body>
+</html>
 </pre>
 
 上面这段HTML会解析成这样：
@@ -55,15 +55,15 @@ HTML的DOM Tree解析如下：
 CSS的解析大概是下面这个样子（下面主要说的是Gecko也就是Firefox的玩法），假设我们有下面的HTML文档：
 
 <pre>
-&lt;doc&gt;
-&lt;title&gt;A few quotes&lt;/title&gt;
-&lt;para&gt;
-&nbsp;&nbsp;Franklin said that &lt;quote&gt;"A penny saved is a penny earned."&lt;/quote&gt;
-&lt;/para&gt;
-&lt;para&gt;
-&nbsp;&nbsp;FDR said &lt;quote&gt;"We have nothing to fear but &lt;span&gt;fear itself.&lt;/span&gt;"&lt;/quote&gt;
-&lt;/para&gt;
-&lt;/doc&gt;
+<doc>
+<title>A few quotes</title>
+<para>
+&nbsp;&nbsp;Franklin said that <quote>"A penny saved is a penny earned."</quote>
+</para>
+<para>
+&nbsp;&nbsp;FDR said <quote>"We have nothing to fear but <span>fear itself.</span>"</quote>
+</para>
+</doc>
 </pre>
 
 于是DOM Tree是这个样子：
