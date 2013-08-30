@@ -21,7 +21,7 @@ title: NTpl模板引擎使用
 
 1. 引入nTpl.js是必须的
 2. 可以使用任何容器存储模板片段(示例中使用textarea作为容器)
-<pre>
+{% highlight javascript %}
 <!--textarea作为容器的好处是浏览器不会解析-->
 <textarea id="tpl" style="display:none">
     <h1>title:<%= title %></h1>
@@ -36,9 +36,9 @@ title: NTpl模板引擎使用
             <h2>没有list数据</h2>
         <% } %>
 </textarea>
-</pre>
+{% endhighlight %}
 3. 模板也可以直接存储在一个变量中（下面的例子：可以在[这里](https://github.com/Johnqing/SocialCard/blob/master/assets/js/controller.js)找到）
-<pre>
+{% highlight javascript %}
  var tpl = '<% for(var i=0; i<data.length; i++){ %>'+
               '<div class="familyName">'+
                   '<span><%= data[i].name %></span>'+
@@ -49,12 +49,12 @@ title: NTpl模板引擎使用
                   '</dl>'+
               '</div>'+
           '<% } %>';
-</pre>
+{% endhighlight %}
 
 ##调用##
 
 1. 数据
-<pre>
+{% highlight javascript %}
 var data={
     "title":'啊哦~这是标题',
     "list":[
@@ -64,24 +64,24 @@ var data={
         'test4:第五项未定义，模板系统会输出空'
     ]
 };
-</pre>
+{% endhighlight %}
 
 2. NTpl是该模板引擎的命名空间
-<pre>
+{% highlight javascript %}
 NTpl.tpl
-</pre>
+{% endhighlight %}
 3. tpl接收容器id
-<pre>
+{% highlight javascript %}
 NTpl.tpl('id', data);
-</pre>
+{% endhighlight %}
 4. tpl也接收字符串
-<pre>
+{% highlight javascript %}
 NTpl.tpl('<div><%= name %></div>', data);
-</pre>
+{% endhighlight %}
 5. 插入容器
-<pre>
+{% highlight javascript %}
 document.getElementById('result').innerHTML = res;
-</pre>
+{% endhighlight %}
 
 ##模板语法##
 
@@ -90,7 +90,7 @@ document.getElementById('result').innerHTML = res;
 ####自定义实例如下####
 
 模板
-<pre>
+{% highlight javascript %}
 <h1>title:<#= title #></h1>
 <# if(list.length>1) { #>
     <h2>输出list，共有<#= list.length #>个元素</h2>
@@ -102,10 +102,10 @@ document.getElementById('result').innerHTML = res;
 <# }else{ #>
     <h2>没有list数据</h2>
 <# } #>
-</pre>
+{% endhighlight %}
 
 调用
-<pre>
+{% highlight javascript %}
 NTpl.leftDelimiter = "<#";
 NTpl.rightDelimiter = "#>";
 var data={
@@ -119,30 +119,30 @@ var data={
 };
 var res = NTpl.tpl('tpl',data);
 document.getElementById('result').innerHTML = res;
-</pre>
+{% endhighlight %}
 
 
 ####判断语句：####
 
-<pre>
+{% highlight javascript %}
 <% if(list.length){ %>
     <h2><%= list.length %></h2>
 <% }else{ %>
     <h2> list长度为0 <h2>
 <% } %>
-</pre>
+{% endhighlight %}
 
 ####循环语句：####
 
-<pre>
+{% highlight javascript %}
 <% for(var i=0;i<5;i++){ %>
     <li><%= list[i] %></li>
 <% } %>
-</pre>
+{% endhighlight %}
 
 ####一个比较复杂的实例####
 
-<pre>
+{% highlight javascript %}
 //字体渲染
 var fontFamily = {
     tpl: function(){
@@ -196,6 +196,6 @@ var fontFamily = {
 };
 var familyTpl = NTpl.tpl(fontFamily.tpl(),fontFamily);
 document.getElementById('result').innerHTML = familyTpl;
-</pre>
+{% endhighlight %}
 
 

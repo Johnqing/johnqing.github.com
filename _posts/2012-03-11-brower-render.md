@@ -28,7 +28,7 @@ title: 浏览器的渲染原理简介
 
 HTML的DOM Tree解析如下：
 
-<pre>
+{% highlight javascript %}
 <html>
 <head>
 &nbsp;&nbsp;&nbsp;&nbsp;<title>Web page parsing</title>
@@ -40,7 +40,7 @@ HTML的DOM Tree解析如下：
 &nbsp;&nbsp;&nbsp;&nbsp;</div>
 </body>
 </html>
-</pre>
+{% endhighlight %}
 
 上面这段HTML会解析成这样：
 
@@ -54,7 +54,7 @@ HTML的DOM Tree解析如下：
 
 CSS的解析大概是下面这个样子（下面主要说的是Gecko也就是Firefox的玩法），假设我们有下面的HTML文档：
 
-<pre>
+{% highlight javascript %}
 <doc>
 <title>A few quotes</title>
 <para>
@@ -64,7 +64,7 @@ CSS的解析大概是下面这个样子（下面主要说的是Gecko也就是Fir
 &nbsp;&nbsp;FDR said <quote>"We have nothing to fear but <span>fear itself.</span>"</quote>
 </para>
 </doc>
-</pre>
+{% endhighlight %}
 
 于是DOM Tree是这个样子：
 
@@ -72,12 +72,12 @@ CSS的解析大概是下面这个样子（下面主要说的是Gecko也就是Fir
 
 然后我们的CSS文档是这样的：
 
-<pre>
+{% highlight javascript %}
 /* rule 1 */ doc { display: block; text-indent: 1em; }
 /* rule 2 */ title { display: block; font-size: 3em; }
 /* rule 3 */ para { display: block; }
 /* rule 4 */ [class="emph"] { font-style: italic; }
-</pre>
+{% endhighlight %}
 
 于是我们的CSS Rule Tree会是这个样子：
 
@@ -154,7 +154,7 @@ DOM Tree里的每个结点都会有reflow方法，一个结点的reflow很有可
 
 好了，我们来看一个示例吧：
 
-<pre>
+{% highlight javascript %}
 var bstyle = document.body.style; // cache
  
 bstyle.padding = "20px"; // reflow, repaint
@@ -167,7 +167,7 @@ bstyle.fontSize = "2em"; // reflow, repaint
  
 // new DOM element - reflow, repaint
 document.body.appendChild(document.createTextNode('dude!'));
-</pre>
+{% endhighlight %}
 
 当然，我们的浏览器是聪明的，它不会像上面那样，你每改一次样式，它就reflow或repaint一次。
 一般来说，浏览器会把这样的操作积攒一批，然后做一次reflow，这又叫异步reflow或增量异步reflow。
@@ -189,7 +189,7 @@ document.body.appendChild(document.createTextNode('dude!'));
 下面是一些Best Practices：
 
 1. 不要一条一条地修改DOM的样式。与其这样，还不如预先定义好css的class，然后修改DOM的className。
-<pre>
+{% highlight javascript %}
 // bad
 var left = 10,
 top = 10;
@@ -201,7 +201,7 @@ el.className += " theclassname";
  
 // Good
 el.style.cssText += "; left: " + left + "px; top: " + top + "px;";
-</pre>
+{% endhighlight %}
 2. 把DOM离线后修改。如：
   + 使用documentFragment 对象在内存里操作DOM
   + 先把DOM给display:none(有一次reflow)，然后你想怎么改就怎么改。比如修改100次，然后再把他显示出来。

@@ -5,20 +5,20 @@ title: input disabled和readonly区别
 
 > 很多人疑惑disabled和readonly有什么区别？
 
-<pre><form action="">
+{% highlight javascript %}<form action="">
 <input type="text" disabled name="us" value="1">
 <input type="submit" value="click">
 </form>
-</pre>
+{% endhighlight %}
 
 点击click会提交表单，在input有disabled属性的时候，提交数据为空。  
 去掉后显示正常。
 
-<pre><form action="">
+{% highlight javascript %}<form action="">
 <input type="text" readonly name="us" value="1">
 <input type="submit" value="click">
 </form>
-</pre>
+{% endhighlight %}
 
 点击click提交表单，显示正常。
 

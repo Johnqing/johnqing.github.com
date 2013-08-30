@@ -11,7 +11,7 @@ title: expression到底多影响性能
 
 **CSS:**
 
-<pre>
+{% highlight javascript %}
 body {
     font-size:12px;
     font-family:Verdana;
@@ -24,11 +24,11 @@ div a {
         test()
     );
 }
-</pre>
+{% endhighlight %}
 
 **HTML：**
 
-<pre>
+{% highlight javascript %}
 计算了<input id="c" />次
 <div>
     <ul>
@@ -38,15 +38,15 @@ div a {
         <li><a href="#">测试</a></li>
     </ul>
 </div>
-</pre>
+{% endhighlight %}
 
 **JS：**
 
-<pre>
+{% highlight javascript %}
 var k = 0;
 function test() {
     k++;
     document.getElementById('c').value = k;
     return;
 }
-</pre>
+{% endhighlight %}

@@ -13,9 +13,9 @@ title: grunt构建工具使用说明
 
 package.json是npm的包配置文件，可以通过以下命令构建（当然一定要安装node）：
 
-<pre>
+{% highlight javascript %}
 npm init
-</pre>
+{% endhighlight %}
 
 运行上面的命令，会提示你一步一步构建完整的package项。
 
@@ -39,17 +39,17 @@ package中比较重要的属性解释：
 
 首先说一下我的目录结构：
 
-<pre>
+{% highlight javascript %}
 assets //资源文件目录
     seajs
     init //模块文件
     common
-</pre>
+{% endhighlight %}
 
 第二步，在assets下构建package.json和Gruntfile.js：
 
 + package.json使用默认构建完成是没有devDependencies这个属性的，手动添加下面代码块内容，并且运行npm install命令
-<pre>
+{% highlight javascript %}
 "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-cmd-transport": "~0.2.0",
@@ -57,21 +57,21 @@ assets //资源文件目录
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-clean": "~0.4.0"
 }
-</pre>
+{% endhighlight %}
 + Gruntfile.js：注意这里的G必须是大写，这个文件才是grunt的真正的配置文件。
 
 ##如何配置Gruntfile.js？##
 
 继续重复烦人的话，grunt是基于nodejs，所以需要使用如下代码：
-<pre>
+{% highlight javascript %}
 module.exports = function(grunt) {
 
 }
-</pre>
+{% endhighlight %}
 
 *怎么还没到Gruntfile啊，你妹！* *知道了，知道了*
 
-<pre>
+{% highlight javascript %}
 module.exports = function(grunt) {
     //项目初始化配置
     grunt.initConfig({
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json')
     });
 }
-</pre>
+{% endhighlight %}
 
 上面就是最基本的配置了。
 
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
 
 首先给package.json里添加
 
-<pre>
+{% highlight javascript %}
 "spm": {
     "alias": {
         "jquery": "common/jquery-1.9.1.min.js",
@@ -95,11 +95,11 @@ module.exports = function(grunt) {
         "kalendae" : "kalendae"
     }
 }
-</pre>
+{% endhighlight %}
 
 Gruntfile.js完整配置：
 
-<pre>
+{% highlight javascript %}
  module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -148,6 +148,6 @@ Gruntfile.js完整配置：
 //注册任务。注意：直接使用grunt这里的build必须是define
   grunt.registerTask('build', ['transport', 'concat']);
 };
-</pre>
+{% endhighlight %}
 
 命令行运行：grunt build

@@ -74,11 +74,11 @@ ie中：hover会降低响应速度。
 
 ##缓存DOM##
 
-<pre>
+{% highlight javascript %}
 var obj = obj.name;
 obj.attr();
 obj.css();
-</pre>
+{% endhighlight %}
 
 ##减少不必要的对象创建##
 
@@ -88,7 +88,7 @@ obj.css();
 
 采用Duff策略：
 
-<pre>
+{% highlight javascript %}
 for(var i = 0, len = aValue.length; i<len; i++){
     fDoSomething(aValues[i++]);
     fDoSomething(aValues[i++]);
@@ -99,7 +99,7 @@ for(var i = 0, len = aValue.length; i<len; i++){
     fDoSomething(aValues[i++]);
     fDoSomething(aValues[i++]);
 }
-</pre>
+{% endhighlight %}
 
 经过测试8次为最佳。
 
