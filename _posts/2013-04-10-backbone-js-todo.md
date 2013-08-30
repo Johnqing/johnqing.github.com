@@ -5,7 +5,8 @@ title: （转）backbone.js实例Todo阅读笔记
 
 > 来源：[小强](http://www.xiaoqiang.org/javascript/backbone-js-todo.html)
 
-{% highlight javascript %}// 一个backbone的实例，作者：
+{% highlight javascript %}
+// 一个backbone的实例，作者：
      // [Jérôme Gravel-Niquet](http://jgn.me/). 这个demo使用了
      // [LocalStorage adapter](backbone-localstorage.js)
      // 你可以在浏览器中演示它.
@@ -249,4 +250,5 @@ title: （转）backbone.js实例Todo阅读笔记
 
          // 创建一个 **App**.
          var App = new AppView;
-     });{% endhighlight %}
+     });
+{% endhighlight %}

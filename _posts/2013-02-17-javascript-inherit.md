@@ -39,7 +39,8 @@ Person.prototype = {constructor:Person,  //constructor在这里不重要，请�
 
 这样我们就有了一个不错的抽象，实例各自不同的属性在构造函数中，共有的属性或方法在它的原型对象中。接下来我们实现继承，创建一个Chinese类，最直接的想法就是
 
-{% highlight javascript %}function Chinese(name,friends){
+{% highlight javascript %}
+function Chinese(name,friends){
 	Person.apply(this,arguments);//调用父类的构造函数,apply第一个参数是上下文，第二个是参数
 	this.nationality = "china";
 }
@@ -55,7 +56,8 @@ Chinese.prototype = Person.prototype;
 而且name，friends属性也成为了原型中的属性，由于我们在构造函数中又重复生成了实例属性name，friends，所以屏蔽了原型中的，不会影响使用。这种继承方法是现在最流行的实现。
 但是也存在问题，调用了2次父类的构造函数导致在子类实例和原型中有重复的属性，虽然不影响使用，但是不优雅。有洁癖的人们就想出了另一种方法。
 
-{% highlight javascript %}function clone(o){
+{% highlight javascript %}
+function clone(o){
   function F(){}
   F.prototype = o;
   return new F();

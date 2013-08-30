@@ -13,7 +13,7 @@ title: grunt构建工具使用说明
 
 package.json是npm的包配置文件，可以通过以下命令构建（当然一定要安装node）：
 
-{% highlight javascript %}
+{% highlight dos %}
 npm init
 {% endhighlight %}
 
@@ -39,17 +39,17 @@ package中比较重要的属性解释：
 
 首先说一下我的目录结构：
 
-{% highlight javascript %}
+<pre>
 assets //资源文件目录
     seajs
     init //模块文件
     common
-{% endhighlight %}
+</pre>
 
 第二步，在assets下构建package.json和Gruntfile.js：
 
 + package.json使用默认构建完成是没有devDependencies这个属性的，手动添加下面代码块内容，并且运行npm install命令
-{% highlight javascript %}
+{% highlight json %}
 "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-cmd-transport": "~0.2.0",
@@ -87,7 +87,7 @@ module.exports = function(grunt) {
 
 首先给package.json里添加
 
-{% highlight javascript %}
+{% highlight json %}
 "spm": {
     "alias": {
         "jquery": "common/jquery-1.9.1.min.js",

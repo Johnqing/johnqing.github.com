@@ -3,7 +3,7 @@ layout: post
 title: css cursor自定义
 ---
 
-{% highlight javascript %}
+{% highlight css %}
 cursor:url(http://localhost/d2/matches.cur),url(http://localhost/d2/matches.cur),n-resize;
 {% endhighlight %}
 

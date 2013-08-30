@@ -28,7 +28,7 @@ title: 浏览器的渲染原理简介
 
 HTML的DOM Tree解析如下：
 
-{% highlight javascript %}
+{% highlight html %}
 <html>
 <head>
 &nbsp;&nbsp;&nbsp;&nbsp;<title>Web page parsing</title>
@@ -54,7 +54,7 @@ HTML的DOM Tree解析如下：
 
 CSS的解析大概是下面这个样子（下面主要说的是Gecko也就是Firefox的玩法），假设我们有下面的HTML文档：
 
-{% highlight javascript %}
+{% highlight xml %}
 <doc>
 <title>A few quotes</title>
 <para>
@@ -72,7 +72,7 @@ CSS的解析大概是下面这个样子（下面主要说的是Gecko也就是Fir
 
 然后我们的CSS文档是这样的：
 
-{% highlight javascript %}
+{% highlight css %}
 /* rule 1 */ doc { display: block; text-indent: 1em; }
 /* rule 2 */ title { display: block; font-size: 3em; }
 /* rule 3 */ para { display: block; }

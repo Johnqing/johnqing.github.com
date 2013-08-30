@@ -17,7 +17,7 @@ title: 如何使用YUIdoc生成api文档
 
 ####安装####
 
-{% highlight javascript %}
+{% highlight dos %}
 npm -g install yuidocjs
 {% endhighlight %}
 
@@ -34,7 +34,7 @@ npm -g install yuidocjs
 cmd进入项目中：
 
 **一次生成**
-{% highlight javascript %}
+{% highlight dos %}
 yuidoc .
 {% endhighlight %}
 
@@ -43,7 +43,7 @@ yuidoc .
 在团队协作的时候，如果你懒得去配置本地服务器，
 为了可以让其他成员方便的看到你的文档，可以使用YUIDoc快速构建webserver，
 其他人就可以通过浏览器访问到你的API文档了，具体操作是在你使用前面提到的命令生成文档后，然后执行以下命令：
-{% highlight javascript %}
+{% highlight dos %}
 cd out
 yuidoc . --server 3000
 {% endhighlight %}

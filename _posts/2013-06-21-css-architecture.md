@@ -47,7 +47,7 @@ CSS规则应具备抽象和解耦性，这样你就可以在现有的基础上�
 
 ###基于父组件来修改组件###
 
-{% highlight javascript %}
+{% highlight css %}
 .widget {  
   background: yellow;  
   border: 1px solid black;  
@@ -78,7 +78,7 @@ body.homepage .widget {
 
 但伴随着越深入的开发，我越会远离这种复杂的选择器。一个选择器越复杂，与HTML就越耦合。依靠HTML标签和组合器可以保持HTML代码干干净净，但却让CSS更加毛重和凌乱。
 
-{% highlight javascript %}
+{% highlight css %}
 #main-nav ul li ul li div { }  
 #content article h1:first-child { }  
 #sidebar > div > h3 + p { } 
@@ -94,7 +94,7 @@ body.homepage .widget {
 
 当创建可重用的设计组件时，在组件的类选择器中覆盖附件的子元素是很常见的现象。例如：
 
-{% highlight javascript %}
+{% highlight html %}
 <div class="widget">  
   <h3 class="title">...</h3>  
   <div class="contents">  
@@ -123,7 +123,7 @@ body.homepage .widget {
 
 有时，你要在网站的左上角区域做一个20pixels的可视化组件。
 
-{% highlight javascript %}
+{% highlight css %}
 .widget {  
   position: absolute;  
   top: 20px;  
@@ -174,7 +174,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 
 确保选择器对一些元素不进行无关样式的最好方法是不给它们机会。例如像#main-nav ul li ul li div这样的选择器可能很容易地应用于不想要的元素上。另一方面，像.subnav这样的选择器就不会给它们任何机会。把类选择器直接应用于你想要的元素上是最好的方式，并且可以保持元素的可预测性。
 
-{% highlight javascript %}
+{% highlight css %}
 /* Grenade */ 
 #main-nav ul li ul { }  
  
@@ -194,7 +194,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 
 我们已经检查出为什么父选择器不能在封闭和防止交叉样式污染上面发挥100%的功效。而一个更好的解决方案就是在类上应用命名空间。如果一个元素是可视化组件的一员，那么该元素的每个子元素都应该使用基于命名空间的组件。
 
-{% highlight javascript %}
+{% highlight css %}
 /* High risk of style cross-contamination */ 
 .widget { }  
 .widget .title { }  
@@ -210,7 +210,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 
 当一个现有组件需要在一个特定的语境中有所不同时，可以创建一个修饰符类（modifier class）来扩展它。
 
-{% highlight javascript %}
+{% highlight css %}
 /* Bad */ 
 .widget { }  
 #sidebar .widget { }  
@@ -248,7 +248,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 
 [Nicolas Gallagher](http://nicolasgallagher.com/)最近针对遇到的问题写了一个[解决方案](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)，并且取得了巨大的成功（略有改动），为了说明命名约定，可以考虑以下格式：
 
-{% highlight javascript %}
+{% highlight css %}
 /* A component */ 
 .button-group { }  
  
@@ -264,7 +264,7 @@ CSS赋予元素的外在特征，HTML在页面上进行调用。更少的CSS能�
 
 从上述类中可以发现其很难正确区分类型规则。这不但会困惑，而且连自动测试CSS和HTML也变的很难。一个结构化的命名约定应该是初看就能够知道其类名与其他类之间的关系，并且知道它出现在HTML中的位置——使命名更加简单和容易测试。
 
-{% highlight javascript %}
+{% highlight css %}
 /* Templates Rules (using Sass placeholders) */ 
 %template-name  
 %template-name--modifier-name  
@@ -320,7 +320,7 @@ CSS预处理器采用PHP5编写，有预处理器的常见功能，可以帮你�
 
 当你初次使用@extend时，常会与修饰符类一起使用，例如：
 
-{% highlight javascript %}
+{% highlight css %}
 .button {  
   /* button styles */ 
 }  
@@ -338,7 +338,7 @@ CSS预处理器采用PHP5编写，有预处理器的常见功能，可以帮你�
 
 下面是一个引用上面的模式例子：
 
-{% highlight javascript %}
+{% highlight css %}
 .modal {  
   @extend %dialog;  
   @extend %drop-shadow;  

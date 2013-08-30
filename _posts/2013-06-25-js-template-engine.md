@@ -21,7 +21,7 @@ title: NTpl模板引擎使用
 
 1. 引入nTpl.js是必须的
 2. 可以使用任何容器存储模板片段(示例中使用textarea作为容器)
-{% highlight javascript %}
+{% highlight html %}
 <!--textarea作为容器的好处是浏览器不会解析-->
 <textarea id="tpl" style="display:none">
     <h1>title:<%= title %></h1>
@@ -90,7 +90,7 @@ document.getElementById('result').innerHTML = res;
 ####自定义实例如下####
 
 模板
-{% highlight javascript %}
+{% highlight html %}
 <h1>title:<#= title #></h1>
 <# if(list.length>1) { #>
     <h2>输出list，共有<#= list.length #>个元素</h2>
@@ -124,7 +124,7 @@ document.getElementById('result').innerHTML = res;
 
 ####判断语句：####
 
-{% highlight javascript %}
+{% highlight html %}
 <% if(list.length){ %>
     <h2><%= list.length %></h2>
 <% }else{ %>
@@ -134,7 +134,7 @@ document.getElementById('result').innerHTML = res;
 
 ####循环语句：####
 
-{% highlight javascript %}
+{% highlight html %}
 <% for(var i=0;i<5;i++){ %>
     <li><%= list[i] %></li>
 <% } %>

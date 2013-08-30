@@ -31,24 +31,29 @@ title: css3是个独立的ui线程
 
 这个[测试页](http://www.phpied.com/files/css-thread/thread.html)里有一些动画。点击按钮，看看会发生什么。
 
+{% highlight html %}
 <iframe src="http://www.phpied.com/files/css-thread/thread.html" allowfullscreen="allowfullscreen" width="600px" height="250px"></iframe>
+{% endhighlight %}
 
 ####  动画
 
 红色方块旋转动画，如下：
 
-{% highlight javascript %}.spin {
+{% highlight css %}
+.spin {
   animation: 3s rotate linear infinite;
 }
  
 @keyframes rotate {
   from {transform: rotate(0deg);}
   to {transform: rotate(360deg);}
-}{% endhighlight %}
+}
+{% endhighlight %}
 
 绿色方块变换动画，如下：
 
-{% highlight javascript %}.walkabout-new-school {
+{% highlight css %}
+.walkabout-new-school {
   animation: 3s slide-transform linear infinite;
 }
  
@@ -56,11 +61,13 @@ title: css3是个独立的ui线程
   from {transform: translatex(0);}
   50% {transform: translatex(300px);}
   to {transform: translatex(0);}
-}{% endhighlight %}
+}
+{% endhighlight %}
 
 蓝色方块动画使用margin-left，而不是变换，如下：
 
-{% highlight javascript %}.walkabout-old-school {
+{% highlight css %}
+.walkabout-old-school {
   animation: 3s slide-margin linear infinite;
 }
  
@@ -68,16 +75,19 @@ title: css3是个独立的ui线程
   from {margin-left: 0;}
   50% {margin-left: 100%;}
   to {margin-left: 0;}
-}{% endhighlight %}
+}
+{% endhighlight %}
 
 #### Kill 开关
 
 点击kill按钮2秒钟时，看好CPU变化：
 
-{% highlight javascript %}function kill() {
+{% highlight javascript %}
+function kill() {
   var start = +new Date;
   while (+new Date - start < 2000){}
-}{% endhighlight %}
+}
+{% endhighlight %}
 
 #### 结果
 

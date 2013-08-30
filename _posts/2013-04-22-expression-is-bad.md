@@ -28,7 +28,7 @@ div a {
 
 **HTML：**
 
-{% highlight javascript %}
+{% highlight html %}
 计算了<input id="c" />次
 <div>
     <ul>

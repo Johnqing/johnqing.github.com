@@ -23,7 +23,8 @@ title: js栈和队列
 ![queue](https://f.cloud.github.com/assets/2571697/365732/631f7678-a258-11e2-9322-d1e8895ba36f.png)
 
 #### 数组栈模拟
-{% highlight javascript %}var arrStack = [];
+{% highlight javascript %}
+var arrStack = [];
  arrStack.push(1);
  arrStack.push(2);
  arrStack.push(3);
@@ -36,7 +37,8 @@ title: js栈和队列
 {% endhighlight %}
 
 #### 数组队列模拟
-{% highlight javascript %}var arrQueue = [];
+{% highlight javascript %}
+var arrQueue = [];
  arrQueue.push(1);
  arrQueue.push(2);
  arrQueue.push(3);
