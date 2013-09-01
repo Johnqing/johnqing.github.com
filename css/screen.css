@@ -176,6 +176,8 @@ ul.posts {
     background-color: #eef;
     padding:.4em;
     margin: .5em 0;
+    word-wrap:break-wrod;
+    word-break:break-all;
   }
 
   #post ul,
