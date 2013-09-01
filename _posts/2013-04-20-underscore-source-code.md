@@ -3,7 +3,7 @@ layout: post
 title: undercore源码解析（转自iteye）
 ---
 
-{% highlight javascript %}
+<pre>
 (function() {
      // 创建一个全局对象, 在浏览器中表示为window对象, 在Node.js中表示global对象
      var root = this;
@@ -1339,4 +1339,4 @@ title: undercore源码解析（转自iteye）
          return this._wrapped;
      };
  }).call(this);
-{% endhighlight %}
+</pre>
