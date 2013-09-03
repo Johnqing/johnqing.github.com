@@ -5,9 +5,9 @@ title: Liu Qing
 
 <div id="about">
 
-#### Hi, my name is **Liu Qing**.
+<h4>Hi, my name is <strong>Liu Qing</strong>.</h4>
 
-I am a front-end developer, now working in 360.
+<p>I am a front-end developer, now working in 360.</p>
 
 {% highlight javascript %}
 		var JSer = {
