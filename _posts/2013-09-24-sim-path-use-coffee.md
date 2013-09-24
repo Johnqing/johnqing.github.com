@@ -5,6 +5,8 @@ title: 模拟Path导航效果
 
 > 群里的某同学提到的一个小效果（一堆圈圈围绕一个圈圈的动画）
 
+[Path模拟代码仓库](https://github.com/Johnqing/simPath)
+
 俺用coffee写的。。大家忍忍凑合看吧。。
 
 ## 准备工作
