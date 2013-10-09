@@ -8,5 +8,5 @@ title: Liu Qing
 	<h4>Hi, my name is <strong>Liu Qing</strong>.</h4>
 
 	<p>I am a front-end developer, now working in Beijing, worked Qihoo 360.</p>
-	<p>If you want to contact me? Click [here](mailto:csssnow@gmail.com)</p>
+	<p>If you want to contact me? Click <a href="mailto:csssnow@gmail.com">here</a></p>
 </div>
