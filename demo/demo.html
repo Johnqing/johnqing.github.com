@@ -189,10 +189,11 @@ function codeTest(){
 
 	return true;
 }
+var min,s;
 function timedCount(){  
-	var min,s;
+	
     min = parseInt(secs / 60);// 分钟数  
-    if(min>=60){  
+    if(min >= 60){  
         min %= 60  
     }  
     s = secs % 60;  
@@ -200,8 +201,8 @@ function timedCount(){
   
 	$('#time').html(min + "分" + s + "秒")
 	  
-	secs = s + 1  
-	testTimeout = setTimeout("timedCount()",1000);
+	secs += 1  
+	testTimeout = setTimeout("timedCount()",100);
 }  
 </script>
 </head>
