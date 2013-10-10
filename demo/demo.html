@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>测试题</title> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+
+/*
+
+  So you're a JavaScript coder. A good one.
+  
+  Let me tell you now: you're going to hate this source code.
+  
+  It's a series of bodges, of the digital equivalent of sticky-tape and string,
+  which emphasises quick development and fast patching over any sort of
+  maintenance or legibility.
+  
+  Because that's how we roll.
+
+*/
+
+var level = 1;
+var inPlay = false;
+var secs = 0;
+var tests = [];
+var currentTest;
+var testTimeout;
+var evalWorker;
+
+var levels = [
+	{},
+  {
+    intro: "返回传入数的双倍并且取整，点击GO执行下一道题",
+    text: "function doubleInteger(i) {\n" +
+"    \n"+
+"    // 双倍并且取整\n"+
+"    \n"+
+"    \n"+
+"    \n"+
+"    return i;\n"+
+"    \n"+
+"}",
+    startCursorAt: [4,4],
+    tests: [
+      { i: "doubleInteger(2);", o: 4 },
+      { i: "doubleInteger(4);", o: 8 },
+      { i: "doubleInteger(-10);", o: -20 },
+      { i: "doubleInteger(0);", o: 0 },
+      { i: "doubleInteger(100);", o: 200 },
+    ],
+    outro: "Click Go or hit Ctrl-Enter/⌘-Enter to move on to level 2!"
+  
+  },
+  
+  {
+    intro: "Little bit trickier now. The clock's started ticking again. 奇数是true，偶数是false ",
+    text: "function isNumberEven(i) {\n" +
+"    \n"+
+"    // 奇数是true，偶数是false \n"+
+"    \n"+
+"    \n"+
+"    \n"+
+"    \n"+
+"}",
+    startCursorAt: [4,4],
+    tests: [
+      { i: "isNumberEven(2);", o: true },
+      { i: "isNumberEven(3);", o: false },
+      { i: "isNumberEven(0);", o: true },
+      { i: "isNumberEven(-2);", o: true },
+      { i: "isNumberEven(Math.floor(Math.random()*1000000)*2);", o: true },
+    ],
+    outro: "Two down, three to go. Ready for level 3? 'Go' or Ctrl-Enter/⌘-Enter to move on."
+  
+  },
+  
+  {
+    intro: "Here we go! 返回文件后缀，如果没有后缀返回false",
+    text: "function getFileExtension(i) {\n" +
+"    \n"+
+"    // return 返回文件后缀(不带.)如果没有后缀返回false"+
+"    \n"+
+"    \n"+
+"    \n"+
+"}",
+    startCursorAt: [5,4],
+    tests: [
+      { i: "getFileExtension('blatherskite.png');", o: 'png' },
+      { i: "getFileExtension('perfectlylegal.torrent');", o: 'torrent' },
+      { i: "getFileExtension('spaces are fine in file names.txt');", o: 'txt' },
+      { i: "getFileExtension('this does not have one');", o: false },
+      { i: "getFileExtension('.htaccess');", o: 'htaccess' }
+    ],
+    outro: "Top work, that was tricky. Two challenges left! Ready to start the clock again?"
+  
+  },
+
+  {
+    intro: "Level 4 of 5! 返回数组中字符最多的数",
+    text: "function longestString(i) {\n" +
+"    \n"+
+"    // i will be an array.\n"+
+"    // return the longest string in the array\n"+
+"    \n"+
+"    \n"+
+"    \n"+
+"}",
+    startCursorAt: [5,4],
+    tests: [
+      { i: "longestString(['a','ab','abc']);", o: 'abc' },
+      { i: "longestString(['big',[0,1,2,3,4],'tiny']);", o: 'tiny' },
+      { i: "longestString(['Hi','World','你好']);", o: 'World' },
+      { i: "longestString([true,false,'lol']);", o: 'lol' },
+      { i: "longestString([{object: true,mainly: 'to confuse you'},'x']);", o: 'x' }
+    ],
+    outro: "Well done! Only one challenge remains. It's time to get recursive."
+  
+  },
+
+  {
+    intro: "Final challenge! 返回无限嵌套数组的中数字的和",
+    text: "function arraySum(i) {\n" +
+"    \n"+
+"    // 返回无限嵌套数组的中数字的和\n"+
+"    \n"+
+"    \n"+
+"    \n"+
+"}",
+    startCursorAt: [5,4],
+    tests: [
+      { i: "arraySum([1,2,3,4,5])", o: 15 },
+      { i: "arraySum([[1,2,3],4,5])", o: 15 },
+      { i: "arraySum([[1,2,false],'4','5'])", o: 3 },
+      { i: "arraySum([[[[[[[[[1]]]]]]]], 1])", o: 2 },
+      { i: "arraySum([['A','B','C','easy as',1,2,3]])", o: 6 }
+    ],
+    outro: "Well done! Only one challenge remains. It's time to get recursive."
+  
+  }
+
+];
+var startTime = new Date().getTime();
+var endTime = 0;
+function startGame(){
+	startTime = new Date().getTime();
+	$('button').remove()
+	var text = '<div id="time">00:00</div><textarea class="ace_text-input" style="bottom: 188px; height: 338px; width: 745px; margin: 0px;">'+levels[level].text+'</textarea>';
+	var state = '<div id="status"><div class="log good">'+levels[level].intro+'</div></div>';
+	var btn = '<div id="test"><button onclick="runCode()">Go</button></div>'
+	$('body').append(text + state + btn);
+	timedCount();
+}
+function runCode(){
+	var err = codeTest();
+	if(typeof err == 'string'){
+		$('#status').append('<div class="log good">'+err+'</div>');
+		return;
+	}
+	if (level == 5) {
+		clearTimeout(testTimeout);
+		$('body').html('总共花费：' + $('#time').text());
+		return;
+	};
+	level++;
+	$('textarea').val(levels[level].text);
+	$('#status').html('<div class="log good">'+levels[level].intro+'</div>');
+}
+
+function codeTest(){
+	var tests = levels[level].tests;
+	var curCode = $('.ace_text-input').val();
+
+	var script = document.createElement('script');
+
+	script.type = 'text/javascript'
+
+	script.innerHTML = curCode
+
+	$('head').append(script)
+
+	for (var x = 0; x < tests.length; x++) {
+		var item = tests[x];
+		var n = eval(item.i);
+		if (n != item.o) {
+			return item.i + '应该等于' + item.o
+		};
+	};
+
+	return true;
+}
+function timedCount(){  
+	var min,s;
+    min = parseInt(secs / 60);// 分钟数  
+    if(min>=60){  
+        min %= 60  
+    }  
+    s = secs % 60;  
+  
+  
+	$('#time').html(min + "分" + s + "秒")
+	  
+	secs = s + 1  
+	testTimeout = setTimeout("timedCount()",1000);
+}  
+</script>
+</head>
+<body>
+<button onclick="startGame()">Start the game</button>
+</body>
+</html>
