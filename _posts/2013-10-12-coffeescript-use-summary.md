@@ -97,21 +97,28 @@ obj =
 ## 循环语句
 
 1. 使用 for x in array
+
 ```python
 for name in ['tom', 'jack', 'marry']
 	console.log name
 ```
+
 2. 循环加入索引
+
 ```python
 for name in ['tom', 'jack', 'marry']
 	console.log "#{name} - #{i}"
 ```
+
 3. 数组循环的过滤
+
 ```python
 for name, i in ['tom', 'jack', 'marry'] when i < 2
 	console.log "#{name} - #{i}"
 ```
+
 4. 使用 of 替代 in 关键字来迭代对象的全部属性，像 Ruby 中的 hash 迭代一样
+
 ```python
 names =
 	tom: 'man'
