@@ -7,13 +7,13 @@ title: coffeescript 总结
 
 **三个 `#` 编译后会生成js里的多行注释 **
 
-{% highlight python %}
+```python
 # 你好
 
 ###
 你好啊
 ###
-{% endhighlight %}
+```
 
 ## 变量定义
 
