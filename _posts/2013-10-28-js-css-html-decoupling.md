@@ -51,7 +51,7 @@ $('body .item .savebtn').css('color', '#f00');
 肿么解决呢？好办，看这里：
 
 ```javascript
-$('[data-js='saveBtn']').css('color', '#f00');
+$('[data-js="saveBtn"]').css('color', '#f00');
 ```
 
 这样只要偷偷改你结构的某人不是把这个按钮弄没了 咱的代码 就不会有问题了
