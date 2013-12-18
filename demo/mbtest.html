@@ -2,19 +2,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>测试题</title> 
+<title>测试</title> 
+<script type="text/javascript" src="https://pay.360.cn/resource/js/lib/171.js?v=b5baf5f9.js"></script>
 </head>
 <body>
 <div id="req"></div>
 <script type="text/javascript">
 
 var dev = (function(){
+  var WD = window.screen.width
   var UA = window.navigator.userAgent;
   var DPR = window.devicePixelRatio;
   var DPI = window.screen.deviceXDPI;
   var lDPI = window.screen.logicalXDPI
 
   return {
+    wd: WD,
     ua: UA,
     DPR: DPR,
     DPI: DPI,
@@ -27,7 +30,8 @@ for(var i in dev){
   spanNode.innerHTML = i + ':' + dev[i] +'<br>';
   document.getElementById('req').appendChild(spanNode)
 }
-
+var x = $('body').attr('-webkit-overflow-scrolling')
+alert(x);
 </script>
 </body>
 </html>
