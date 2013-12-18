@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>测试题</title> 
+</head>
+<body>
+<div id="req"></div>
+<script type="text/javascript">
+
+var dev = (function(){
+  var UA = window.navigator.userAgent;
+  var DPR = window.devicePixelRatio;
+  var DPI = window.screen.deviceXDPI;
+  var lDPI = window.screen.logicalXDPI
+
+  return {
+    ua: UA,
+    DPR: DPR,
+    DPI: DPI,
+    lDPI: lDPI
+  }
+})();
+
+for(var i in dev){
+  var spanNode = document.createElement('span');
+  spanNode.innerHTML = i + ':' + dev[i] +'<br>';
+  document.getElementById('req').appendChild(spanNode)
+}
+
+</script>
+</body>
+</html>
