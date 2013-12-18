@@ -18,6 +18,8 @@ var dev = (function(){
 
   return {
     wd: WD,
+    bdTest: $('body').css('-webkit-overflow-scrolling'),
+    htmlTest: $('html').css('-webkit-overflow-scrolling'),
     ua: UA,
     DPR: DPR,
     DPI: DPI,
@@ -30,8 +32,6 @@ for(var i in dev){
   spanNode.innerHTML = i + ':' + dev[i] +'<br>';
   document.getElementById('req').appendChild(spanNode)
 }
-var x = $('body').attr('-webkit-overflow-scrolling')
-alert(x);
 </script>
 </body>
 </html>
