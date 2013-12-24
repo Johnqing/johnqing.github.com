@@ -14,7 +14,7 @@ title: 跨域iframe高度自适应
 
 + a页面中写入iframe
 + 在a页面的同域下，创建一个`proxy.html`，用来做代理页面,代码如下：
-<pre>
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,9 +41,9 @@ title: 跨域iframe高度自适应
 </script>
 </body>
 </html>
-</pre>
+```
 + 在b域中引入一段脚本,代码如下
-<pre>
+```javascript
 (function() {
   var IframeProxy, body, ctFrame, doc, getConf, getReq, onBind, scriptNode, scripts, window;
 
@@ -135,7 +135,7 @@ title: 跨域iframe高度自适应
   (new IframeProxy()).init();
 
 }).call(this);
-</pre>
+```
 
 刷新页面即可
 
@@ -149,7 +149,7 @@ title: 跨域iframe高度自适应
 
 ## 不可控第三方页面 高度修改
 可以通过服务端获取html dom，这里我使用熟悉的php
-<pre>
+```php
 <?php
 	$url = 'http://www.liuqing.pw';
 	$doc = new DOMDocument();
@@ -162,4 +162,4 @@ title: 跨域iframe高度自适应
 	$newdoc->appendChild($newdoc->importNode($cloned,TRUE));
 	echo $newdoc->saveHTML();
 ?>
-</pre>
+```
