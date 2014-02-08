@@ -12,10 +12,10 @@ title: Liu Qing
 
 	<h5>参与过：</h5>
 	<ul>
-		<li><a href="http://www.beijing2008.cn/" target="_blank">北京奥运会官方网站</a> <time>2007年加入</time> <cite>可以访问</cite></li>
-		<li><a href="http://www.mymhotel.com/" target="_blank">红树林度假网</a> <time>2008年加入</time><cite>可以访问</cite></li>
-		<li><a href="http://www.yuetaojie.cn/" target="_blank">悦淘街</a> <time>2010年加入</time><cite>已经关闭</cite></li>
-		<li><a href="http://www.jd.com/" target="_blank">京东商城</a> <time>2013年加入</time><cite>可以访问</cite></li>
-		<li><a href="https://pay.360.cn/" target="_blank">360支付平台</a><time>2014年加入</time><cite>可以访问</cite></li>
+		<li><a href="http://www.beijing2008.cn/" target="_blank">北京奥运会官方网站</a> <time>2007年加入</time> <cite>可以访问</cite> 负责官网、赛程表html css</li>
+		<li><a href="http://www.mymhotel.com/" target="_blank">红树林度假网</a> <time>2008年加入</time><cite>可以访问</cite> 负责前端规范制定、基于jquery的框架开发</li>
+		<li><a href="http://www.yuetaojie.cn/" target="_blank">悦淘街</a> <time>2010年加入</time><cite>已经关闭</cite> 前端负责人、框架开发、规范制定、组件开发</li>
+		<li><a href="http://www.jd.com/" target="_blank">京东商城</a> <time>2013年加入</time><cite>可以访问</cite> 支付产品线前端负责人、参与了首页改版、支付产品线的改版</li>
+		<li><a href="https://pay.360.cn/" target="_blank">360支付平台</a><time>2014年加入</time><cite>可以访问</cite> 360支付平台前端负责人、规范制定、组件开发</li>
 	</ul>
 </div>
