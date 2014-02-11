@@ -103,9 +103,13 @@ ul.posts {
   line-height: 1.5em;
 }
 
-.title {
-  color: #a00;
+.logo{
+  font-size: 5em;
   font-weight: bold;
+  color: #a00; 
+}
+
+.title {  
   margin-bottom: 2em;
 }
 
@@ -215,3 +219,70 @@ ul.posts {
   #related h2 {
     margin-bottom: 1em;
   }
+  /* animate
+  =============================================*/
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+@-webkit-keyframes flipInX {
+    0% {
+        -webkit-transform: perspective(400px)rotateX(90deg);
+        transform: perspective(400px)rotateX(90deg);
+        opacity: 0
+    }
+
+    40% {
+        -webkit-transform: perspective(400px)rotateX(-10deg);
+        transform: perspective(400px)rotateX(-10deg)
+    }
+
+    70% {
+        -webkit-transform: perspective(400px)rotateX(10deg);
+        transform: perspective(400px)rotateX(10deg)
+    }
+
+    100% {
+        -webkit-transform: perspective(400px)rotateX(0);
+        transform: perspective(400px)rotateX(0);
+        opacity: 1
+    }
+}
+
+@keyframes flipInX {
+    0% {
+        -webkit-transform: perspective(400px)rotateX(90deg);
+        -ms-transform: perspective(400px)rotateX(90deg);
+        transform: perspective(400px)rotateX(90deg);
+        opacity: 0
+    }
+
+    40% {
+        -webkit-transform: perspective(400px)rotateX(-10deg);
+        -ms-transform: perspective(400px)rotateX(-10deg);
+        transform: perspective(400px)rotateX(-10deg)
+    }
+
+    70% {
+        -webkit-transform: perspective(400px)rotateX(10deg);
+        -ms-transform: perspective(400px)rotateX(10deg);
+        transform: perspective(400px)rotateX(10deg)
+    }
+
+    100% {
+        -webkit-transform: perspective(400px)rotateX(0);
+        -ms-transform: perspective(400px)rotateX(0);
+        transform: perspective(400px)rotateX(0);
+        opacity: 1
+    }
+}
+
+.flipInX {
+    -webkit-backface-visibility: visible!important;
+    -ms-backface-visibility: visible!important;
+    backface-visibility: visible!important;
+    -webkit-animation-name: flipInX;
+    animation-name: flipInX
+}
