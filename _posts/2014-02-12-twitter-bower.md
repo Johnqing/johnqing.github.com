@@ -100,7 +100,9 @@ jquery#2.0.3 bower_components\jquery
 bower install bootstrap
 bower list
 ```
+
 查看
+
 ```
 bower check-new     Checking for new versions of the project dependencies..
 nodejs-bower#0.0.0 D:\workspace\javascript\nodejs-bower
