@@ -1,3 +1,8 @@
+setTimeout(function(){	
+	document.getElementById('logo').className = '';
+},1000);
+
+
 var av = '                                 ; ;                                  \n'+
 '                        !$$o$&@@@@@@@@@@$$oo$*;                       \n'+
 '                 ;  o$o@@@@@@@@@@@@@@@@@@@@@&@@@@$;                   \n'+
