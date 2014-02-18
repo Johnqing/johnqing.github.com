@@ -1,0 +1,157 @@
+/* reset */
+article,aside,audio,bdi,canvas,command,datalist,details,figcaption,figure,footer,header,hgroup,keygen,mark,meter,nav,output,progress,rp,rt,ruby,section,source,summary,time,track,video,title {
+    display: block
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,figure {
+    padding: 0;
+    margin: 0;
+}
+fieldset,img {
+    border: 0;
+}
+a,img {
+    vertical-align: top;
+}
+:focus {
+    outline: 0;
+}
+address,caption,cite,code,dfn,em,th,var,optgroup {
+    font-style: normal;
+    font-weight: normal;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+abbr,acronym {
+    border: 0;
+    font-variant: normal;
+}
+input,button,textarea,select,optgroup,option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+code,kbd,samp,tt {
+    font-size: 100%;
+}
+input,button,textarea,select {
+    *font-size: 100%;
+}
+ol,ul,li {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption,th {
+    text-align: left;
+}
+sup,sub {
+    font-size: 100%;
+    vertical-align: baseline;
+}
+blockquote,q {
+    quotes: none;
+}
+blockquote:before,blockquote:after,q:before,q:after {
+    content: '';
+    content: none;
+}
+
+.fl {
+    float: left;
+    _display: inline;
+}
+.fr {
+    float: right;
+    _display: inline;
+}
+/* end atom */
+
+/* comm */
+html {
+    font-size: 62.5%;
+    -webkit-text-size-adjust: none;
+}
+body {
+    font: 1rem/1.5 "microsoft yahei", Arial;
+    color: #909095;
+    background-color: #fff;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+/* list
+====================================*/
+.list li{
+	overflow: hidden;
+	border-bottom: 1px solid #d5d5d5;
+    padding: 1.5rem 0;
+
+
+	background: #fff;
+}
+
+.list .img_box{
+    width: 26%;
+    text-align: center;
+}
+
+.list .img_box img{
+    border-radius: 1rem;
+    width: 3.8rem;
+}
+.list .text{
+    width: 45%;
+}
+.list .text,
+.list .img_box {
+    float: left;
+    line-height: 1.8rem;
+}
+
+.text .title{
+    margin-bottom: 0.7rem;
+
+	
+    font-size: 1.4rem;
+    color: #000;
+    line-height: 1;
+}
+.text p{
+	font-size: 1.2rem;
+    color: #909095;
+}
+
+.btns{
+	float: right;
+    width: 29%;
+
+	text-align: center;
+    
+	line-height: 3.8rem;
+    
+	font-size: 1.4rem;
+    color: #969696
+}
+.install{
+    display: inline-block;
+	
+    border-radius: 3.8rem;
+	border: 1px solid #6bbd23;
+	
+    width: 3.8rem;
+	
+    height: 3.8rem;
+
+	
+    font-size: 1.2rem;
+	color: #6bbd23;
+}
