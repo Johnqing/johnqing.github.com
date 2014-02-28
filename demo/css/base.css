@@ -121,8 +121,8 @@ a:hover {
 }
 
 .title{
-    
     position: relative;
+    width: 91%;
 }
 .title div{
     border-radius: 3.5rem; 
