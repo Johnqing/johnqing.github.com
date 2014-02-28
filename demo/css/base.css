@@ -99,6 +99,7 @@ a:hover {
 .text{
     margin: 0 auto;
     width: 90%;
+    font-size: 1.2rem;
 }
 .title span,
 .text span{
@@ -106,28 +107,28 @@ a:hover {
 }
 
 .title{
+    margin-top: .9rem;
     position: relative;
 }
 .title div{
     margin-left: 1rem;
     border-radius: 10px; 
     padding-left: 5rem;   
-    height: 5rem;
+    height: 4rem;
 
 
     background: #f0e1cf;
-    line-height: 5rem;
+    line-height: 4rem;
     color: #564530
 }
 .title img{
     position: absolute;
     top: 0;
     left: 0;
-    width: 5rem;
+    width: 4rem;
 }
 
 .text{
-    margin-top: .9rem;
     border-radius: 4px;
     background: #fff;
 }
