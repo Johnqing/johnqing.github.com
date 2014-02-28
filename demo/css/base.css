@@ -112,7 +112,7 @@ a:hover {
 }
 .title div{
     margin-left: 1rem;
-    border-radius: 3rem; 
+    border-radius: 3.5rem; 
     padding-left: 4rem;   
     height: 4rem;
 
@@ -129,7 +129,7 @@ a:hover {
 }
 
 .text{
-    border-radius: 4px;
+    border-radius: 0.5rem;
     background: #fff;
 }
 .text .cont{
