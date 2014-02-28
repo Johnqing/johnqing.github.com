@@ -129,7 +129,7 @@ a:hover {
     background: #f0e1cf;
 }
 .title div{
-    float: left;
+    padding-left: 3.5rem;
     color: #564530
 }
 .title img{
