@@ -101,6 +101,13 @@ a:hover {
     width: 90%;
     font-size: 1.5rem;
 }
+@media all and (min-width: 320px) {
+    .title,
+    .text{        
+        font-size: 1.5rem   
+    }
+}
+
 .title span,
 .text span{
     color: #b81f21
