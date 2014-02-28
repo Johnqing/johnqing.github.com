@@ -121,24 +121,20 @@ a:hover {
 }
 
 .title{
-    position: relative;
+    border-radius: .5rem; 
+    padding: 1rem;   
+
     width: 91%;
+    background: #f0e1cf;
 }
 .title div{
-    border-radius: 3.5rem; 
-    padding-left: 4.5rem;   
-    height: 4rem;
-
-
-    background: #f0e1cf;
-    line-height: 4rem;
+    height: 4rem;    
     color: #564530
 }
 .title img{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4rem;
+    float: left;
+    margin-right: 1rem;
+    width: 3rem;
 }
 
 .text{
