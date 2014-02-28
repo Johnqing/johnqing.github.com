@@ -1,0 +1,136 @@
+/* reset */
+article,aside,audio,bdi,canvas,command,datalist,details,figcaption,figure,footer,header,hgroup,keygen,mark,meter,nav,output,progress,rp,rt,ruby,section,source,summary,time,track,video,title {
+    display: block
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,figure {
+    padding: 0;
+    margin: 0;
+}
+fieldset,img {
+    border: 0;
+}
+a,img {
+    vertical-align: top;
+    -webkit-touch-callout: none;
+}
+:focus {
+    outline: 0;
+}
+address,caption,cite,code,dfn,em,th,var,optgroup {
+    font-style: normal;
+    font-weight: normal;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+abbr,acronym {
+    border: 0;
+    font-variant: normal;
+}
+input,button,textarea,select,optgroup,option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+code,kbd,samp,tt {
+    font-size: 100%;
+}
+input,button,textarea,select {
+    *font-size: 100%;
+}
+ol,ul,li {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption,th {
+    text-align: left;
+}
+sup,sub {
+    font-size: 100%;
+    vertical-align: baseline;
+}
+blockquote,q {
+    quotes: none;
+}
+blockquote:before,blockquote:after,q:before,q:after {
+    content: '';
+    content: none;
+}
+
+.fl {
+    float: left;
+    _display: inline;
+}
+.fr {
+    float: right;
+    _display: inline;
+}
+/* end atom */
+
+/* comm */
+html,
+body {
+    /* 禁止选中文本（如无文本选中需求，此为必选项） */
+    -webkit-user-select: none;
+    user-select: none;
+}
+html {
+    font-size: 62.5%;
+    -webkit-text-size-adjust: none;
+}
+body {
+    font: 1rem/1.5 "microsoft yahei", Arial;
+    color: #656565;
+    background-color: #f9f4ee;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+.title,
+.text{
+    margin: 0 auto;
+    width: 90%;
+}
+.title span,
+.text span{
+    color: #b81f21
+}
+
+.title{
+    position: relative;
+}
+.title div{
+    margin-left: 1rem;
+    border-radius: 10px; 
+    padding-left: 5rem;   
+    height: 5rem;
+
+
+    background: #f0e1cf;
+    line-height: 5rem;
+    color: #564530
+}
+.title img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5rem;
+}
+
+.text{
+    margin-top: .9rem;
+    border-radius: 4px;
+    background: #fff;
+}
+.text .cont{
+    padding: 1rem 1.5rem;
+}
