@@ -128,6 +128,7 @@ a:hover {
     background: #f0e1cf;
 }
 .title div{
+    float: left;
     color: #564530
 }
 .title img{
