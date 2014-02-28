@@ -99,10 +99,10 @@ a:hover {
 .text{
     margin: .9rem auto 0;
     width: 90%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+@media screen and (device-aspect-ratio: 40/71){
     .title,
     .text{        
         font-size: 1.2rem   
