@@ -121,6 +121,7 @@ a:hover {
 }
 
 .title{
+    overflow: hidden;
     border-radius: .5rem; 
     padding: 1rem;   
 
