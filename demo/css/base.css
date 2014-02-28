@@ -104,13 +104,13 @@ a:hover {
 @media all and (min-width : 320px) {
     .title,
     .text{        
-        font-size: 1.5rem   
+        font-size: 1.2rem   
     }
 }
 @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
     .title,
     .text{        
-        font-size: 1.5rem   
+        font-size: 1.2rem   
     }   
 }
 
