@@ -101,7 +101,7 @@ a:hover {
     width: 90%;
     font-size: 1.5rem;
 }
-@media screen and (min-width : 320px) {
+@media screen and (min-device-width : 320px) {
     .title,
     .text{        
         font-size: 1.2rem   
