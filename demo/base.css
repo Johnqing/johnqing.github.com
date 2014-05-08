@@ -111,15 +111,14 @@ a:hover {
     padding: 1.5rem 0;
     background: #fff;
 }
-
-.list .img_box{
-    width: 26%;
-    text-align: center;
+.list .img_box,
+.list .img_box img{
+    width: 3.8rem;
 }
 
 .list .img_box img{
     border-radius: 1rem;
-    width: 3.8rem;
+    
 }
 .list .text{
     width: 45%;
