@@ -7,20 +7,28 @@
 	<meta content="yes" name="apple-mobile-web-app-capable" />
 	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
 	<meta name="format-detection" content="telephone=no" />
-	<link rel="stylesheet" href="css/base.css  ">
+	<style>
+		body{
+			text-align: center;
+		}
+		#result{
+			font-size: 100px;
+			color: #f00;	
+		}
+	</style>
 </head>
 <body>
-<div class="title">
-    <img src="img/icon.png" alt=""/>
-    <div>如何修改<span>农行储蓄卡</span>银行预留手机号？银行预留手机号？银行预留手机号？银行预留手机号？银行预留手机号？银行预留手机号？银行预留手机号？</div>
-</div>
-<div class="text">
-	<div class="cont">
-		<div class="as"><span>答</span>：您使用农业银行储蓄卡进行快捷支付时，提示“预存手机号码错误”。可按照以下两种方式进行修改：</div>
-	    <p>1、持本人身份证、农行储蓄卡、新手机号码，到任一农行柜台填写申请表，修改“预存手机号码”即可。</p>
-	    <p>2、请与银行核实动账通知（即用户账务变动根行发送的手机号码）和用户资料的号码是否一致。如果不一致，请更改成一致，具体可咨询农行客服热线：<a href="tel:95599">95599</a></p>
-	</div>
-    
-</div>
+<div id="result"></div>
+<script>
+	var el = document.getElementById('result');
+	var i = 0;
+	var timer = setInterval(function(){
+		if(i>120){clearInterval(timer);return}
+		i++;
+	 	el.innerHTML = i;
+	}, 1000);
+	
+	
+</script>
 </body>
 </html>
