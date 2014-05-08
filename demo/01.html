@@ -7,12 +7,37 @@
 	<meta content="yes" name="apple-mobile-web-app-capable" />
 	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
 	<meta name="format-detection" content="telephone=no" />
-	<link rel="stylesheet" href="base.css?v=123">
+	<link rel="stylesheet" href="base.css">
     <script src="https://pay.360.cn/resource/js/component/ntpl.js"></script>
     <script src="https://pay.360.cn/resource/js/lib/zepto.min.js"></script>
 </head>
 <body>
-<ul class="list" id="list"></ul>
+<ul class="list" id="list">
+	<li>
+		<div class="img_box">
+			<img src="http://www.gravatar.com/avatar/07697895c3d655352175d28c48792b36?s=100&r=pg&d=http%3A%2F%2Fn2.nabble.com%2Fimages%2Favatar100.png" alt="<%= apks[i].title %>">
+		</div>
+		<div class="text">
+			<div class="title">哈哈哈</div>
+			<p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+		</div>
+		<div class="btns">
+			<a href="javascript:;" data-apk="<%= apks[i].packageName %>" class="opend">打开</a>
+		</div>
+	</li>
+	<li>
+		<div class="img_box">
+			<img src="http://www.gravatar.com/avatar/07697895c3d655352175d28c48792b36?s=100&r=pg&d=http%3A%2F%2Fn2.nabble.com%2Fimages%2Favatar100.png" alt="<%= apks[i].title %>">
+		</div>
+		<div class="text">
+			<div class="title">哈哈哈</div>
+			<p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+		</div>
+		<div class="btns">
+			<a href="javascript:;" data-apk="<%= apks[i].packageName %>" class="opend">打开</a>
+		</div>
+	</li>
+</ul>
 <!--load-->
 <div id="infscr-loading">
     <img alt="Loading..." src="/resource/img/webapp/load.gif">
