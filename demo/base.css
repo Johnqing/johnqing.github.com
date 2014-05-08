@@ -115,7 +115,10 @@ a:hover {
 .list .img_box img{
     width: 3.8rem;
 }
-
+.btns,
+.list .img_box{
+	margin: 0 1rem;
+}
 .list .img_box img{
     border-radius: 1rem;
     
@@ -141,10 +144,14 @@ a:hover {
     color: #909095;
 }
 
+.btns,
+.install,
+.opend{
+	width: 3.8rem;
+}
+
 .btns{
     float: right;
-    width: 29%;
-
     text-align: center;
 
     line-height: 3.8rem;
@@ -158,7 +165,6 @@ a:hover {
     border-radius: 3.8rem;
     border: 1px solid #6bbd23;
 
-    width: 3.8rem;
     height: 3.8rem;
 
     font-size: 1.2rem;
@@ -170,7 +176,6 @@ a:hover {
     margin: 0.65rem 0;
     border: 1px solid #fff;
 
-    width: 3.8rem;
     height: 2.5rem;
     line-height: 2.5rem;
 
