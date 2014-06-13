@@ -86,19 +86,22 @@
     });
      alert(doc);
     //点击展开或者关闭
-    doc.on('click', '.title', function(){
-        alert(12312313123);
-        var $this = $(this);
-        alert($this.hasClass('tit_active'));
-        if($this.hasClass('tit_active')){
-            $this.next('.text').hide();
-            $this.removeClass('tit_active');
-            return;
-        }
-        alert('class');
-        $this.addClass('tit_active').siblings('.title').removeClass('tit_active');
-        $this.next('.text').show().siblings('.text').hide();
+    doc.on('click', function(){
+        alert(121);
     });
+    // doc.on('click', '.title', function(){
+    //     alert(12312313123);
+    //     var $this = $(this);
+    //     alert($this.hasClass('tit_active'));
+    //     if($this.hasClass('tit_active')){
+    //         $this.next('.text').hide();
+    //         $this.removeClass('tit_active');
+    //         return;
+    //     }
+    //     alert('class');
+    //     $this.addClass('tit_active').siblings('.title').removeClass('tit_active');
+    //     $this.next('.text').show().siblings('.text').hide();
+    // });
 </script>
 </body>
 </html>
