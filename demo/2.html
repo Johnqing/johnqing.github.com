@@ -39,7 +39,15 @@
     var $window = $(window),
         doc = $('body'),
         $b = $('#b'),
-        scrollFlag
+        scrollFlag;
+        
+    alert(2);
+    //点击展开或者关闭
+    doc[0].onclick = function(){
+        
+        alert(2);
+    }
+        
     // 获取数据
     var getData = function(){
         // 页数
@@ -84,12 +92,7 @@
             getData();
         }
     });
-     alert(1);
-    //点击展开或者关闭
-    doc[0].onclick = function(){
-        
-        alert(2);
-    }
+    
     // doc.on('click', function(){
     //     alert(121);
     // });
