@@ -84,8 +84,10 @@
             getData();
         }
     });
+    
     //点击展开或者关闭
-    doc.on('tap', '.title', function(){
+    doc.on('click', '.title', function(){
+        alert(12312313123);
         var $this = $(this);
         alert($this.hasClass('tit_active'));
         if($this.hasClass('tit_active')){
