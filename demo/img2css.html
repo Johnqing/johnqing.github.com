@@ -10,14 +10,21 @@
 		#img{
 			width: 1px; height: 1px; overflow: hidden; line-height: 999em; font-size: 0px;
 		}
+		#preCode{
+			display: block;
+			width: 200px;
+			height: 200px;
+		}
 	</style>
 </head>
 <body>
 <div id="img"></div>
 <input type='file' id="fileBtn">
+<code id="preCode"></code>
 <script type="text/javascript">
 	var fileNode = document.getElementById('fileBtn');
 	var imgStyleNode = document.getElementById('img');
+	var preCode = document.getElementById('preCode');
 	
 	var canvas = document.createElement('canvas');
 	var canvas2d = canvas.getContext('2d');
@@ -68,6 +75,8 @@
 			};
 		};
 		imgStyleNode.style.boxShadow = colorArr.join(',');
+		preCode.innerHTML = colorArr.join(',');
+		imgData = colorArr = null;
 	}
 
 
