@@ -1,0 +1,85 @@
+.field .tips{
+	display: none;
+	margin-top: 0.5rem;
+	color: #ff2b2b;
+}
+.error .tips{
+	display: block;
+}
+/* 适配
+=========================================*/
+@media screen and (max-width: 749px) {
+	.m-fm-box{
+		margin-left: 7%;
+		width: 86%;
+	}
+
+	.field{
+		font-size: 1.1rem;
+		padding: 1rem 0;
+	}
+	.m-display-box{
+		display: -webkit-box;
+	}
+	.m-inp-box{}
+	.m-inp-box-flex{
+		-webkit-box-flex: 1;
+	}
+
+	.m-yzm{
+		text-align: center;
+	}
+
+	.u-btn-grey{
+		margin-left: 1rem;
+		border: 1px solid #c8c8c8;
+		border-radius: 4px;
+
+		padding: 1rem 1.8rem;
+
+		font-size: 1rem;
+
+		color: #787878;
+
+		background-color: #f7f7f7;
+		background: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f0f0f0), color-stop(50%, #f8f8f8));
+	}
+	.u-btn-green{
+		border-radius: 2rem;
+
+		padding: 1rem 0;
+		width: 100%;
+
+		font-size: 1.2rem;
+		line-height: 1;
+
+		background-color: #12c33b;
+		color: #fff;
+	}
+
+	.s-cl-green{
+		color: #12c33b;
+	}
+
+	input[type="text"] {
+		border: 1px solid #c8c8c8;
+		border-radius: 4px;
+
+
+		width: 100%;
+		padding: 1rem 0;
+		padding-left: 9px;
+
+		color: #bababa;
+		font-size: 1rem;
+
+		-webkit-box-sizing: border-box;
+		-webkit-appearance: none;
+	}
+
+    .m-yzm label{
+	    display: block;
+	    margin-bottom: 1rem
+    }
+
+}
