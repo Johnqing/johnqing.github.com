@@ -1680,3 +1680,25 @@ window.$ === undefined && (window.$ = Zepto)
 
 	$.fn.touch = touch;
 })(Zepto);
+(function(window){
+	/**
+	 * 队列
+	 * @constructor
+	 */
+	window.Queue = function(){
+		this.lists = [];
+	}
+	Queue.prototype = {
+		constructor: Queue,
+		add: function(fn){
+			this.lists.push(fn);
+			return this;
+		},
+		next: function(){
+			var self = this;
+			var lists = self.lists;
+			var item = lists.shift() || function(){};
+			item.call(self);
+		}
+	}
+})(this);

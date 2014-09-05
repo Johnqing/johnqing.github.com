@@ -454,6 +454,8 @@ nav .nav-logo {
 		<a href="http://down.360safe.com/360paycentre/360PayCentre.apk" class="down"></a>
 		<div class="mb"></div>
 	</div>
+</section>
+<script type="text/ntpl-template" id="content">
 	<div class="line"></div>
 	<div class="wrap-con con2 wait">
 		<img src="img/app/wap_con2.png" id="con2_img" alt=""/>
@@ -461,8 +463,6 @@ nav .nav-logo {
 		<div class="icoud1"></div>
 		<div class="icoud2"></div>
 	</div>
-</section>
-<script type="text/ntpl-template" id="content3">
 	<div class="line"></div>
 	<div class="wrap-con con3 wait">
 		<img src="img/app/con3_1.png" alt=""/>
@@ -471,8 +471,7 @@ nav .nav-logo {
 		<div class="tips3"></div>
 		<div class="tips4"></div>
 	</div>
-</script>
-<script type="text/ntpl-template" id="content4">
+
 	<div class="line"></div>
 	<div class="wrap-con con4 wait">
 		<img src="img/app/con4.png" alt=""/>
@@ -481,8 +480,6 @@ nav .nav-logo {
 		<div class="tips3"></div>
 		<div class="tips4"></div>
 	</div>
-</script>
-<script type="text/ntpl-template" id="content5">
 	<div class="line"></div>
 	<div class="wrap-con con5 wait">
 		<img src="img/app/con5.png" alt=""/>
@@ -526,54 +523,7 @@ nav .nav-logo {
 	var $win = $(window);
 	var navNode = $('nav');
 	var wrapNode = $('#wrap');
-	var waitWrap = $('.wait');
-
-	var cont3 = $('#content3');
-	var cont4 = $('#content4');
-	var cont5 = $('#content5');
-
-
-	function waitAimate(){
-		var i = 0;
-		var item;
-		var nodeY;
-		var top = docNode[0].scrollTop + 54;
-		if(top <= 108){
-			navNode.removeClass('show');
-		} else{
-			navNode.addClass('show');
-		}
-		if(top == 54 && cont3){
-			waitWrap.addClass('in');
-			wrapNode.append(cont3.html());
-			cont3 = null;
-		}
-		if(top > 108 && cont4){
-			wrapNode.append(cont4.html());
-			cont4 = null;
-		}
-		if(top > 162 && cont5){
-			wrapNode.append(cont5.html());
-			cont5 = null;
-		}
-		// 执行动画
-		waitWrap = $('.wait');
-		var height = docNode[0].clientHeight;
-		var len = waitWrap.length;
-		for(; i<len; i++){
-			item = waitWrap.eq(i);
-			// 加载过的 不在加载
-			if(item.hasClass('aimated')) continue;
-
-			nodeY = item.offset().top;
-
-			if(nodeY >= top && nodeY <= (top + height)){
-				item.addClass('animted in');
-			}
-
-		}
-
-	}
+	var waitWrap;
 
 	function imgReady(node, cb){
 		var img = new Image();
@@ -587,12 +537,53 @@ nav .nav-logo {
 		}
 	}
 
-	imgReady($('#con2_img'), function(){
+	var queue = new Queue();
+	queue.add(function(){
+		var content = $('#content').html();
+		wrapNode.append(content);
+		queue.next();
+	}).add(function(){
+		var imgs = wrapNode.find('img');
+		var len = imgs.length;
+		for(var i=0; i<len; i++){
+			(function(x){
+				imgReady(imgs.eq(x), function(){
+					if(x == len - 1){
+						queue.next();
+					}
+				})
+			})(i);
+		}
+	}).add(function(){
+		waitWrap = $('.wait');
 		waitAimate();
 		$(document).swipe(function(e){
 			waitAimate();
 		});
 	});
+
+	queue.next();
+
+	function waitAimate(){
+		var i = 0;
+		var item;
+		var nodeY;
+		var top = docNode[0].scrollTop + 54;
+
+		var height = docNode[0].clientHeight;
+		var len = waitWrap.length;
+		for(; i<len; i++){
+			item = waitWrap.eq(i);
+			// 加载过的 不在加载
+			if(item.hasClass('aimated')) continue;
+
+			nodeY = item.offset().top;
+
+			if(nodeY >= top && nodeY <= (top + height)){
+				item.addClass('animted in');
+			}
+		}
+	}
 
 	var dialog = new Dialog({
 		container: '.ui-dialog-box'
