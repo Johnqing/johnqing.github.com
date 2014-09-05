@@ -515,6 +515,7 @@ nav .nav-logo {
 <script src="js/wolf/core.js"></script>
 <script src="js/wolf/ui.js"></script>
 <script>
+window.onload = function(){
 	var docNode = $('body');
 	var $win = $(window);
 	var navNode = $('nav');
@@ -572,7 +573,7 @@ nav .nav-logo {
 	if($.os.name == 'ios'){
 		pop('抱歉，360币服务暂不支持iPhone手机，到官网pay.360.cn有更多充值服务噢！');
 	}
-
+}
 </script>
 </body>
 </html>
