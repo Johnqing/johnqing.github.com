@@ -153,7 +153,7 @@ nav .nav-logo {
 	border-bottom: solid 2px #fff;
 }
 .line{
-	margin: 2rem 0;
+	margin: 4rem 0;
 	border: 1px dashed #ececec;
 }
 .wrap {
@@ -461,6 +461,8 @@ nav .nav-logo {
 		<div class="icoud1"></div>
 		<div class="icoud2"></div>
 	</div>
+</section>
+<script type="text/ntpl-template" id="content3">
 	<div class="line"></div>
 	<div class="wrap-con con3 wait">
 		<img src="img/app/con3_1.png" alt=""/>
@@ -469,6 +471,8 @@ nav .nav-logo {
 		<div class="tips3"></div>
 		<div class="tips4"></div>
 	</div>
+</script>
+<script type="text/ntpl-template" id="content4">
 	<div class="line"></div>
 	<div class="wrap-con con4 wait">
 		<img src="img/app/con4.png" alt=""/>
@@ -477,6 +481,8 @@ nav .nav-logo {
 		<div class="tips3"></div>
 		<div class="tips4"></div>
 	</div>
+</script>
+<script type="text/ntpl-template" id="content5">
 	<div class="line"></div>
 	<div class="wrap-con con5 wait">
 		<img src="img/app/con5.png" alt=""/>
@@ -487,7 +493,8 @@ nav .nav-logo {
 		<img src="img/app/con6.png" alt=""/>
 		<a href="http://down.360safe.com/360paycentre/360PayCentre.apk" class="down"></a>
 	</div>
-</section>
+</script>
+
 <!--dialog template-->
 <div class="ui-dialog-box"></div>
 <script type="text/ntpl-template" id="template-dialog">
@@ -515,24 +522,45 @@ nav .nav-logo {
 <script src="js/wolf/core.js"></script>
 <script src="js/wolf/ui.js"></script>
 <script>
-window.onload = function(){
 	var docNode = $('body');
 	var $win = $(window);
 	var navNode = $('nav');
+	var wrapNode = $('#wrap');
 	var waitWrap = $('.wait');
-	var len = waitWrap.length;
+
+	var cont3 = $('#content3');
+	var cont4 = $('#content4');
+	var cont5 = $('#content5');
+
 
 	function waitAimate(){
+		var node;
 		var i = 0;
 		var item;
 		var nodeY;
 		var top = docNode[0].scrollTop + 54;
 		if(top <= 108){
 			navNode.removeClass('show');
-		} else {
+		} else{
 			navNode.addClass('show');
 		}
+		if(top == 54 && cont3){
+			waitWrap.addClass('in');
+			wrapNode.append(cont3.html());
+			cont3 = null;
+		}
+		if(top > 108 && cont4){
+			wrapNode.append(cont4.html());
+			cont4 = null;
+		}
+		if(top > 162 && cont5){
+			wrapNode.append(cont5.html());
+			cont5 = null;
+		}
+		// 执行动画
+		waitWrap = $('.wait');
 		var height = docNode[0].clientHeight;
+		var len = waitWrap.length;
 		for(; i<len; i++){
 			item = waitWrap.eq(i);
 			// 加载过的 不在加载
@@ -545,6 +573,7 @@ window.onload = function(){
 			}
 
 		}
+
 	}
 	waitAimate();
 
@@ -573,7 +602,7 @@ window.onload = function(){
 	if($.os.name == 'ios'){
 		pop('抱歉，360币服务暂不支持iPhone手机，到官网pay.360.cn有更多充值服务噢！');
 	}
-}
+
 </script>
 </body>
 </html>
