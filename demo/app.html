@@ -1,0 +1,578 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>360安全支付</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@charset "utf-8";
+/*reset*/
+html {
+	font-size: 62.5%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html, body{
+	height: 100%;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+:before, :after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.clearfix:before, .clearfix:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical > .btn-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after, .pager:after, .panel-body:after, .modal-footer:after {
+	clear: both;
+}
+/* ui dialog
+ =====================*/
+.ui-dialog{
+	overflow: hidden;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+
+	max-width: 500px;
+	width: 86%;
+
+	border-radius: 4px;
+
+	background: #fff;
+	z-index: 1000;
+}
+.ui-dialog .ui-hd {
+	position: relative;
+
+	border-bottom: 2px solid #12c33b;
+
+	margin: 6% 6% 0;
+
+	line-height: 40px;
+	font-size: 1.2em;
+	color: #12c33b;
+}
+.ui-error-tips {
+	color: #000;
+	padding: 6%;
+	text-align: center;
+}
+.ui-roller-btns {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+
+	border-top: 1px solid #e8e8e8;
+
+	background: #fff;
+	line-height: 18px;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.ui-roller-btns .ui-flexbd {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+
+	padding: 12px 0;
+	color: #12c33b;
+}
+.ui-roller-btns .ui-flexbd:nth-of-type(2) {
+	border-left: 1px solid #e8e8e8;
+}
+.ui-mask{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .5;
+	z-index: 999;
+}
+/*top nav*/
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	background: #333;
+	font-size: 18px;
+	color: #fff;
+	line-height: 32px;
+	background: url("img/app/wap-top-bg.png") top left repeat-x;
+	background-size: 100%;
+	opacity:0;
+}
+nav.show{
+	-webkit-animation:fadeInUp .2s .1s ease both;
+}
+@-webkit-keyframes fadeInUp{
+	0%{
+		opacity:0;
+		-webkit-transform:translateY(-20px)
+	}
+	100%{
+		opacity:1;
+		-webkit-transform:translateY(0)
+	}
+}
+
+nav .nav-logo {
+	float: left;
+	width: calc(100% - 130px);
+}
+
+.nav-logo a {
+	display: block;
+	width: 160px;
+	height: 54px;
+	margin-left: 10px;
+	background: url("img/app/logo.png") left center no-repeat;
+	background-size: 100%;
+}
+.wrap-con {
+	position: relative;
+	border-bottom: solid 2px #fff;
+}
+.line{
+	margin: 2rem 0;
+	border: 1px dashed #ececec;
+}
+.wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+/*.top54{*/
+	/*top: 54px;*/
+/*}*/
+.wrap-con{
+	position: relative;
+
+	margin: 0 auto;
+	width: 87%;
+
+	background-color: #fff;
+}
+.con1{
+	margin-top: 33px;
+}
+.con1 img{
+	width: 62%;
+}
+.con1 .mb{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 35%;
+	height: 94%;
+	background: url("img/app/mb.png") left center no-repeat;
+	background-size: 100%;
+}
+.con1.in .mb{
+	-webkit-animation:bounceIn 1s .2s ease both;
+	-moz-animation:bounceIn 1s .2s ease both;
+}
+@-webkit-keyframes bounceIn{
+	0%{opacity:0;
+		-webkit-transform:scale(.3)}
+	50%{opacity:1;
+		-webkit-transform:scale(1.05)}
+	70%{-webkit-transform:scale(.9)}
+	100%{-webkit-transform:scale(1)}
+}
+.down{
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 42%;
+	height: 18%;
+	background: url("img/app/wap_con1_btn.png") left center no-repeat;
+	background-size: 100%;
+}
+.con1 .down{
+	top: 77%;
+}
+.con2{
+	overflow: hidden;
+}
+.con2 img{
+	width: 100%;
+}
+
+.con2 .rockets{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 71%;
+	height: 78%;
+	background: url("img/app/con2_1.png") left center no-repeat;
+	background-size: 100%;
+	-webkit-transition: all .8s ease-in-out;
+	-moz-transition: all .8s ease-in-out;
+	transition: all .8s ease-in-out;
+
+	-webkit-transform: translate3d(-100%, 100%, 0);
+}
+
+.con2.in .rockets{
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+.con2 .icoud1,
+.con2 .icoud2 {
+	position: absolute;
+	background: url("img/app/icoud.png") left center no-repeat;
+	background-size: 100%;
+
+	-webkit-animation: nextdh 2s infinite ease-in-out both;
+}
+.con2 .icoud1{
+	top: 66%;
+	right: 7%;
+	width: 26%;
+	height: 18%;
+}
+.con2 .icoud2{
+	top: 44%;
+	left: 7%;
+	width: 18%;
+	height: 13%;
+}
+@-webkit-keyframes nextdh {
+	0% {
+		-webkit-transform: translateX(4px)
+	}
+	50% {
+		-webkit-transform: translateX(-4px)
+	}
+	100% {
+		-webkit-transform: translateX(4px)
+	}
+}
+
+.con3 img{
+	margin: 0 25%;
+	width: 50%;
+}
+.con3 .tips1,
+.con3 .tips2,
+.con3 .tips3,
+.con3 .tips4{
+	position: absolute;
+	opacity:0
+}
+.con3 .tips1{
+	top: 24%;
+	right: 20%;
+	width: 9%;
+	height: 7%;
+	background: url("img/app/con3_2.png") left center no-repeat;
+	background-size: 100%;
+}
+.con3 .tips2{
+	top: 35%;
+	left: 16%;
+	width: 21%;
+	height: 16%;
+	background: url("img/app/con3_3.png") left center no-repeat;
+	background-size: 100%;
+}
+.con3 .tips3{
+	top: 50%;
+	right: 20%;
+	width: 4%;
+	height: 10%;
+	background: url("img/app/con3_4.png") left center no-repeat;
+	background-size: 100%;
+}
+.con3 .tips4{
+	top: 70%;
+	left: 21%;;
+	width: 12%;
+	height: 7%;
+	background: url("img/app/con3_5.png") left center no-repeat;
+	background-size: 100%;
+}
+.con3.in .tips1{
+	-webkit-animation: fadeIn 1s .2s ease both;
+	-moz-animation: fadeIn 1s .2s ease both;
+}
+.con3.in .tips2{
+	-webkit-animation: fadeIn 1s .2s ease both;
+	-moz-animation: fadeIn 1s .2s ease both;
+}
+.con3.in .tips3{
+	-webkit-animation: fadeIn 1s .2s ease both;
+	-moz-animation: fadeIn 1s .2s ease both;
+}
+.con3.in .tips4{
+	-webkit-animation: fadeIn 1s .6s ease both;
+	-moz-animation: fadeIn 1s .6s ease both;
+}
+@-webkit-keyframes fadeIn{
+	0%{opacity:0}
+	100%{opacity:1}
+}
+
+.con4 img{
+	margin: 0 10%;
+	width: 80%;
+}
+.con4 .tips1,
+.con4 .tips2,
+.con4 .tips3,
+.con4 .tips4{
+	position: absolute;
+	opacity:0
+}
+.con4 .tips1{
+	top: 37%;
+	left: 9%;
+	width: 17%;
+	height: 28%;
+	background: url("img/app/con4_1.png") left center no-repeat;
+	background-size: 100%;
+}
+.con4 .tips2{
+	top: 12%;
+	left: 30%;
+	width: 12%;
+	height: 16%;
+	background: url("img/app/con4_2.png") left center no-repeat;
+	background-size: 100%;
+}
+.con4 .tips3{
+	top: 23%;
+	right: 16%;
+	width: 23%;
+	height: 24%;
+	background: url("img/app/con4_3.png") left center no-repeat;
+	background-size: 100%;
+}
+.con4 .tips4{
+	top: 57%;
+	right: 20%;
+	width: 9%;
+	height: 10%;
+	background: url("img/app/con4_4.png") left center no-repeat;
+	background-size: 100%;
+}
+.con4.in .tips1{
+	-webkit-animation: fadeIn 1s .6s ease both;
+	-moz-animation: fadeIn 1s .6s ease both;
+}
+.con4.in .tips2{
+	-webkit-animation: fadeIn 1s .4s ease both;
+	-moz-animation: fadeIn 1s .4s ease both;
+}
+.con4.in .tips3{
+	-webkit-animation: fadeIn 1s 1s ease both;
+	-moz-animation: fadeIn 1s 1s ease both;
+}
+.con4.in .tips4{
+	-webkit-animation: fadeIn 1s .2s ease both;
+	-moz-animation: fadeIn 1s .2s ease both;
+}
+
+.con5 img{
+	margin: 0 11%;
+	width: 78%;
+}
+.con5 .purse{
+	position: absolute;
+	top: 82%;
+	left: 10%;
+	width: 24%;
+	height: 18%;
+	background: url("img/app/con5_1.png") left center no-repeat;
+	background-size: 100%;
+	opacity:0;
+	-webkit-transform:translateY(-400px)
+}
+.con5.in .purse{
+	-webkit-animation:bounceInDown 1s .2s ease both;
+	-moz-animation:bounceInDown 1s .2s ease both;
+}
+@-webkit-keyframes bounceInDown{
+	0%{opacity:0;
+		-webkit-transform:translateY(-400px)}
+	60%{opacity:1;
+		-webkit-transform:translateY(30px)}
+	80%{opacity:1;-webkit-transform:translateY(-10px)}
+	100%{opacity:1;-webkit-transform:translateY(0)}
+}
+.con6 img{
+	margin: 0 29%;
+	width: 42%;
+}
+.con6 .down{
+	height: 37%;
+	top: 23%;
+	left: 29%;
+}
+
+.hide{
+	display: none;
+}
+</style>
+</head>
+<body>
+
+<nav>
+	<div class="nav-logo">
+		<a href="javascript:;"></a>
+	</div>
+	<div class="nav-menus">
+		<em class="menus-icon"></em>
+	</div>
+</nav>
+<section class="wrap" id="wrap">
+	<div class="wrap-con con1 wait">
+		<img src="img/app/wap_top.png" alt=""/>
+		<a href="http://down.360safe.com/360paycentre/360PayCentre.apk" class="down"></a>
+		<div class="mb"></div>
+	</div>
+	<div class="line"></div>
+	<div class="wrap-con con2 wait">
+		<img src="img/app/wap_con2.png" alt=""/>
+		<div class="rockets"></div>
+		<div class="icoud1"></div>
+		<div class="icoud2"></div>
+	</div>
+	<div class="line"></div>
+	<div class="wrap-con con3 wait">
+		<img src="img/app/con3_1.png" alt=""/>
+		<div class="tips1"></div>
+		<div class="tips2"></div>
+		<div class="tips3"></div>
+		<div class="tips4"></div>
+	</div>
+	<div class="line"></div>
+	<div class="wrap-con con4 wait">
+		<img src="img/app/con4.png" alt=""/>
+		<div class="tips1"></div>
+		<div class="tips2"></div>
+		<div class="tips3"></div>
+		<div class="tips4"></div>
+	</div>
+	<div class="line"></div>
+	<div class="wrap-con con5 wait">
+		<img src="img/app/con5.png" alt=""/>
+		<div class="purse"></div>
+	</div>
+	<div class="line"></div>
+	<div class="wrap-con con6">
+		<img src="img/app/con6.png" alt=""/>
+		<a href="http://down.360safe.com/360paycentre/360PayCentre.apk" class="down"></a>
+	</div>
+</section>
+<!--dialog template-->
+<div class="ui-dialog-box"></div>
+<script type="text/ntpl-template" id="template-dialog">
+	<div class="ui-mask"></div>
+	<div class="ui-dialog">
+		<% if(title){ %>
+		<div class="ui-hd">
+			<%=title%>
+		</div>
+		<% } %>
+		<div class="ui-bd">
+			<div class="ui-error-tips">
+				<%=content%></div>
+			<div class="ui-roller-btns">
+				<% for(var i = 0, len = btns.length; i < len; i++ ) {%>
+				<div class="ui-flexbd <%=btns[i].className%>">
+					<%=btns[i].name%></div>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</script>
+<script src="js/zepto.js"></script>
+<script src="https://pay.360.cn/resource/js/lib/nt.js"></script>
+<script src="js/wolf/core.js"></script>
+<script src="js/wolf/ui.js"></script>
+<script>
+	var docNode = $('body');
+	var $win = $(window);
+	var navNode = $('nav');
+	var waitWrap = $('.wait');
+	var len = waitWrap.length;
+
+	function waitAimate(){
+		var i = 0;
+		var item;
+		var nodeY;
+		var top = docNode[0].scrollTop + 54;
+		if(top <= 108){
+			navNode.removeClass('show');
+		} else {
+			navNode.addClass('show');
+		}
+		var height = docNode[0].clientHeight;
+		for(; i<len; i++){
+			item = waitWrap.eq(i);
+			// 加载过的 不在加载
+			if(item.hasClass('aimated')) continue;
+
+			nodeY = item.offset().top;
+
+			if(nodeY >= top && nodeY <= (top + height)){
+				item.addClass('animted in');
+			}
+
+		}
+	}
+	waitAimate();
+
+	$(document).swipe(function(e){
+		waitAimate();
+	});
+
+	var dialog = new Dialog({
+		container: '.ui-dialog-box'
+	});
+
+	function pop(msg){
+		dialog.set({
+			hasBtns: false,
+			content: msg,
+			onOkBtnClick: function(){
+				AlipayJSBridge && AlipayJSBridge.call('exitApp');
+			},
+			btns: [
+				{name: '好的，返回', className: 'ui-btns-ok'}
+			]
+		});
+		dialog.show();
+	}
+
+	if($.os.name == 'ios'){
+		pop('抱歉，360币服务暂不支持iPhone手机，到官网pay.360.cn有更多充值服务噢！');
+	}
+
+</script>
+</body>
+</html>
