@@ -456,7 +456,7 @@ nav .nav-logo {
 	</div>
 	<div class="line"></div>
 	<div class="wrap-con con2 wait">
-		<img src="img/app/wap_con2.png" alt=""/>
+		<img src="img/app/wap_con2.png" id="con2_img" alt=""/>
 		<div class="rockets"></div>
 		<div class="icoud1"></div>
 		<div class="icoud2"></div>
@@ -534,7 +534,6 @@ nav .nav-logo {
 
 
 	function waitAimate(){
-		var node;
 		var i = 0;
 		var item;
 		var nodeY;
@@ -575,10 +574,24 @@ nav .nav-logo {
 		}
 
 	}
-	waitAimate();
 
-	$(document).swipe(function(e){
+	function imgReady(node, cb){
+		var img = new Image();
+		var src = node.attr('src');
+		img.src = src;
+		if(img.complete)
+			return cb && cb();
+		img.onload = function(){
+			cb && cb(img);
+			img.onload = null;
+		}
+	}
+
+	imgReady($('#con2_img'), function(){
 		waitAimate();
+		$(document).swipe(function(e){
+			waitAimate();
+		});
 	});
 
 	var dialog = new Dialog({
