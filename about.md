@@ -2,20 +2,84 @@
 layout: default
 title: Liu Qing
 ---
+# 联系方式
+- 手机：18611995375
+- Email：staridea@sina.com
+---
 
-<div id="about">
+# 个人信息
 
-	<h4>Hi, my name is <strong>Liu Qing</strong>.</h4>
+ - 刘卿/男/1988 
+ - 专科/北京建设大学
+ - 工作年限：6年
+ - 微博：[@jonery](http://weibo.com/jonery) 
+ - 技术博客：http://liuqing.pw
+ - Github: http://github.com/johnqing
 
-	<p>I am a front-end developer, now working in Beijing, worked Qihoo 360.</p>
-	<p>If you want to contact me? Click <a href="mailto:csssnow@gmail.com">here</a></p>
+ - 期望职位：前端开发
+ - 期望薪资：面议
+ - 期望城市：北京  
 
-	<h5>参与过：</h5>
-	<ul>
-		<li><a href="http://www.beijing2008.cn/" target="_blank">北京奥运会官方网站</a> <time>2007年加入</time> <cite>可以访问</cite> 负责官网、赛程表html css</li>
-		<li><a href="http://www.mymhotel.com/" target="_blank">红树林度假网</a> <time>2008年加入</time><cite>可以访问</cite> 负责前端规范制定、基于jquery的框架开发</li>
-		<li><a href="http://www.yuetaojie.cn/" target="_blank">悦淘街</a> <time>2010年加入</time><cite>已经关闭</cite> 前端负责人、框架开发、规范制定、组件开发</li>
-		<li><a href="http://www.jd.com/" target="_blank">京东商城</a> <time>2013年加入</time><cite>可以访问</cite> 支付产品线前端负责人、参与了首页改版、支付产品线的改版</li>
-		<li><a href="https://pay.360.cn/" target="_blank">360支付平台</a><time>2014年加入</time><cite>可以访问</cite> 360支付平台前端负责人、规范制定、组件开发</li>
-	</ul>
-</div>
+---
+
+# 工作经历
+
+## 360-支付平台 （ 2013年8月 ~ 至今 ）
+
+### 360充值中心([pay.360.cn](https://pay.360.cn)) 
+负责前端开发工作，在此项目期间重新开发了基于jquery的ui组件，及其简单的构建工具。开发中遇到https的协议下，不能使用内部公共的打点系统，经过研究通过根目录下部署空文件记录日志的方式解决。
+
+
+### 360理财宝 ([8.360.cn](https://8.360.cn)) 
+负责前端开发工作，期间对ui组件进行了升级，并基于gulp开发了完整的前端构建工具。
+
+### 其他
+前端接口人
+ 
+## 京东-ued （ 2013年2月 ~ 2013年8月 ）
+
+### 首页 
+该次改版中，我负责重构tab组件，并且已经投入使用。
+
+
+### 支付流程 
+负责结算页面的改版，并且增加产品延保的功能。
+
+
+### 其他
+倡导并分享了less预编译工具、前端代码风格指南等
+
+## 悦淘街 （ 2011年1月 ~ 2013年2月 ）
+主导并负责前后端接口制定、js类库开发、组件开发、页面性能优化、前端人员培训
+
+## 今典集团 （ 2008年12月 ~ 2010年12月 ）
+参与[红树林官网](http://www.mymhotel.com/)/[猫喂猫电影超市](http://www.movmall.com/)的页面制作，及其前端组件的开发
+
+## 今典集团 （ 2007年12月 ~ 2008年12月 ）
+[奥运官方网站](http://www.beijing2008.cn)以及残奥官网 火炬传递 各专题的设计与制作
+
+---
+
+# 开源项目和作品
+
+## 近期开源项目
+
+ - [NT](https://github.com/Johnqing/Ntpl.js) : NT 是一个高效、轻量的前端 (Javascript) 模板引擎，使用 NT 可以使你的代码实现数据和视图模型的分离(MVC)。
+ - [Mucuna](https://github.com/Johnqing/Mucuna) : 一套简单的前端编译平台
+
+
+# 技能清单
+
+以下均为我熟练使用的技能
+
+- Web开发：PHP/Node
+- Web框架：ThinkPHP/Express
+- 前端基础技能：HTML/CSS/JS
+- 前端工具：Bower/Gulp/Sass/Less
+- 版本管理：Svn/Git
+- 云和开放平台：SAE/BAE/JAE
+
+---
+
+# 致谢
+感谢您花时间阅读我的简历，期待能有机会和您共事。
