@@ -3,16 +3,9 @@ layout: default
 title: Liu Qing
 ---
 
-
-# 联系方式
-- 手机：18611995375
-- Email：staridea@sina.com
-
----
-
 # 个人信息
 
- - 刘卿/男/1988 
+ - 刘卿/男 
  - 专科/北京建设大学
  - 工作年限：6年
  - 微博：[@jonery](http://weibo.com/jonery) 
@@ -25,12 +18,57 @@ title: Liu Qing
 
 ---
 
+# 联系方式
+- 手机：18611995375
+- Email：staridea@sina.com
+
+---
+
+# 技能
+ 
+ - 语言：HTML/CSS/JS/NodeJs/PHP
+ - 版本管理：Svn/Git
+ - 其他：jQuery/Express/Grunt/Gulp/Bower/Less/Browserify/Coffeescript等
+
+---
+
+
+# 开源项目和作品
+
+## 近期开源项目
+
+ - [NT](https://github.com/Johnqing/Ntpl.js) : NT 是一个高效、轻量的前端 (Javascript) 模板引擎，使用 NT 可以使你的代码实现数据和视图模型的分离(MVC)。
+ - [Mucuna](https://github.com/Johnqing/Mucuna) : 一套简单的前端编译平台
+
+---
+
+
 # 工作经历
 
 ## 360-支付平台 （ 2013年8月 ~ 至今 ）
 
 ### 360充值中心([pay.360.cn](https://pay.360.cn)) 
-负责前端开发工作，在此项目期间重新开发了基于jquery的ui组件，及其简单的构建工具。开发中遇到https的协议下，不能使用内部公共的打点系统，经过研究通过根目录下部署空文件记录日志的方式解决。
+负责前端开发工作，由于早期团队没有前端人员，所以存在以下问题：
+
+ - 同一个页面中，重复出现多次同一个库
+ - 所有脚本都写在HTML中
+ - 脚本重复度很高，并且不能满足现有需求
+ - 所有css没有模块化，无法剔除已经不用的
+ - img没有sprite，请求太多
+ - 兼容性太差
+ - ...
+
+初期解决如下问题：
+
+ - 统一使用jQuery，因为用户中心使用该库
+ - 根据需求，提炼出UI组件
+ - 重构HTML，切分模块
+ - 脚本模块化，方便拆分
+ - css使用Less，使用变量、函数等功能，提供模块化，并可统一配置
+ - css sprite
+ - 上线前打包/编译模块文件
+
+由于现有的上线工具不能完全的满足需求，只能基于Nodejs开放了一个简单的构建工具，用来编译less，合并模块。
 
 
 ### 360理财宝 ([8.360.cn](https://8.360.cn)) 
@@ -61,28 +99,7 @@ title: Liu Qing
 ## 今典集团 （ 2007年12月 ~ 2008年12月 ）
 [奥运官方网站](http://www.beijing2008.cn)以及残奥官网 火炬传递 各专题的设计与制作
 
----
 
-# 开源项目和作品
-
-## 近期开源项目
-
- - [NT](https://github.com/Johnqing/Ntpl.js) : NT 是一个高效、轻量的前端 (Javascript) 模板引擎，使用 NT 可以使你的代码实现数据和视图模型的分离(MVC)。
- - [Mucuna](https://github.com/Johnqing/Mucuna) : 一套简单的前端编译平台
-
-
-# 技能清单
-
-以下均为我熟练使用的技能
-
-- Web开发：PHP/Node
-- Web框架：ThinkPHP/Express
-- 前端基础技能：HTML/CSS/JS
-- 前端工具：Bower/Gulp/Sass/Less
-- 版本管理：Svn/Git
-- 云和开放平台：SAE/BAE/JAE
-
----
 
 # 致谢
 感谢您花时间阅读我的简历，期待能有机会和您共事。
