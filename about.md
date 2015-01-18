@@ -70,9 +70,15 @@ title: Liu Qing
 
 由于现有的上线工具不能完全的满足需求，只能基于Nodejs开放了一个简单的构建工具，用来编译less，合并模块。
 
-
 ### 360理财宝 ([8.360.cn](https://8.360.cn)) 
-负责前端开发工作，期间对ui组件进行了升级，并基于gulp开发了完整的前端构建工具。
+这是一个全新的项目。
+
+ - 由于登录是用户中心的，所以jquery是必须要调用的
+ - 使用充值中心的UI组件，对该组件进行优化，添加写的插件
+ - 现有的构建工具，不能满足需求。使用Gulp进行构建
+ - 现有的Gulp组件中，缺少符合整个项目的合并工具，所以开发了[gulp-file-concat](https://www.npmjs.com/package/gulp-file-concat)
+ - 测试环境中的代码都是合并过的，调试的时候很麻烦，所以开发了[fe-proxy](https://www.npmjs.com/package/fe-proxy)
+
 
 ### 其他
 前端接口人
