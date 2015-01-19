@@ -3,6 +3,13 @@ setTimeout(function(){
 },1000);
 
 
+var href = window.location.href;
+
+if(href.indexOf('/about')){
+	document.body.className='about';	
+}
+
+
 var av = '                                 ; ;                                  \n'+
 '                        !$$o$&@@@@@@@@@@$$oo$*;                       \n'+
 '                 ;  o$o@@@@@@@@@@@@@@@@@@@@@&@@@@$;                   \n'+
