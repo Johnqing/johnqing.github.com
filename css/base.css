@@ -285,3 +285,14 @@ ul.posts {
     -webkit-animation-name: flipInX;
     animation-name: flipInX
 }
+
+
+.about hr{
+  margin: 2rem 0;
+}
+.about h2{
+  margin-bottom: 5px;
+}
+.about li{
+  margin: 5px 0;
+}
