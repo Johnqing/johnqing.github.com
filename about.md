@@ -9,7 +9,7 @@ title: Liu Qing
  - 专科/北京建设大学
  - 工作年限：6年
  - 微博：[@jonery](http://weibo.com/jonery) 
- - 技术博客：http://liuqing.pw
+ - 技术博客：http://liluo.me
  - Github: http://github.com/johnqing
  
  - 期望职位：前端开发
