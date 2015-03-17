@@ -11,15 +11,10 @@ title: Liu Qing
  - 微博：[@jonery](http://weibo.com/jonery) 
  - 技术博客：http://liluo.me
  - Github: http://github.com/johnqing
- 
- - 期望职位：前端开发
- - 期望薪资：面议
- - 期望城市：北京  
 
 ---
 
 # 联系方式
-- 手机：18611995375
 - Email：staridea@sina.com
 
 ---
