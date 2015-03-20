@@ -15,7 +15,7 @@ title: Liu Qing
 ---
 
 # 联系方式
-- Email：staridea@sina.com
+- Email：liuqing@liluo.me
 
 ---
 
