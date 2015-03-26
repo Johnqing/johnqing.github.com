@@ -147,8 +147,9 @@ var Links = React.createClass({
 
 var Forkme = React.createClass({
     render: function(){
+        var url = this.props.github || '';
         return (
-            <a href="http://github.com/{this.props.github}">
+            <a href={url}>
                 <img className="forkme" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
             </a>
         )

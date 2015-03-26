@@ -5,7 +5,7 @@ layout: nil
 	author: {
         title: "梨落",
         email: "liuqing@liluo.me",
-        github: "johnqing"
+        github: "http://github.com/johnqing"
     },
     nav: [
         {
