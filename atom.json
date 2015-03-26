@@ -4,7 +4,7 @@ layout: nil
 {
 	title: '{{ page.title }}',
 	email: 'liuqing@liluo.me',
-	github: ''
+	github: 'johnqing',
 	posts: [{% for post in site.posts%}
 	    {
 	        "title":"{{post.title}}",
@@ -12,5 +12,13 @@ layout: nil
 	        "date":"{{post.date|date_to_string}}"
 	    }{% if forloop.last == false %},{% endif %}
 	{% endfor %}
-	]
+	],
+    links: [
+        {% for link in site.links %}
+            {
+                'url': '{{ link.url }}',
+                'title': '{{ link.title }}'
+            }{% if forloop.last == false %},{% endif %}
+        {% endfor %}
+    ]
 }
