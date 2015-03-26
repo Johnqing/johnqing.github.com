@@ -147,7 +147,10 @@ var Links = React.createClass({
 
 var Forkme = React.createClass({
     render: function(){
-        var url = this.props.github || '';
+        var url = this.props.author || '';
+        if(url){
+            url = url.github;
+        }
         return (
             <a href={url}>
                 <img className="forkme" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
@@ -184,7 +187,7 @@ var App = React.createClass({
                     <List posts={this.state.data.posts} />
                     <Links links={this.state.data.links} />
                 </div>
-                <Forkme author={this.state.data.github} />
+                <Forkme author={this.state.data.author} />
             </div>
         )
 
