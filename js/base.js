@@ -145,16 +145,17 @@ var Forkme = React.createClass({
 var App = React.createClass({
 
     loadListFromServer: function(){
+        var _self = this;
         ajax({
             url: "/atom.json",
             dataType: "json",
             success: function(data){
                 console.log(data);
-                this.setState(data);
-            }.bind(this),
+                _self.setState(data);
+            },
             error: function(data){
-                this.setState(data);
-            }.bind(this)
+                _self.setState(data);
+            }
         });
     },
 
