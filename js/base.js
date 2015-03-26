@@ -80,14 +80,22 @@ var ajax = function(conf) {
 
 var Head = React.createClass({
     render: function(){
-        return <h1 id="logo"><a href="/" className="animated flipInX">{this.props.author.title}</a></h1>
+        var title = this.props.author || '';
+        if(title){
+            title = title.title;
+        }
+        return (
+            <h1 id="logo"><a href="/" className="animated flipInX">{title}</a></h1>
+            )
 
     }
 });
 
 var Nav = React.createClass({
     render: function(){
-        var Nodes = this.props.nav.map(function (data) {
+        var nav = this.props.nav || [];
+
+        var Nodes = nav.map(function (data) {
             return (
                 <a className="extra" href={data.url}>{data.title}</a>
             );
@@ -103,8 +111,8 @@ var Nav = React.createClass({
 
 var List = React.createClass({
     render: function(){
-
-        var Nodes = this.props.posts.map(function(post){
+        var posts = this.props.posts || [];
+        var Nodes = posts.map(function(post){
             return <li><span>{post.date}</span> &raquo; <a href={post.url}>{post.title}</a></li>
         });
 
@@ -121,8 +129,8 @@ var List = React.createClass({
 
 var Links = React.createClass({
     render: function(){
-
-        var Nodes = this.props.links.map(function(link){
+        var links = this.props.links || [];
+        var Nodes = links.map(function(link){
             return <li><a href={link.url}>{link.title}</a></li>
         });
 
@@ -140,7 +148,7 @@ var Links = React.createClass({
 var Forkme = React.createClass({
     render: function(){
         return (
-            <a href="http://github.com/{this.props.author.github}">
+            <a href="http://github.com/{this.props.github}">
                 <img className="forkme" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
             </a>
         )
@@ -161,11 +169,7 @@ var App = React.createClass({
         });
     },
     getInitialState: function() {
-        return {data: {
-            nav: [],
-            posts: [],
-            links: []
-        }};
+        return {data: {}};
     },
     componentDidMount: function(){
         this.loadListFromServer();
@@ -179,7 +183,7 @@ var App = React.createClass({
                     <List posts={this.state.data.posts} />
                     <Links links={this.state.data.links} />
                 </div>
-                <Forkme author={this.state.data.author} />
+                <Forkme author={this.state.data.github} />
             </div>
         )
 
