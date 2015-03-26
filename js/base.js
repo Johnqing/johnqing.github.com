@@ -153,9 +153,6 @@ var App = React.createClass({
             success: function(data){
                 console.log('ajax', data);
                 _self.setState({data: data});
-            },
-            error: function(err){
-                console.error(_self.props.url, status, err.toString());
             }
         });
     },
@@ -167,11 +164,9 @@ var App = React.createClass({
             links: []
         }};
     },
-    componentDidMount: function(){
-        this.loadListFromServer();
-    },
     render: function(){
-        console.log('render', this.state);
+        this.loadListFromServer();
+
         return (
             <div class="site">
                 <h1 id="logo"><a href="/" class="animated flipInX">Liu Qing</a></h1>
