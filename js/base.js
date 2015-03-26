@@ -81,15 +81,14 @@ var ajax = function(conf) {
 
 var Nav = React.createClass({
     render: function(){
-        console.log(this.props);
         var Nodes = this.props.nav.map(function (data) {
             return (
-                <a class="extra" href="{data.url}">{data.title}</a>
+                <a className="extra" href={data.url}>{data.title}</a>
             );
         });
 
         return(
-            <div class="title">
+            <div className="title">
                 {Nodes}
             </div>
         )
@@ -100,13 +99,13 @@ var List = React.createClass({
     render: function(){
 
         var Nodes = this.props.posts.map(function(post){
-            return <li><span>{post.date}</span> &raquo; <a href="{post.url}">{post.title}</a></li>
+            return <li><span>{post.date}</span> &raquo; <a href={post.url}>{post.title}</a></li>
         });
 
         return(
-                <div class="posts-wrap">
+                <div className="posts-wrap">
                     <h2>Blog Posts</h2>
-                    <ul class="list">
+                    <ul className="list">
                         {Nodes}
                     </ul>
                 </div>
@@ -118,13 +117,13 @@ var Links = React.createClass({
     render: function(){
 
         var Nodes = this.props.links.map(function(link){
-            return <li><a href="{link.url}">{link.title}</a></li>
+            return <li><a href={link.url}>{link.title}</a></li>
         });
 
         return(
-                <div class="link-wrap">
+                <div className="link-wrap">
                     <h2>Links</h2>
-                    <ul class="list">
+                    <ul className="list">
                         {Nodes}
                     </ul>
                 </div>
@@ -136,7 +135,7 @@ var Forkme = React.createClass({
     render: function(){
         return (
             <a href="http://github.com/{this.props.author.github}">
-                <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+                <img className="forkme" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
             </a>
         )
     }
@@ -151,17 +150,24 @@ var App = React.createClass({
             url: _self.props.url,
             dataType: "json",
             success: function(data){
-                console.log('ajax', data);
                 _self.setState({data: data});
             }
         });
     },
-    render: function(){
+    getInitialState: function() {
+        return {data: {
+            nav: [],
+            posts: [],
+            links: []
+        }};
+    },
+    componentDidMount: function(){
         this.loadListFromServer();
-
+    },
+    render: function(){
         return (
-            <div class="site">
-                <h1 id="logo"><a href="/" class="animated flipInX">Liu Qing</a></h1>
+            <div className="site">
+                <h1 id="logo"><a href="/" className="animated flipInX">{this.state.data.author.title}</a></h1>
                 <Nav nav={this.state.data.nav} />
                 <div id="home">
                     <List posts={this.state.data.posts} />

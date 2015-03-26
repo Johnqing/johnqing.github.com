@@ -3,7 +3,7 @@ layout: nil
 ---
 {
 	author: {
-        title: "{{ page.title }}",
+        title: "梨落",
         email: "liuqing@liluo.me",
         github: "johnqing"
     },
