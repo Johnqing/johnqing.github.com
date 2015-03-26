@@ -181,7 +181,6 @@ var App = React.createClass({
                     <Links links={this.state.data.links} />
                 </div>
                 <Forkme author={this.state.data.author} />
-
             </div>
         )
 
