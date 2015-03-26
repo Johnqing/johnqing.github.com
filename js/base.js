@@ -151,6 +151,7 @@ var App = React.createClass({
             url: "/atom.json",
             dataType: "json",
             success: function(data){
+                console.log('ajax', data);
                 _self.setState({data: data});
             },
             error: function(err){
@@ -159,12 +160,14 @@ var App = React.createClass({
         });
     },
     getInitialState: function() {
+        console.log('init');
         return {data: {}};
     },
     componentDidMount: function(){
         this.loadListFromServer();
     },
     render: function(){
+        console.log('render', this.state);
         return (
             <div class="site">
                 <h1 id="logo"><a href="/" class="animated flipInX">Liu Qing</a></h1>
