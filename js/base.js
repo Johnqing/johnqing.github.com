@@ -78,6 +78,12 @@ var ajax = function(conf) {
 
 //////////////////////////////////////////////////////////////////
 
+var Head = React.createClass({
+    render: function(){
+        return <h1 id="logo"><a href="/" className="animated flipInX">{this.props.author.title}</a></h1>
+
+    }
+});
 
 var Nav = React.createClass({
     render: function(){
@@ -167,7 +173,7 @@ var App = React.createClass({
     render: function(){
         return (
             <div className="site">
-                <h1 id="logo"><a href="/" className="animated flipInX">{this.state.data.author.title}</a></h1>
+                <Head author={this.state.data.author} />
                 <Nav nav={this.state.data.nav} />
                 <div id="home">
                     <List posts={this.state.data.posts} />
