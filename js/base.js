@@ -156,14 +156,6 @@ var App = React.createClass({
             }
         });
     },
-    getInitialState: function() {
-        console.log('init');
-        return {data: {
-            nav: [],
-            posts: [],
-            links: []
-        }};
-    },
     render: function(){
         this.loadListFromServer();
 
