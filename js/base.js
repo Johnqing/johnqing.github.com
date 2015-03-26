@@ -151,25 +151,27 @@ var App = React.createClass({
             dataType: "json",
             success: function(data){
                 console.log(data);
-                _self.setState(data);
+                _self.setState({data: data});
             },
-            error: function(data){
-                _self.setState(data);
+            error: function(err){
+                console.error(this.props.url, status, err.toString());
             }
         });
     },
-
+    getInitialState: function() {
+        return {data: {}};
+    },
     render: function(){
         this.loadListFromServer();
         return (
             <div class="site">
                 <h1 id="logo"><a href="/" class="animated flipInX">Liu Qing</a></h1>
-                <Nav nav={this.state.nav} />
+                <Nav nav={this.state.data.nav} />
                 <div id="home">
-                    <List posts={this.state.posts} />
-                    <Links links={this.state.links} />
+                    <List posts={this.state.data.posts} />
+                    <Links links={this.state.data.links} />
                 </div>
-                <Forkme author={this.state.author} />
+                <Forkme author={this.state.data.author} />
 
             </div>
         )
