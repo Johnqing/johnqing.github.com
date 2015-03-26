@@ -149,6 +149,7 @@ var App = React.createClass({
             url: "/atom.json",
             dataType: "json",
             success: function(data){
+                console.log(data);
                 this.setState(data);
             }.bind(this),
             error: function(data){
@@ -159,7 +160,6 @@ var App = React.createClass({
 
     render: function(){
         this.loadListFromServer();
-        console.log(this.state);
         return (
             <div class="site">
                 <h1 id="logo"><a href="/" class="animated flipInX">Liu Qing</a></h1>
