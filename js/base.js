@@ -81,6 +81,7 @@ var ajax = function(conf) {
 
 var Nav = React.createClass({
     render: function(){
+        console.log(this.props);
         var Nodes = this.props.nav.map(function (data) {
             return (
                 <a class="extra" href="{data.url}">{data.title}</a>
@@ -150,7 +151,6 @@ var App = React.createClass({
             url: "/atom.json",
             dataType: "json",
             success: function(data){
-                console.log(data);
                 _self.setState({data: data});
             },
             error: function(err){
