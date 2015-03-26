@@ -3,18 +3,18 @@ layout: nil
 ---
 {
 	author: {
-        title: '{{ page.title }}',
-        email: 'liuqing@liluo.me',
-        github: 'johnqing'
+        title: "{{ page.title }}",
+        email: "liuqing@liluo.me",
+        github: "johnqing"
     },
     nav: [
         {
-            title: '首页',
-            url: '/'
+            title: "首页",
+            url: "/"
         },
         {
-            title: '关于我',
-            url: '/about'
+            title: "关于我",
+            url: "/about"
         }
     ],
 	posts: [{% for post in site.posts%}
@@ -28,8 +28,8 @@ layout: nil
     links: [
         {% for link in site.links %}
             {
-                'url': '{{ link.url }}',
-                'title': '{{ link.title }}'
+                "url": "{{ link.url }}",
+                "title": "{{ link.title }}"
             }{% if forloop.last == false %},{% endif %}
         {% endfor %}
     ]
