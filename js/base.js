@@ -1,48 +1,153 @@
-setTimeout(function(){	
-	document.getElementById('logo').className = '';
-},1000);
+var createAjax = function() {
+    var xhr = null;
+    try {
+        //IE系列浏览器
+        xhr = new ActiveXObject("microsoft.xmlhttp");
+    } catch (e1) {
+        try {
+            //非IE浏览器
+            xhr = new XMLHttpRequest();
+        } catch (e2) {
+            window.alert("您的浏览器不支持ajax，请更换！");
+        }
+    }
+    return xhr;
+};
+var ajax = function(conf) {
+    // 初始化
+    //type参数,可选
+    var type = conf.type;
+    //url参数，必填
+    var url = conf.url;
+    //data参数可选，只有在post请求时需要
+    var data = conf.data;
+    var dataArr = [];
+    for(var key in data){
+        dataArr.push(key + '=' + data[key]);
+    }
+    data = data.join('&');
+    //datatype参数可选
+    var dataType = conf.dataType;
+    //回调函数可选
+    var success = conf.success;
+
+    if (type == null){
+        //type参数可选，默认为get
+        type = "get";
+        url += '?' + data;
+    }
+    if (dataType == null){
+        //dataType参数可选，默认为text
+        dataType = "text";
+    }
+    // 创建ajax引擎对象
+    var xhr = createAjax();
+    // 打开
+    xhr.open(type, url, true);
+    // 发送
+    if (type == "GET" || type == "get") {
+        xhr.send(null);
+    } else if (type == "POST" || type == "post") {
+        xhr.setRequestHeader("content-type",
+            "application/x-www-form-urlencoded");
+        xhr.send(data);
+    }
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            if(dataType == "text"||dataType=="TEXT") {
+                if (success != null){
+                    //普通文本
+                    success(xhr.responseText);
+                }
+            }else if(dataType=="xml"||dataType=="XML") {
+                if (success != null){
+                    //接收xml文档
+                    success(xhr.responseXML);
+                }
+            }else if(dataType=="json"||dataType=="JSON") {
+                if (success != null){
+                    //将json字符串转换为js对象
+                    success(eval("("+xhr.responseText+")"));
+                }
+            }
+        }
+    };
+};
+
+//////////////////////////////////////////////////////////////////
 
 
-var href = window.location.href;
+var Nav = React.createClass({
+    render: function(){
+        var Nodes = this.props.nav.map(function (data) {
+            return (
+                <a class="extra" href="{data.url}">{data.title}</a>
+            );
+        });
 
-if(href.indexOf('/about')){
-	document.body.className='about';	
-}
+        return(
+            <div class="title">
+                {Nodes}
+            </div>
+        )
+    }
+});
+
+var Forkme = React.createClass({
+    render: function(){
+        return (
+            <a href="http://github.com/johnqing">
+                <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
+            </a>
+        )
+    }
+});
 
 
-var av = '                                 ; ;                                  \n'+
-'                        !$$o$&@@@@@@@@@@$$oo$*;                       \n'+
-'                 ;  o$o@@@@@@@@@@@@@@@@@@@@@&@@@@$;                   \n'+
-'              ;  $!$@@@@@@@@@@@@@@@@@@@@@@@@@&@@@@@$o!                \n'+
-'              *o$!;;@@@@&@@@@@@@@@@@@@&&@@@@@@@@@@@@@&;o              \n'+
-'             *$!;!@@@@@&@@@@@@*!!!!!!!!$@@@@@@@@@@@@&@@$$;            \n'+
-'          ;$;; @&&@@$&&@@@@@@@o!!!!;;;!!@@@@@@@@@@@@&!!$@$!           \n'+
-'          o @@@@@@@@@@@@@@@@@o!;;!!!!!;;;$@@@@@@@@@$;;;;o*@o          \n'+
-'          $$@@@@&@@@@@@@@@@$;!!!!;;;;;;;;;;o$@@&$!;;;!!;!;;$;         \n'+
-'          $@@@@!!!!*$&&$o;!;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;&         \n'+
-'         ;$@@@;!!!!;;     ;  ;; ; !;$o;;;;&&&@$oo$&&&;$;*o$;o         \n'+
-'        ;!@@@$;$$$$$$$$o;;;o$*;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; ;        \n'+
-'    ;!$ ; ;o@o!!!!!!!!!!!!!!!!;!!!!!!!!!!!!!!!!!!!!!!!!!!!!!;*        \n'+
-'    $ ;!!!!!$$oo!; ;o;ooooo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!oooo!$*  ;   \n'+
-'   * ;;;;!!!*&oooooooooooooo!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!oooooo!;$; \n'+
-'   $ ;;;;;!!o@oooooooooooo!!!!;;;;;;;;;;;;;;;;;;;;;;;;;;;;!!!!!!!!!!!$\n'+
-'  ;o ;;;;;!!!@*!!!!!!!!!!!;;;;;;;;;;;;;;;;;*$&!;;;;;;;;;;;;;;;;;;;;;!;\n'+
-'   o; ;;;;!!!!!!!!!;;;;;;;;;;;;;;;;;;;;;;!oooo!*!;;;;;;;;;;;;;;;;;;;;!\n'+
-'    ;&;;;!!ooo!!!;;;;;;;;;;;;;;;;;;;;;;;;$!o!o!o!$;;;;;;;;;;;;;;;;;;;!\n'+
-'      ;;;;$;o!!!!!;;;;;;;;;;;;;;;;;;;;;;;$oooo!o!!$;;;;;;;;;;;;;;;;;;!\n'+
-'          ;$;!!!!!!;;;;;;;;;;;;;;;;;;;;;;*!!o!!oo!!$;;;;;;;;;;;;;;;!;;\n'+
-'             $ ;!!!;;;;;;;;;;;;;;;;;;;;;;;$!oo!!;!!!*;;;;;;;;;;;;!;;;o\n'+
-'               $*  ;!!!;;;;;;;;;;;;;;;;;;;;$!!!  ;;!!&;;;;;;;;;!;;;$  \n'+
-'                  o;$!*$;!!!!!!;;;;;;;;;;;;;*!!!!!ooo;&;*;!;;!;;$o    \n'+
-'                   !;$*!!o&$o;  ;;!!!!!!!!!!!!&;;!!&*$o$!;;$$;        \n'+
-'                 ; ;!!!!&        ;!$$o&$$$$$$$$$&$;*$$;;;$            \n'+
-'                  $;;!!$$$  !$!$!$$$$$$$$$o;o$!!$o$$o!;o$             \n'+
-'                    $&&$$$*$$&!o$$$$$$$$$$$o$$$$$$$$$$!               \n'+
-'                     *!$$$$$$;$$$$$$$$$$$$$$*$$$$$$$&;                \n'+
-'                      ;$o$$*;$$$$$$$$$$$$$$$$$o$$$&!                  \n'+
-'                       ; ;$;$$$$$$$$$$$$$$$$$$o;                      \n'+
-'                          $$$$$$$$$$$$$$$$$$$$$$                      \n'+
-'                          o$$$$$$$$$$$$$$$$$$$$o&;                    \n'+
-'                           o$o;;;;;!o*$$$$$$$**;                      \n'+
-'                            o;;!!!!&;!!!!;;!!$  '
-console.log(av);
+var App = React.createClass({
+
+    loadListFromServer: function(){
+        ajax({
+            url: "/atom.json",
+            dataType: "json",
+            success: function(data){
+                this.setState(data);
+            }.bind(this),
+            error: function(data){
+                this.setState(data);
+            }.bind(this)
+        });
+    },
+
+    render: function(){
+        this.loadListFromServer();
+
+        return (
+            <div class="site">
+                <h1 id="logo"><a href="/" class="animated flipInX">Liu Qing</a></h1>
+                <Nav nav={this.state.nav} />
+
+
+                <div class="footer">
+                    <div class="contact">
+                        <p>
+                        Liu Qing<br />
+                        Cofounder of <a href="http://github.com/">GitHub</a><br />
+                        csssnow@gmail.com
+                        </p>
+                    </div>
+                    <div class="contact">
+                        <p>
+                            <a href="http://github.com/johnqing/">github.com/johnqing</a><br />
+                            <a href="http://weibo.com/jonery/">weibo</a><br />
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <Forkme />
+        )
+
+    }
+});
+
+React.render(<App />, document.body);
