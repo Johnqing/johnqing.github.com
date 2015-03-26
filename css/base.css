@@ -70,16 +70,16 @@ blockquote{
 /*
 /*****************************************************************************/
 
-ul.posts {
+ul.list {
   list-style-type: none;
   margin-bottom: 2em;
 }
 
-  ul.posts li {
+  ul.list li {
     line-height: 1.75em;
   }
 
-  ul.posts span {
+  ul.list span {
     color: #aaa;
     font-family: Monaco, "Courier New", monospace;
     font-size: 80%;

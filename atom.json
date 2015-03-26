@@ -2,9 +2,11 @@
 layout: nil
 ---
 {
-	title: '{{ page.title }}',
-	email: 'liuqing@liluo.me',
-	github: 'johnqing',
+	author: {
+        title: '{{ page.title }}',
+        email: 'liuqing@liluo.me',
+        github: 'johnqing'
+    },
     nav: [
         {
             title: '首页',

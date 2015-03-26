@@ -93,10 +93,46 @@ var Nav = React.createClass({
     }
 });
 
+var List = React.createClass({
+    render: function(){
+
+        var Nodes = this.props.posts.map(function(post){
+            return <li><span>{post.date}</span> &raquo; <a href="{post.url}">{post.title}</a></li>
+        });
+
+        return(
+                <div class="posts-wrap">
+                    <h2>Blog Posts</h2>
+                    <ul class="list">
+                        {Nodes}
+                    </ul>
+                </div>
+        )
+    }
+});
+
+var Links = React.createClass({
+    render: function(){
+
+        var Nodes = this.props.links.map(function(link){
+            return <li><a href="{link.url}">{link.title}</a></li>
+        });
+
+        return(
+                <div class="link-wrap">
+                    <h2>Links</h2>
+                    <ul class="list">
+                        {Nodes}
+                    </ul>
+                </div>
+        )
+    }
+});
+
 var Forkme = React.createClass({
     render: function(){
         return (
-            <a href="http://github.com/johnqing">
+            <a href="http://github.com/{this.props.author.github}">
                 <img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" />
             </a>
         )
@@ -126,25 +162,13 @@ var App = React.createClass({
             <div class="site">
                 <h1 id="logo"><a href="/" class="animated flipInX">Liu Qing</a></h1>
                 <Nav nav={this.state.nav} />
-
-
-                <div class="footer">
-                    <div class="contact">
-                        <p>
-                        Liu Qing<br />
-                        Cofounder of <a href="http://github.com/">GitHub</a><br />
-                        csssnow@gmail.com
-                        </p>
-                    </div>
-                    <div class="contact">
-                        <p>
-                            <a href="http://github.com/johnqing/">github.com/johnqing</a><br />
-                            <a href="http://weibo.com/jonery/">weibo</a><br />
-                        </p>
-                    </div>
+                <div id="home">
+                    <List posts={this.state.posts} />
+                    <Links links={this.state.links} />
                 </div>
+                <Forkme author={this.state.author} />
+
             </div>
-            <Forkme />
         )
 
     }
