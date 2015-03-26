@@ -161,8 +161,10 @@ var App = React.createClass({
     getInitialState: function() {
         return {data: {}};
     },
-    render: function(){
+    componentDidMount: function(){
         this.loadListFromServer();
+    },
+    render: function(){
         return (
             <div class="site">
                 <h1 id="logo"><a href="/" class="animated flipInX">Liu Qing</a></h1>
