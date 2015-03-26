@@ -148,14 +148,14 @@ var App = React.createClass({
     loadListFromServer: function(){
         var _self = this;
         ajax({
-            url: "/atom.json",
+            url: _self.props.url,
             dataType: "json",
             success: function(data){
                 console.log('ajax', data);
                 _self.setState({data: data});
             },
             error: function(err){
-                console.error(this.props.url, status, err.toString());
+                console.error(_self.props.url, status, err.toString());
             }
         });
     },
@@ -187,4 +187,4 @@ var App = React.createClass({
     }
 });
 
-React.render(<App />, document.body);
+React.render(<App url="/atom.json" />, document.body);
