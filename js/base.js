@@ -21,11 +21,13 @@ var ajax = function(conf) {
     var url = conf.url;
     //data参数可选，只有在post请求时需要
     var data = conf.data;
-    var dataArr = [];
-    for(var key in data){
-        dataArr.push(key + '=' + data[key]);
+    if(data){
+        var dataArr = [];
+        for(var key in data){
+            dataArr.push(key + '=' + data[key]);
+        }
+        data = data.join('&');
     }
-    data = data.join('&');
     //datatype参数可选
     var dataType = conf.dataType;
     //回调函数可选
