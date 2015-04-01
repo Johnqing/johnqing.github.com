@@ -1,82 +1,18 @@
-var createAjax = function() {
-    var xhr = null;
-    try {
-        //IE系列浏览器
-        xhr = new ActiveXObject("microsoft.xmlhttp");
-    } catch (e1) {
-        try {
-            //非IE浏览器
-            xhr = new XMLHttpRequest();
-        } catch (e2) {
-            window.alert("您的浏览器不支持ajax，请更换！");
-        }
+var ALink = React.createClass({
+    handleClick: function(e){
+        var node = e.target;
+        this.props.onPostClick({
+            href: node.href, 
+            title: node.innerText
+        });
+        return false;
+    },
+    render: function(){
+        var link = this.props.link;
+        return <a href={link.url} className={link.className} onClick={this.handleClick}>{link.title}</a>
     }
-    return xhr;
-};
-var ajax = function(conf) {
-    // 初始化
-    //type参数,可选
-    var type = conf.type;
-    //url参数，必填
-    var url = conf.url;
-    //data参数可选，只有在post请求时需要
-    var data = conf.data;
-    if(data){
-        var dataArr = [];
-        for(var key in data){
-            dataArr.push(key + '=' + data[key]);
-        }
-        data = data.join('&');
-    }
-    //datatype参数可选
-    var dataType = conf.dataType;
-    //回调函数可选
-    var success = conf.success;
+});
 
-    if (type == null){
-        //type参数可选，默认为get
-        type = "get";
-        url += '?' + data;
-    }
-    if (dataType == null){
-        //dataType参数可选，默认为text
-        dataType = "text";
-    }
-    // 创建ajax引擎对象
-    var xhr = createAjax();
-    // 打开
-    xhr.open(type, url, true);
-    // 发送
-    if (type == "GET" || type == "get") {
-        xhr.send(null);
-    } else if (type == "POST" || type == "post") {
-        xhr.setRequestHeader("content-type",
-            "application/x-www-form-urlencoded");
-        xhr.send(data);
-    }
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            if(dataType == "text"||dataType=="TEXT") {
-                if (success != null){
-                    //普通文本
-                    success(xhr.responseText);
-                }
-            }else if(dataType=="xml"||dataType=="XML") {
-                if (success != null){
-                    //接收xml文档
-                    success(xhr.responseXML);
-                }
-            }else if(dataType=="json"||dataType=="JSON") {
-                if (success != null){
-                    //将json字符串转换为js对象
-                    success(eval("("+xhr.responseText+")"));
-                }
-            }
-        }
-    };
-};
-
-//////////////////////////////////////////////////////////////////
 
 var Head = React.createClass({
     render: function(){
@@ -84,9 +20,13 @@ var Head = React.createClass({
         if(title){
             title = title.title;
         }
-        return (
-            <h1 id="logo"><a href="/" className="animated flipInX">{title}</a></h1>
-            )
+        var data = {
+            title: title,
+            url: '/',
+            className: 'animated flipInX'
+        }
+
+        return <h1 id="logo"><ALink link={data} /></h1>
 
     }
 });
@@ -96,10 +36,9 @@ var Nav = React.createClass({
         var nav = this.props.nav || [];
 
         var Nodes = nav.map(function (data) {
-            return (
-                <a className="extra" href={data.url}>{data.title}</a>
-            );
-        });
+            data.className = 'extra';
+            return <ALink link={data} onPostClick={this.props.onPostClick} />
+        }.bind(this));
 
         return(
             <div className="title">
@@ -113,8 +52,9 @@ var List = React.createClass({
     render: function(){
         var posts = this.props.posts || [];
         var Nodes = posts.map(function(post){
-            return <li><span>{post.date}</span> &raquo; <a href={post.url}>{post.title}</a></li>
-        });
+            post.className = '';
+            return <li><span>{post.date}</span> &raquo; <ALink link={post}  onPostClick={this.props.onPostClick} /></li>
+        }.bind(this));
 
         return(
                 <div className="posts-wrap">
@@ -131,7 +71,7 @@ var Links = React.createClass({
     render: function(){
         var links = this.props.links || [];
         var Nodes = links.map(function(link){
-            return <li><a href={link.url}>{link.title}</a></li>
+            return <li><ALink link={link} /></li>
         });
 
         return(
@@ -160,20 +100,57 @@ var Forkme = React.createClass({
 });
 
 
-var App = React.createClass({
+var Dialog = React.createClass({
+    render: function(){
+        var content = this.props.content;
+        if(!content) 
+            return <div className="hide"></div>;
 
-    loadListFromServer: function(){
-        var _self = this;
+        return (
+            <div className="ui-dialog">
+                <h3>{content.title}</h3>
+                <div className="content" dangerouslySetInnerHTML={{__html: content.text}} />  
+                <cite className="close-btn" onClick={this.props.onClosePostClick}>X</cite>      
+            </div>    
+            )
+    }
+});
+
+
+var defaultData = {
+    data: {}
+};
+
+var App = React.createClass({
+    handlePostClick: function(data){
         ajax({
-            url: _self.props.url,
+            url: data.href,
+            success: function(_data){
+                var _d = {
+                    title: data.title,
+                    text: _data
+                }
+                defaultData.content = _d;
+                this.setState(defaultData);
+            }.bind(this)
+        });
+    },
+    closePostClick: function(){
+        defaultData.content = null;
+        this.setState(defaultData);
+    },
+    loadListFromServer: function(){
+        ajax({
+            url: this.props.url,
             dataType: "json",
             success: function(data){
-                _self.setState({data: data});
-            }
+                defaultData.data =  data;
+                this.setState(defaultData);
+            }.bind(this)
         });
     },
     getInitialState: function() {
-        return {data: {}};
+        return defaultData;
     },
     componentDidMount: function(){
         this.loadListFromServer();
@@ -182,12 +159,13 @@ var App = React.createClass({
         return (
             <div className="site">
                 <Head author={this.state.data.author} />
-                <Nav nav={this.state.data.nav} />
+                <Nav nav={this.state.data.nav} onPostClick={this.handlePostClick} />
                 <div id="home">
-                    <List posts={this.state.data.posts} />
-                    <Links links={this.state.data.links} />
+                    <List posts={this.state.data.posts}  onPostClick={this.handlePostClick} />
+                    <Links links={this.state.data.links}  onPostClick={this.handlePostClick} />
                 </div>
                 <Forkme author={this.state.data.author} />
+                <Dialog content={this.state.content} onClosePostClick={this.closePostClick} />
             </div>
         )
 
