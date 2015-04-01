@@ -100,57 +100,72 @@ var Forkme = React.createClass({
 });
 
 
-var Dialog = React.createClass({
+var Post = React.createClass({
     render: function(){
         var content = this.props.content;
         if(!content) 
-            return <div className="hide"></div>;
+            return <div />;
 
         return (
-            <div className="ui-dialog">
+            <div id="post">
                 <h3>{content.title}</h3>
                 <div className="content" dangerouslySetInnerHTML={{__html: content.text}} />  
-                <cite className="close-btn" onClick={this.props.onClosePostClick}>X</cite>      
             </div>    
             )
     }
 });
 
+var Home = React.createClass({
+    render: function(){
 
-var defaultData = {
-    data: {}
-};
+        if(!this.props.posts)
+            return <div />;
+
+        return (
+            <div id="home">
+                <List posts={this.props.posts}  onPostClick={this.props.onPostClick} />
+                <Links links={this.props.links}  onPostClick={this.props.onPostClick} />
+            </div>            
+            )
+    }
+});
+
+var CommonData = {};
 
 var App = React.createClass({
     handlePostClick: function(data){
         ajax({
             url: data.href,
             success: function(_data){
-                var _d = {
-                    title: data.title,
-                    text: _data
-                }
-                defaultData.content = _d;
-                this.setState(defaultData);
+                this.setState({
+                    content: {
+                        title: data.title,
+                        text: _data
+                    },
+                    data: {}
+                });
             }.bind(this)
         });
     },
     closePostClick: function(){
-        defaultData.content = null;
-        this.setState(defaultData);
+        this.loadListFromServer();
     },
     loadListFromServer: function(){
         ajax({
             url: this.props.url,
             dataType: "json",
             success: function(data){
-                defaultData.data =  data;
-                this.setState(defaultData);
+                CommonData.author = data.author;
+                CommonData.nav = data.nav;
+                this.setState({
+                    content: null,
+                    data: data
+                });
             }.bind(this)
         });
     },
     getInitialState: function() {
-        return defaultData;
+        return {data: {}};
     },
     componentDidMount: function(){
         this.loadListFromServer();
@@ -158,14 +173,11 @@ var App = React.createClass({
     render: function(){
         return (
             <div className="site">
-                <Head author={this.state.data.author} />
-                <Nav nav={this.state.data.nav} onPostClick={this.handlePostClick} />
-                <div id="home">
-                    <List posts={this.state.data.posts}  onPostClick={this.handlePostClick} />
-                    <Links links={this.state.data.links}  onPostClick={this.handlePostClick} />
-                </div>
-                <Forkme author={this.state.data.author} />
-                <Dialog content={this.state.content} onClosePostClick={this.closePostClick} />
+                <Head author={CommonData.author} />
+                <Nav nav={CommonData.nav} onPostClick={this.handlePostClick} />
+                <Home posts={this.state.data.posts} links={this.state.data.links} onPostClick={this.handlePostClick} />
+                <Post content={this.state.content} onClosePostClick={this.closePostClick} />
+                <Forkme author={CommonData.author} />
             </div>
         )
 
