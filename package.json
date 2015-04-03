@@ -1,0 +1,21 @@
+{
+  "name": "liluo",
+  "version": "0.1.0",
+  "description": "ERROR: No README.md file found!",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp default"
+  },
+  "repository": "https://github.com/Johnqing/johnqing.github.com",
+  "author": "Liu Qing",
+  "license": "BSD",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-csso": "^1.0.0",
+    "gulp-react": "^3.0.1",
+    "gulp-uglify": "^1.1.0"
+  },
+  "dependencies": {
+    "del": "^1.1.1"
+  }
+}
