@@ -1,25 +1,804 @@
+
 <!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-    <title>优惠券</title>
-    <style>
-    .bg{
-      overflow: hidden;
-      padding: 21px 0 17.5px;
-      background: #003b92;
-      background-image: -webkit-gradient(linear,50% 0,0 100%, from(transparent), color-stop(.5,#003b92), color-stop(.5,#fff), to(#fff)),
-      -webkit-gradient(linear,50% 0,100% 100%, from(transparent), color-stop(.5,#003b92), color-stop(.5,#fff), to(#fff) );
-      background-size: 10px 4.5px;
-      background-repeat: repeat-x;
-      background-position: 0 100%;
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title></title>
+<style>
+.mask, .page, body, html {
+    height: 100%;
+    width: 100%
+}
+
+.header, .loading, .page {
+    left: 0;
+    top: 0
+}
+
+.footer, .loading {
+    position: absolute;
+    right: 0;
+    bottom: 0
+}
+
+.header > h1, .list-block input[type=date], .list-block input[type=datetime-local] {
+    line-height: 44px
+}
+
+.button, a {
+    text-decoration: none
+}
+
+.button, .header > h1, .text-center {
+    text-align: center
+}
+
+.button, .page, .views .page-content {
+    box-sizing: border-box
+}
+
+a, img {
+    -webkit-touch-callout: none
+}
+
+body {
+    font-size: 12px;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: none
+}
+
+.page, body, html {
+    overflow: hidden
+}
+
+.page {
+    position: absolute;
+    font-size: 12px;
+    font-family: 'Heiti SC'
+}
+
+.in, .out {
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.in {
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+    -webkit-animation-duration: 350ms;
+    animation-duration: 350ms
+}
+
+.out {
+    display: none;
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    -webkit-animation-duration: 225ms;
+    animation-duration: 225ms
+}
+
+.mask {
+    background-color: rgba(255, 255, 255, .35);
+    position: absolute;
+    z-index: 9
+}
+
+.loading {
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    box-shadow: 0 -10px 0 1px currentColor, 10px 0 currentColor, 0 10px currentColor, -10px 0 currentColor, -7px -7px 0 .5px currentColor, 7px -7px 0 1.5px currentColor, 7px 7px currentColor, -7px 7px currentColor;
+    -webkit-animation: spin 1s steps(8) infinite;
+    animation: spin 1s steps(8) infinite;
+    margin: auto
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.slide.in {
+    -webkit-animation-name: slideinfromright;
+    animation-name: slideinfromright
+}
+
+.slide.out {
+    -webkit-animation-name: slideouttoleft;
+    animation-name: slideouttoleft
+}
+
+.slide.reverse.out {
+    -webkit-animation-name: slideouttoright;
+    animation-name: slideouttoright
+}
+
+.slide.reverse.in {
+    -webkit-animation-name: slideinfromleft;
+    animation-name: slideinfromleft
+}
+
+@-webkit-keyframes slideinfromright {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0)
     }
-    </style>
-    
+    to {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes slideinfromright {
+    from {
+        -webkit-transform: translate3d(100%, 0, 0)
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+}
+
+@-webkit-keyframes slideinfromleft {
+    from {
+        -webkit-transform: translate3d(-100%, 0, 0)
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+}
+
+@keyframes slideinfromleft {
+    from {
+        -webkit-transform: translate3d(-100%, 0, 0)
+    }
+    to {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+}
+
+@-webkit-keyframes slideouttoleft {
+    from {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+    to {
+        -webkit-transform: translate3d(-100%, 0, 0)
+    }
+}
+
+@keyframes slideouttoleft {
+    from {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+    to {
+        -webkit-transform: translate3d(-100%, 0, 0)
+    }
+}
+
+@keyframes slideouttoright {
+    from {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+    to {
+        -webkit-transform: translate3d(100%, 0, 0)
+    }
+}
+
+@-webkit-keyframes slideouttoright {
+    to {
+        -webkit-transform: translate3d(100%, 0, 0)
+    }
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+        -webkit-transform: translateX(0, 0, 0);
+        transform: translateX(0, 0, 0)
+    }
+    to {
+        -webkit-transform: translateX(100%, 0, 0);
+        transform: translateX(100%, 0, 0)
+    }
+}
+
+@keyframes slideouttoright {
+    from {
+        -webkit-transform: translateX(0, 0, 0);
+        transform: translateX(0, 0, 0)
+    }
+    to {
+        -webkit-transform: translateX(100%, 0, 0);
+        transform: translateX(100%, 0, 0)
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+.header {
+    position: absolute;
+    right: 0;
+    height: 44px;
+    background-color: #000;
+    color: #fff;
+    z-index: 10
+}
+
+.header > h1 {
+    font-size: 18px
+}
+
+.header > a.back {
+    overflow: hidden;
+    position: absolute;
+    top: 9.5px;
+    left: 16px;
+    width: 24.5px;
+    height: 0;
+    padding-top: 24px;
+    background-size: cover
+}
+
+.footer {
+    left: 0;
+    height: 86px
+}
+
+.list-scroll-wrap, .views .page-content {
+    -webkit-overflow-scrolling: touch;
+    height: 100%
+}
+
+.list-scroll-wrap {
+    overflow-y: auto;
+    width: 100%
+}
+
+.views .banner img {
+    width: 100%
+}
+
+.views .page-content {
+    overflow: hidden;
+    overflow-y: scroll
+}
+
+h1, h2, h3, h4, h5, h6, li, ol, p, ul {
+    margin: 0;
+    padding: 0
+}
+
+li {
+    list-style: none
+}
+
+em {
+    font-style: normal
+}
+
+sup {
+    vertical-align: text-top
+}
+
+sub {
+    vertical-align: text-bottom
+}
+
+input, textarea {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-user-modify: read-write-plaintext-only;
+    outline: 0 !important
+}
+
+.list-block input[type=date], .list-block input[type=datetime-local], .list-block input[type=time], .list-block input[type=number], .list-block input[type=text], .list-block input[type=password], .list-block input[type=email], .list-block input[type=tel], .list-block input[type=url], .list-block select, .list-block textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    border: none;
+    background: 0 0;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    padding: 0 0 0 5px;
+    margin: 0;
+    width: 100%;
+    height: 43px;
+    color: #000;
+    font-size: 17px;
+    font-family: inherit
+}
+
+.list-block select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none
+}
+
+.list-block .lable {
+    vertical-align: top
+}
+
+.list-block textarea {
+    height: 100px;
+    resize: none;
+    line-height: 1.4;
+    padding-top: 8px;
+    padding-bottom: 7px
+}
+
+.tc-button {
+    display: block;
+    border: 1px solid #007aff;
+    color: #007aff;
+    border-radius: 5px;
+    line-height: 27px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: 0 0;
+    margin: 0;
+    height: 29px;
+    position: relative;
+    overflow: hidden;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer
+}
+
+
+input[type=submit].tc-button, input[type=button].tc-button {
+    width: 100%
+}
+
+.tc-button.tc-button-small {
+    padding: 5px;
+    font-size: 11px;
+    height: 46px;
+    line-height: 36px
+}
+
+.tc-button.tc-button-multi {
+    line-height: 1.5
+}
+
+.tc-button.tc-button-big {
+    padding: 0 10px;
+    font-size: 16px;
+    height: 38px;
+    line-height: 38px
+}
+
+.tc-button.tc-button-default {
+    color: #444;
+    background: #f4f4f4;
+    border: none
+}
+
+.tc-button.tc-button-fill {
+    color: #fff;
+    background: #003b92;
+    border: none
+}
+
+.tc-button.tc-button-maroon {
+    color: #fff;
+    background-color: #f6484a;
+    border: none;
+}
+
+.tc-button.disabled, .tc-button[disabled], fieldset[disabled] .tc-button {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: .65
+}
+
+
+.tc-form {
+    /*
+    Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+    since IE8 won't execute CSS that contains a CSS3 selector.
+    */
+    /* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
+    /* May be able to remove this tweak as color inputs become more standardized across browsers. */
+    /*
+    Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+    since IE8 won't execute CSS that contains a CSS3 selector.
+    */
+    /*
+  Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+  since IE8 won't execute CSS that contains a CSS3 selector.
+  */
+}
+.tc-form input[type="text"],
+.tc-form input[type="password"],
+.tc-form input[type="email"],
+.tc-form input[type="url"],
+.tc-form input[type="date"],
+.tc-form input[type="month"],
+.tc-form input[type="time"],
+.tc-form input[type="datetime"],
+.tc-form input[type="datetime-local"],
+.tc-form input[type="week"],
+.tc-form input[type="number"],
+.tc-form input[type="search"],
+.tc-form input[type="tel"],
+.tc-form input[type="color"],
+.tc-form select,
+.tc-form textarea {
+    padding: 0.9em 0.6em;
+    display: inline-block;
+    border: 1px solid #e2e2e2;
+    vertical-align: middle;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.tc-form input:not([type]) {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #e2e2e2;
+    box-sizing: border-box;
+}
+.tc-form input[type="color"] {
+    padding: 0.2em 0.5em;
+}
+.tc-form input[type="text"]:focus,
+.tc-form input[type="password"]:focus,
+.tc-form input[type="email"]:focus,
+.tc-form input[type="url"]:focus,
+.tc-form input[type="date"]:focus,
+.tc-form input[type="month"]:focus,
+.tc-form input[type="time"]:focus,
+.tc-form input[type="datetime"]:focus,
+.tc-form input[type="datetime-local"]:focus,
+.tc-form input[type="week"]:focus,
+.tc-form input[type="number"]:focus,
+.tc-form input[type="search"]:focus,
+.tc-form input[type="tel"]:focus,
+.tc-form input[type="color"]:focus,
+.tc-form select:focus,
+.tc-form textarea:focus {
+    outline: 0;
+    border-color: #129FEA;
+}
+.tc-form input:not([type]):focus {
+    outline: 0;
+    border-color: #129FEA;
+}
+.tc-form input[type="file"]:focus,
+.tc-form input[type="radio"]:focus,
+.tc-form input[type="checkbox"]:focus {
+    outline: thin solid #129FEA;
+    outline: 1px auto #129FEA;
+}
+.tc-form .tc-checkbox,
+.tc-form .tc-radio {
+    margin: 0.5em 0;
+    display: block;
+}
+.tc-form input[type="text"][disabled],
+.tc-form input[type="password"][disabled],
+.tc-form input[type="email"][disabled],
+.tc-form input[type="url"][disabled],
+.tc-form input[type="date"][disabled],
+.tc-form input[type="month"][disabled],
+.tc-form input[type="time"][disabled],
+.tc-form input[type="datetime"][disabled],
+.tc-form input[type="datetime-local"][disabled],
+.tc-form input[type="week"][disabled],
+.tc-form input[type="number"][disabled],
+.tc-form input[type="search"][disabled],
+.tc-form input[type="tel"][disabled],
+.tc-form input[type="color"][disabled],
+.tc-form select[disabled],
+.tc-form textarea[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+.tc-form input:not([type])[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+.tc-form input[readonly],
+.tc-form select[readonly],
+.tc-form textarea[readonly] {
+    background-color: #eee;
+    /* menu hover bg color */
+    color: #777;
+    /* menu text color */
+    border-color: #ccc;
+}
+.tc-form input:focus:invalid,
+.tc-form textarea:focus:invalid,
+.tc-form select:focus:invalid {
+    color: #b94a48;
+    border-color: #e9322d;
+}
+.tc-form input[type="file"]:focus:invalid:focus,
+.tc-form input[type="radio"]:focus:invalid:focus,
+.tc-form input[type="checkbox"]:focus:invalid:focus {
+    outline-color: #e9322d;
+}
+.tc-form select {
+    /* Normalizes the height; padding is not sufficient. */
+    height: 2.25em;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.tc-form select[multiple] {
+    height: auto;
+}
+.tc-form label {
+    margin: 0.5em 0 0.2em;
+}
+.tc-form fieldset {
+    margin: 0;
+    padding: 0.35em 0 0.75em;
+    border: 0;
+}
+.tc-form legend {
+    display: block;
+    width: 100%;
+    padding: 0.3em 0;
+    margin-bottom: 0.3em;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+}
+.tc-form-stacked {
+    /*
+    Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+    since IE8 won't execute CSS that contains a CSS3 selector.
+    */
+}
+.tc-form-stacked input[type="text"],
+.tc-form-stacked input[type="password"],
+.tc-form-stacked input[type="email"],
+.tc-form-stacked input[type="url"],
+.tc-form-stacked input[type="date"],
+.tc-form-stacked input[type="month"],
+.tc-form-stacked input[type="time"],
+.tc-form-stacked input[type="datetime"],
+.tc-form-stacked input[type="datetime-local"],
+.tc-form-stacked input[type="week"],
+.tc-form-stacked input[type="number"],
+.tc-form-stacked input[type="search"],
+.tc-form-stacked input[type="tel"],
+.tc-form-stacked input[type="color"],
+.tc-form-stacked input[type="file"],
+.tc-form-stacked select,
+.tc-form-stacked label,
+.tc-form-stacked textarea {
+    display: block;
+    margin: 0.9em 0;
+}
+.tc-form-stacked input:not([type]) {
+    display: block;
+    margin: 0.9em 0;
+}
+.tc-form-aligned input,
+.tc-form-aligned textarea,
+.tc-form-aligned select,
+.tc-form-aligned .tc-help-inline,
+.tc-form-message-inline {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: middle;
+}
+.tc-form-aligned textarea {
+    vertical-align: top;
+}
+/* Aligned Forms */
+.tc-form-aligned .tc-control-group {
+    margin-bottom: 0.5em;
+}
+.tc-form-aligned .tc-control-group label {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10em;
+    margin: 0 1em 0 0;
+}
+.tc-form-aligned .tc-controls {
+    margin: 1.5em 0 0 11em;
+}
+/* Rounded Inputs */
+.tc-form input.tc-input-rounded,
+.tc-form .tc-input-rounded {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+/* Grouped Inputs */
+.tc-form .tc-group fieldset {
+    margin-bottom: 10px;
+}
+.tc-form .tc-group input,
+.tc-form .tc-group textarea {
+    display: block;
+    padding: 10px;
+    margin: 0 0 -1px;
+    border-radius: 0;
+    position: relative;
+    top: -1px;
+}
+.tc-form .tc-group input:focus,
+.tc-form .tc-group textarea:focus {
+    z-index: 3;
+}
+.tc-form .tc-group input:first-child,
+.tc-form .tc-group textarea:first-child {
+    top: 1px;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+}
+.tc-form .tc-group input:first-child:last-child,
+.tc-form .tc-group textarea:first-child:last-child {
+    top: 1px;
+    border-radius: 4px;
+    margin: 0;
+}
+.tc-form .tc-group input:last-child,
+.tc-form .tc-group textarea:last-child {
+    top: -2px;
+    border-radius: 0 0 4px 4px;
+    margin: 0;
+}
+.tc-form .tc-group button {
+    margin: 0.35em 0;
+}
+.tc-form .tc-input-1 {
+    width: 100%;
+}
+.tc-form .tc-input-3-4 {
+    width: 75%;
+}
+.tc-form .tc-input-2-3 {
+    width: 66%;
+}
+.tc-form .tc-input-1-2 {
+    width: 50%;
+}
+.tc-form .tc-input-1-3 {
+    width: 33%;
+}
+.tc-form .tc-input-1-4 {
+    width: 25%;
+}
+/* Inline help for forms */
+/* NOTE: tc-help-inline is deprecated. Use .tc-form-message-inline instead. */
+.tc-form .tc-help-inline,
+.tc-form-message-inline {
+    display: inline-block;
+    padding-left: 0.3em;
+    color: #f00;
+    vertical-align: middle;
+    font-size: 14px;
+}
+/* Block help for forms */
+.tc-form-message {
+    display: block;
+    color: #666;
+    font-size: 0.875em;
+}
+
+.ui-validate-error input[type="text"],
+.ui-validate-error input[type="password"],
+.ui-validate-error input[type="email"],
+.ui-validate-error input[type="url"],
+.ui-validate-error input[type="date"],
+.ui-validate-error input[type="month"],
+.ui-validate-error input[type="time"],
+.ui-validate-error input[type="datetime"],
+.ui-validate-error input[type="datetime-local"],
+.ui-validate-error input[type="week"],
+.ui-validate-error input[type="number"],
+.ui-validate-error input[type="search"],
+.ui-validate-error input[type="tel"],
+.ui-validate-error input[type="color"],
+.ui-validate-error input[type="file"],
+.ui-validate-error select,
+.ui-validate-error textarea{
+    border: 1px solid #f00;
+}
+
+    .recommend{
+        margin: 0 auto;
+        width: 89%;
+    }
+    .recommend label{
+        font-size: 14px;
+        border-left: 5px solid #f6484a;
+        padding-left: 5px;
+    }
+    .recommend img{
+        width: 100%;
+    }
+
+    .recommend-bottom{
+    }
+    .copy{
+        background: #f6484a;
+        color: #fff;
+        padding: 17px 0;
+        font-size: 14px;
+        -webkit-user-select: text;
+        text-align: center;
+    }
+    .copy span{
+        display: block;
+    }
+</style>
+
 </head>
 
 <body>
-<div class="bg"></div>
+
+<div class="recommend">
+    <img src="http://p9.qhimg.com/t018e5a777a704d5b8a.png" alt="">
+    <div class="recommend-bottom tc-form-stacked">
+        <label>长按复制以下内容发给好友即可</label>
+        <div class="copy" id="copy">
+            <span>360要颠覆VC啦，快来加入<br />https://t.360.cn</span>
+        </div>
+    </div>
+</div>
+
+<script src="https://s.ssl.qhimg.com/static/739664cd8ec2555c/zepto.js"></script>
+
+<script>
+    $(".copy").on("tap", function(){
+        var doc = document;
+        var text = doc.getElementById("copy");
+        var range;
+        var selection;
+
+        if (doc.body.createTextRange) {	//IE
+            range = document.body.createTextRange();
+            range.moveToElementText(text);
+            range.select();
+            return false;
+
+        }
+        if (window.getSelection) {	//FF CH SF
+            selection = window.getSelection();
+            range = document.createRange();
+            range.selectNodeContents(text);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            return false;
+        }
+        alert("浏览器不支持长按复制功能");
+        return false;
+    });
+</script>
+
 </body>
 </html>
